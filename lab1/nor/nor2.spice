@@ -1,0 +1,20 @@
+*
+*---------------------------------------------------
+*  Main extract file nor2.ext [scale=1e+06]
+*---------------------------------------------------
+*
+* -- connections ---
+* -- fets ---
+xM1 Vdd in1 a_63_50# Vdd sky130_fd_pr__pfet_01v8  W=0.825 L=0.3
++ AS=0.61875 PS=3.15 AD=0.680625 PD=3.3 nrs=1 nrd=1 nf=1
+xM2 out in1 GND Gnd sky130_fd_pr__nfet_01v8 W=0.825 L=0.3
++ AS=0.61875 PS=3.15 AD=1.36125 PD=6.6 nrs=1 nrd=1 nf=1
+xM3 a_63_50# in2 out Vdd sky130_fd_pr__pfet_01v8  W=0.825 L=0.3
++ AS=0.680625 PS=3.3 AD=0P PD=0P nrs=1 nrd=1 nf=1
+xM4 GND in2 out Gnd sky130_fd_pr__nfet_01v8 W=0.825 L=0.3
++ AS=0P PS=0P AD=0P PD=0P nrs=1 nrd=1 nf=1
+* -- caps ---
+*--- inferred globals
+.global Vdd
+.global GND
+.global Gnd

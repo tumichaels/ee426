@@ -1,0 +1,51 @@
+magic
+tech sky130l
+timestamp 1726495233
+<< ndiffusion >>
+rect 81 72 92 75
+rect 81 67 84 72
+rect 89 67 92 72
+rect 81 64 92 67
+rect 81 50 92 60
+rect 81 43 92 46
+rect 81 38 84 43
+rect 89 38 92 43
+rect 81 35 92 38
+<< ndc >>
+rect 84 67 89 72
+rect 84 38 89 43
+<< ntransistor >>
+rect 81 60 92 64
+rect 81 46 92 50
+<< pdiffusion >>
+rect 63 64 74 75
+rect 63 50 74 60
+rect 63 43 74 46
+rect 63 38 66 43
+rect 71 38 74 43
+rect 63 35 74 38
+<< pdc >>
+rect 66 38 71 43
+<< ptransistor >>
+rect 63 60 74 64
+rect 63 46 74 50
+<< polysilicon >>
+rect 59 60 63 64
+rect 74 60 81 64
+rect 92 60 96 64
+rect 59 46 63 50
+rect 74 46 81 50
+rect 92 46 96 50
+<< m1 >>
+rect 84 72 89 73
+rect 84 43 89 67
+rect 65 38 66 43
+rect 71 38 84 43
+rect 89 38 90 43
+<< labels >>
+rlabel pdiffusion 63 64 74 75 0 Vdd!
+rlabel ndiffusion 81 50 92 60 3 GND!
+rlabel m1 71 38 84 43 5 out
+rlabel polysilicon 59 60 63 64 7 in1
+rlabel polysilicon 59 46 63 50 7 in2
+<< end >>

@@ -1,0 +1,5 @@
+| units: 1 tech: sky130l format: MIT
+n in2 Gnd! a_15_n1# 30 75 112.5 -30
+p in2 out Vdd! 30 75 -60 -30
+p in1 Vdd! out 30 75 -60 37.5
+n in1 a_15_n1# out 30 75 112.5 37.5
