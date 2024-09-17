@@ -1,61 +1,55 @@
 magic
 tech sky130l
-timestamp 1726446686
+timestamp 1726537171
 << ndiffusion >>
-rect 11 30 40 45
-rect 11 22 18 30
-rect 28 22 40 30
-rect 11 16 40 22
-rect 52 42 80 45
-rect 52 28 63 42
-rect 77 28 80 42
-rect 52 16 80 28
+rect 66 77 78 80
+rect 66 71 69 77
+rect 75 71 78 77
+rect 66 68 78 71
+rect 66 60 78 63
+rect 66 54 69 60
+rect 75 54 78 60
+rect 66 51 78 54
 << ndc >>
-rect 18 22 28 30
-rect 63 28 77 42
+rect 69 71 75 77
+rect 69 54 75 60
 << ntransistor >>
-rect 40 16 52 45
+rect 66 63 78 68
 << pdiffusion >>
-rect 11 88 40 90
-rect 11 80 18 88
-rect 28 80 40 88
-rect 11 61 40 80
-rect 52 78 80 90
-rect 52 64 63 78
-rect 77 64 80 78
-rect 52 61 80 64
+rect 42 77 54 80
+rect 42 71 45 77
+rect 51 71 54 77
+rect 42 68 54 71
+rect 42 60 54 63
+rect 42 54 45 60
+rect 51 54 54 60
+rect 42 51 54 54
 << pdc >>
-rect 18 80 28 88
-rect 63 64 77 78
+rect 45 71 51 77
+rect 45 54 51 60
 << ptransistor >>
-rect 40 61 52 90
+rect 42 63 54 68
 << polysilicon >>
-rect 40 90 52 95
-rect 40 59 52 61
-rect 1 47 52 59
-rect 40 45 52 47
-rect 40 11 52 16
+rect 40 63 42 68
+rect 54 63 66 68
+rect 78 63 86 68
 << m1 >>
-rect 15 88 31 113
-rect 15 80 18 88
-rect 28 80 31 88
-rect 15 77 31 80
-rect 60 78 80 81
-rect 60 64 63 78
-rect 77 64 80 78
-rect 60 59 80 64
-rect 60 47 107 59
-rect 60 42 80 47
-rect 15 30 31 33
-rect 15 22 18 30
-rect 28 22 31 30
-rect 60 28 63 42
-rect 77 28 80 42
-rect 60 26 80 28
-rect 15 -3 31 22
+rect 28 77 52 78
+rect 28 71 45 77
+rect 51 71 52 77
+rect 28 70 52 71
+rect 68 77 92 78
+rect 68 71 69 77
+rect 75 71 92 77
+rect 68 70 92 71
+rect 44 60 76 61
+rect 44 54 45 60
+rect 51 54 69 60
+rect 75 54 76 60
+rect 44 53 76 54
 << labels >>
-rlabel polysilicon 1 47 52 59 7 in
-rlabel m1 60 47 107 59 3 out
-rlabel m1 15 -3 31 22 5 GND!
-rlabel m1 15 88 31 113 1 Vdd!
+rlabel m1 51 53 69 61 0 out
+rlabel m1 28 70 45 78 1 Vdd!
+rlabel m1 75 70 92 78 1 GND!
+rlabel polysilicon 54 63 66 68 1 in
 << end >>

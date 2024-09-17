@@ -5,10 +5,10 @@
 *
 * -- connections ---
 * -- fets ---
-xM1 out in Vdd Vdd sky130_fd_pr__pfet_01v8  W=2.175 L=0.9
-+ AS=4.73062 PS=8.7 AD=4.5675 PD=8.55 nrs=1 nrd=1 nf=1
-xM2 out in GND Gnd sky130_fd_pr__nfet_01v8 W=2.175 L=0.9
-+ AS=4.73062 PS=8.7 AD=4.5675 PD=8.55 nrs=1 nrd=1 nf=1
+xM1 Vdd in out Vdd sky130_fd_pr__pfet_01v8  W=0.9 L=0.375
++ AS=0.81 PS=3.6 AD=0.81 PD=3.6 nrs=1 nrd=1 nf=1
+xM2 GND in out Gnd sky130_fd_pr__nfet_01v8 W=0.9 L=0.375
++ AS=0.81 PS=3.6 AD=0.81 PD=3.6 nrs=1 nrd=1 nf=1
 * -- caps ---
 *--- inferred globals
 .global Vdd
