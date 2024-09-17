@@ -1,0 +1,33 @@
+| units: 7.5 tech: sky130l format: MIT
+p in000 or4_0/nor2_0/a_275_167# or4_0/nor2_0/out 5 11 32 77
+p in001 Vdd! or4_0/nor2_0/a_275_167# 5 11 32 61
+n in000 or4_0/nor2_0/out GND! 5 11 54 77
+n in001 GND! or4_0/nor2_0/out 5 11 54 61
+p in010 or4_0/nor2_2/a_275_167# or4_0/nor2_2/out 5 11 32 24
+p in011 Vdd! or4_0/nor2_2/a_275_167# 5 11 32 8
+n in010 or4_0/nor2_2/out GND! 5 11 54 24
+n in011 GND! or4_0/nor2_2/out 5 11 54 8
+p or4_0/nand2_1/in0 or4_0/out Vdd! 5 11 32 131
+n or4_0/nand2_1/in0 or4_0/nand2_1/a_85_47# or4_0/out 5 11 54 131
+p or4_0/nor2_2/out Vdd! or4_0/out 5 11 32 115
+n or4_0/nor2_2/out GND! or4_0/nand2_1/a_85_47# 5 11 54 115
+p in100 or4_1/nor2_0/a_275_167# or4_1/nor2_0/out 5 11 122 77
+p in101 Vdd! or4_1/nor2_0/a_275_167# 5 11 122 61
+n in100 or4_1/nor2_0/out GND! 5 11 144 77
+n in101 GND! or4_1/nor2_0/out 5 11 144 61
+p in110 or4_1/nor2_2/a_275_167# or4_1/nor2_2/out 5 11 122 24
+p in111 Vdd! or4_1/nor2_2/a_275_167# 5 11 122 8
+n in110 or4_1/nor2_2/out GND! 5 11 144 24
+n in111 GND! or4_1/nor2_2/out 5 11 144 8
+p or4_1/nand2_1/in0 or4_1/out Vdd! 5 11 122 131
+n or4_1/nand2_1/in0 or4_1/nand2_1/a_85_47# or4_1/out 5 11 144 131
+p or4_1/nor2_2/out Vdd! or4_1/out 5 11 122 115
+n or4_1/nor2_2/out GND! or4_1/nand2_1/a_85_47# 5 11 144 115
+p or4_0/out nor2_0/a_275_167# inv_0/in 5 11 82 204
+p or4_1/out Vdd! nor2_0/a_275_167# 5 11 98 204
+n or4_0/out inv_0/in GND! 5 11 82 226
+n or4_1/out GND! inv_0/in 5 11 98 226
+p inv_0/in Vdd! out 12 29 41 299
+n inv_0/in GND! out 12 29 86 299
+R Vdd! 32
+R GND! 43

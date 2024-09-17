@@ -1,0 +1,22 @@
+vector in in00 in01 in10 in11
+ana in out
+h Vdd!
+l GND!
+setvector in 0000
+s
+setvector in 1000
+s
+setvector in 0100
+s
+setvector in 0010
+s
+setvector in 0001
+s
+setvector in 1100
+s
+setvector in 1010
+s
+setvector in 1110
+s
+setvector in 1111
+s

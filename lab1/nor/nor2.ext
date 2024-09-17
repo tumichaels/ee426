@@ -1,16 +1,16 @@
-timestamp 1726495233
+timestamp 1726527990
 version 8.3
 tech sky130l
 style generic
 scale 1 1 7.5
 resistclasses 1000 1000
-node "in2" 0 0 59 46 polysilicon 0 0 0 0
-node "GND!" 1100 0 81 50 ndiffusion 110 42 0 0
-node "a_63_50#" 1100 0 63 50 pdiffusion 0 0 110 42
-node "in1" 0 0 59 60 polysilicon 0 0 0 0
-node "out" 6828 0 63 35 pdiffusion 242 88 121 44
-node "Vdd!" 1000 0 63 64 pdiffusion 0 0 121 44
-device mosfet nfet 81 46 82 47 4 11 "Gnd!" "in2" 8 0 "out" 11 0 "GND!" 11 0
-device mosfet pfet 63 46 64 47 4 11 "Vdd!" "in2" 8 0 "out" 11 0 "a_63_50#" 11 0
-device mosfet nfet 81 60 82 61 4 11 "Gnd!" "in1" 8 0 "GND!" 11 0 "out" 11 0
-device mosfet pfet 63 60 64 61 4 11 "Vdd!" "in1" 8 0 "a_63_50#" 11 0 "Vdd!" 11 0
+node "Vdd!" 1000 0 275 151 pdiffusion 0 0 121 44
+node "in1" 0 0 256 162 polysilicon 0 0 0 0
+node "a_275_167#" 1000 0 275 167 pdiffusion 0 0 121 44
+node "in0" 0 0 256 178 polysilicon 0 0 0 0
+node "GND!" 5828 0 297 151 ndiffusion 242 88 0 0
+node "out" 2000 0 275 183 pdiffusion 121 44 121 44
+device mosfet nfet 297 162 298 163 5 11 "Gnd!" "in1" 10 0 "GND!" 11 0 "out" 11 0
+device mosfet pfet 275 162 276 163 5 11 "Vdd!" "in1" 10 0 "Vdd!" 11 0 "a_275_167#" 11 0
+device mosfet nfet 297 178 298 179 5 11 "Gnd!" "in0" 10 0 "out" 11 0 "GND!" 11 0
+device mosfet pfet 275 178 276 179 5 11 "Vdd!" "in0" 10 0 "a_275_167#" 11 0 "out" 11 0

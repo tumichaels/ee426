@@ -1,19 +1,20 @@
 *
 *---------------------------------------------------
-*  Main extract file nand.ext [scale=1e+06]
+*  Main extract file nand2.ext [scale=1e+06]
 *---------------------------------------------------
 *
 * -- connections ---
 * -- fets ---
-xM1 out in1 Vdd Vdd sky130_fd_pr__pfet_01v8  W=0.75 L=0.3
-+ AS=0.3375 PS=2.4 AD=1.125 PD=6 nrs=1 nrd=1 nf=1
-xM2 out in1 a_15_n1# Gnd sky130_fd_pr__nfet_01v8 W=0.75 L=0.3
-+ AS=0.3375 PS=2.4 AD=0.5625 PD=3 nrs=1 nrd=1 nf=1
-xM3 Vdd in2 out Vdd sky130_fd_pr__pfet_01v8  W=0.75 L=0.3
+xM1 Vdd in0 out Vdd sky130_fd_pr__pfet_01v8  W=0.825 L=0.375
++ AS=0.680625 PS=3.3 AD=1.36125 PD=6.6 nrs=1 nrd=1 nf=1
+xM2 out in0 a_85_47# Gnd sky130_fd_pr__nfet_01v8 W=0.825 L=0.375
++ AS=0.680625 PS=3.3 AD=0.680625 PD=3.3 nrs=1 nrd=1 nf=1
+xM3 out in1 Vdd Vdd sky130_fd_pr__pfet_01v8  W=0.825 L=0.375
 + AS=0P PS=0P AD=0P PD=0P nrs=1 nrd=1 nf=1
-xM4 a_15_n1# in2 Gnd Gnd sky130_fd_pr__nfet_01v8 W=0.75 L=0.3
-+ AS=0.5625 PS=3 AD=0P PD=0P nrs=1 nrd=1 nf=1
+xM4 a_85_47# in1 GND Gnd sky130_fd_pr__nfet_01v8 W=0.825 L=0.375
++ AS=0.680625 PS=3.3 AD=0P PD=0P nrs=1 nrd=1 nf=1
 * -- caps ---
 *--- inferred globals
 .global Vdd
+.global GND
 .global Gnd

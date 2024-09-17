@@ -1,0 +1,15 @@
+| units: 7.5 tech: sky130l format: MIT
+p in00 nor2_0/a_275_167# nor2_0/out 5 11 -26 104
+p in01 Vdd! nor2_0/a_275_167# 5 11 -26 88
+n in00 nor2_0/out GND! 5 11 -4 104
+n in01 GND! nor2_0/out 5 11 -4 88
+p in10 nor2_2/a_275_167# nor2_2/out 5 11 -26 51
+p in11 Vdd! nor2_2/a_275_167# 5 11 -26 35
+n in10 nor2_2/out GND! 5 11 -4 51
+n in11 GND! nor2_2/out 5 11 -4 35
+p nand2_1/in0 out Vdd! 5 11 -26 158
+n nand2_1/in0 nand2_1/a_85_47# out 5 11 -4 158
+p nor2_2/out Vdd! out 5 11 -26 142
+n nor2_2/out GND! nand2_1/a_85_47# 5 11 -4 142
+R Vdd! 14
+R GND! 18

@@ -1,5 +1,5 @@
 | units: 7.5 tech: sky130l format: MIT
-n in1 GND! out 4 11 81 60
-p in2 out a_63_50# 4 11 63 46
-p in1 a_63_50# Vdd! 4 11 63 60
-n in2 out GND! 4 11 81 46
+p in0 a_275_167# out 5 11 275 178
+p in1 Vdd! a_275_167# 5 11 275 162
+n in0 out GND! 5 11 297 178
+n in1 GND! out 5 11 297 162

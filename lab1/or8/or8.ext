@@ -1,0 +1,52 @@
+timestamp 1726535576
+version 8.3
+tech sky130l
+style generic
+scale 1 1 7.5
+resistclasses 1000 1000
+use inv inv_0 0 -1 103 1 0 259
+use nor2 nor2_0 0 -1 261 1 0 -71
+use or4 or4_1 1 0 148 0 1 -27
+use or4 or4_0 1 0 58 0 1 -27
+node "Vdd!" 0 0 10 -46 m1 0 0 0 0
+node "GND!" 0 0 8 -16 m1 0 0 0 0
+node "m1_92_241#" 0 0 92 241 m1 0 0 0 0
+node "m1_n4_153#" 0 0 -4 153 m1 0 0 0 0
+node "out" 0 0 44 320 m1 0 0 0 0
+node "in111" 0 0 103 8 polysilicon 0 0 0 0
+node "in011" 0 0 13 8 polysilicon 0 0 0 0
+node "in110" 0 0 103 24 polysilicon 0 0 0 0
+node "in010" 0 0 13 24 polysilicon 0 0 0 0
+node "in101" 0 0 103 61 polysilicon 0 0 0 0
+node "in001" 0 0 13 61 polysilicon 0 0 0 0
+node "in100" 0 0 103 77 polysilicon 0 0 0 0
+node "in000" 0 0 13 77 polysilicon 0 0 0 0
+node "a_95_186#" 0 0 95 186 pc 0 0 0 0
+node "a_79_186#" 0 0 79 186 pc 0 0 0 0
+node "a_46_262#" 0 0 46 262 pc 0 0 0 0
+merge "or4_0/in00" "in000" 0 0 0 0 0
+merge "or4_0/in11" "in011" 0 0 0 0 0
+merge "inv_0/out" "out" 0 0 0 0 0
+merge "inv_0/Vdd!" "nor2_0/Vdd!" 0 0 0 0 0
+merge "nor2_0/Vdd!" "or4_0/nand2_1/Vdd!"
+merge "or4_0/nand2_1/Vdd!" "or4_1/Vdd!"
+merge "or4_1/Vdd!" "or4_0/Vdd!"
+merge "or4_0/Vdd!" "Vdd!"
+merge "Vdd!" "m1_n4_153#"
+merge "or4_0/in10" "in010" 0 0 0 0 0
+merge "or4_0/in01" "in001" 0 0 0 0 0
+merge "nor2_0/in0" "or4_0/out" 0 0 0 0 0
+merge "or4_0/out" "a_79_186#"
+merge "inv_0/in" "nor2_0/out" 0 0 0 0 0
+merge "nor2_0/out" "a_46_262#"
+merge "nor2_0/in1" "or4_1/out" 0 0 0 0 0
+merge "or4_1/out" "a_95_186#"
+merge "or4_1/in00" "in100" 0 0 0 0 0
+merge "or4_1/in11" "in111" 0 0 0 0 0
+merge "or4_1/in10" "in110" 0 0 0 0 0
+merge "inv_0/GND!" "nor2_0/GND!" 0 0 0 0 0
+merge "nor2_0/GND!" "or4_1/GND!"
+merge "or4_1/GND!" "or4_0/GND!"
+merge "or4_0/GND!" "GND!"
+merge "GND!" "m1_92_241#"
+merge "or4_1/in01" "in101" 0 0 0 0 0
