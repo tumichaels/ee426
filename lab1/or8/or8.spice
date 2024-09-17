@@ -1,0 +1,99 @@
+*---------------------------------------------------
+* Subcircuit from inv.ext
+*---------------------------------------------------
+.subckt inv _
+* -- connections ---
+* -- fets ---
+xM1 Vdd in out Vdd sky130_fd_pr__pfet_01v8  W=0.9 L=0.375
++ AS=0.81 PS=3.6 AD=0.81 PD=3.6 nrs=1 nrd=1 nf=1
+xM2 GND in out Gnd sky130_fd_pr__nfet_01v8 W=0.9 L=0.375
++ AS=0.81 PS=3.6 AD=0.81 PD=3.6 nrs=1 nrd=1 nf=1
+* -- caps ---
+.ends
+*---------------------------------------------------
+* Subcircuit from nor2.ext
+*---------------------------------------------------
+.subckt nor2 _
+* -- connections ---
+* -- fets ---
+xM1 out in0 a_275_167# Vdd sky130_fd_pr__pfet_01v8  W=0.825 L=0.375
++ AS=0.680625 PS=3.3 AD=0.680625 PD=3.3 nrs=1 nrd=1 nf=1
+xM2 GND in0 out Gnd sky130_fd_pr__nfet_01v8 W=0.825 L=0.375
++ AS=0.680625 PS=3.3 AD=1.36125 PD=6.6 nrs=1 nrd=1 nf=1
+xM3 a_275_167# in1 Vdd Vdd sky130_fd_pr__pfet_01v8  W=0.825 L=0.375
++ AS=0.680625 PS=3.3 AD=0P PD=0P nrs=1 nrd=1 nf=1
+xM4 out in1 GND Gnd sky130_fd_pr__nfet_01v8 W=0.825 L=0.375
++ AS=0P PS=0P AD=0P PD=0P nrs=1 nrd=1 nf=1
+* -- caps ---
+.ends
+*---------------------------------------------------
+* Subcircuit from nand2.ext
+*---------------------------------------------------
+.subckt nand2 _
+* -- connections ---
+* -- fets ---
+xM1 Vdd in0 out Vdd sky130_fd_pr__pfet_01v8  W=0.825 L=0.375
++ AS=0.680625 PS=3.3 AD=1.36125 PD=6.6 nrs=1 nrd=1 nf=1
+xM2 out in0 a_85_47# Gnd sky130_fd_pr__nfet_01v8 W=0.825 L=0.375
++ AS=0.680625 PS=3.3 AD=0.680625 PD=3.3 nrs=1 nrd=1 nf=1
+xM3 out in1 Vdd Vdd sky130_fd_pr__pfet_01v8  W=0.825 L=0.375
++ AS=0P PS=0P AD=0P PD=0P nrs=1 nrd=1 nf=1
+xM4 a_85_47# in1 GND Gnd sky130_fd_pr__nfet_01v8 W=0.825 L=0.375
++ AS=0.680625 PS=3.3 AD=0P PD=0P nrs=1 nrd=1 nf=1
+* -- caps ---
+.ends
+*---------------------------------------------------
+* Subcircuit from or4.ext
+*---------------------------------------------------
+.subckt or4 _
+*--- subcircuits ---
+xnand2_1 GND nand2
+xnor2_0 GND nor2
+xnor2_2 GND nor2
+* -- connections ---
+V1 in11 xnor2_2:in1
+V2 m1_n43_150# xnor2_0:out
+V3 in10 xnor2_2:in0
+V4 out xnand2_1:out
+V5 in01 xnor2_0:in1
+V6 in00 xnor2_0:in0
+V7 a_n42_143# xnor2_2:out
+V8 xnor2_2:out xnand2_1:in1
+* -- caps ---
+.ends
+*
+*---------------------------------------------------
+*  Main extract file or8.ext [scale=1e+06]
+*---------------------------------------------------
+*
+*--- subcircuits ---
+xinv_0 GND inv
+xnor2_0 GND nor2
+xor4_1 GND or4
+xor4_0 GND or4
+* -- connections ---
+V1 m1_56_32# GND!
+V2 in101 xor4_1:in01
+V3 in100 xor4_1:in00
+V4 in110 xor4_1:in10
+V5 in111 xor4_1:in11
+V6 a_58_178# xor4_0:out
+V7 xor4_0:out xnor2_0:in0
+V8 a_74_173# xor4_1:out
+V9 xor4_1:out xnor2_0:in1
+V10 m1_80_183# Vdd!
+V11 a_62_236# xnor2_0:out
+V12 xnor2_0:out xinv_0:in
+V13 in001 xor4_0:in01
+V14 in010 xor4_0:in10
+V15 m1_9_253# Vdd!
+V16 m1_80_227# m1_54_227#
+V17 m1_54_227# GND!
+V18 out xinv_0:out
+V19 in000 xor4_0:in00
+V20 in011 xor4_0:in11
+* -- caps ---
+*--- inferred globals
+.global Vdd
+.global GND
+.global Gnd
