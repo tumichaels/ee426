@@ -1,12 +1,12 @@
-timestamp 1726446686
+timestamp 1726537171
 version 8.3
 tech sky130l
 style generic
 scale 1 1 7.5
 resistclasses 1000 1000
-node "GND!" 1000 0 11 16 ndiffusion 841 116 0 0
-node "out" 2070 0 52 16 ndiffusion 812 114 812 114
-node "Vdd!" 1000 0 11 61 pdiffusion 0 0 841 116
-node "in" 0 0 1 47 polysilicon 0 0 0 0
-device mosfet nfet 40 16 41 17 12 29 "Gnd!" "in" 24 0 "GND!" 29 0 "out" 29 0
-device mosfet pfet 40 61 41 62 12 29 "Vdd!" "in" 24 0 "Vdd!" 29 0 "out" 29 0
+node "out" 2000 0 42 51 pdiffusion 144 48 144 48
+node "in" 0 0 40 63 polysilicon 0 0 0 0
+node "GND!" 1000 0 66 68 ndiffusion 144 48 0 0
+node "Vdd!" 1000 0 42 68 pdiffusion 0 0 144 48
+device mosfet nfet 66 63 67 64 5 12 "Gnd!" "in" 10 0 "out" 12 0 "GND!" 12 0
+device mosfet pfet 42 63 43 64 5 12 "Vdd!" "in" 10 0 "out" 12 0 "Vdd!" 12 0

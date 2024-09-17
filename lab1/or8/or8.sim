@@ -1,33 +1,33 @@
 | units: 7.5 tech: sky130l format: MIT
-p in000 or4_0/nor2_0/a_275_167# or4_0/nor2_0/out 5 11 32 77
-p in001 Vdd! or4_0/nor2_0/a_275_167# 5 11 32 61
-n in000 or4_0/nor2_0/out GND! 5 11 54 77
-n in001 GND! or4_0/nor2_0/out 5 11 54 61
-p in010 or4_0/nor2_2/a_275_167# or4_0/nor2_2/out 5 11 32 24
-p in011 Vdd! or4_0/nor2_2/a_275_167# 5 11 32 8
-n in010 or4_0/nor2_2/out GND! 5 11 54 24
-n in011 GND! or4_0/nor2_2/out 5 11 54 8
-p or4_0/nand2_1/in0 or4_0/out Vdd! 5 11 32 131
-n or4_0/nand2_1/in0 or4_0/nand2_1/a_85_47# or4_0/out 5 11 54 131
-p or4_0/nor2_2/out Vdd! or4_0/out 5 11 32 115
-n or4_0/nor2_2/out GND! or4_0/nand2_1/a_85_47# 5 11 54 115
-p in100 or4_1/nor2_0/a_275_167# or4_1/nor2_0/out 5 11 122 77
-p in101 Vdd! or4_1/nor2_0/a_275_167# 5 11 122 61
-n in100 or4_1/nor2_0/out GND! 5 11 144 77
-n in101 GND! or4_1/nor2_0/out 5 11 144 61
-p in110 or4_1/nor2_2/a_275_167# or4_1/nor2_2/out 5 11 122 24
-p in111 Vdd! or4_1/nor2_2/a_275_167# 5 11 122 8
-n in110 or4_1/nor2_2/out GND! 5 11 144 24
-n in111 GND! or4_1/nor2_2/out 5 11 144 8
-p or4_1/nand2_1/in0 or4_1/out Vdd! 5 11 122 131
-n or4_1/nand2_1/in0 or4_1/nand2_1/a_85_47# or4_1/out 5 11 144 131
-p or4_1/nor2_2/out Vdd! or4_1/out 5 11 122 115
-n or4_1/nor2_2/out GND! or4_1/nand2_1/a_85_47# 5 11 144 115
-p or4_0/out nor2_0/a_275_167# inv_0/in 5 11 82 204
-p or4_1/out Vdd! nor2_0/a_275_167# 5 11 98 204
-n or4_0/out inv_0/in GND! 5 11 82 226
-n or4_1/out GND! inv_0/in 5 11 98 226
-p inv_0/in Vdd! out 12 29 41 299
-n inv_0/in GND! out 12 29 86 299
-R Vdd! 32
-R GND! 43
+p in000 or4_0/nor2_0/a_275_167# or4_0/nor2_0/out 5 11 19 80
+p in001 Vdd! or4_0/nor2_0/a_275_167# 5 11 19 64
+n in000 or4_0/nor2_0/out GND! 5 11 41 80
+n in001 GND! or4_0/nor2_0/out 5 11 41 64
+p in010 or4_0/nor2_2/a_275_167# or4_0/nor2_2/out 5 11 19 27
+p in011 Vdd! or4_0/nor2_2/a_275_167# 5 11 19 11
+n in010 or4_0/nor2_2/out GND! 5 11 41 27
+n in011 GND! or4_0/nor2_2/out 5 11 41 11
+p or4_0/nand2_1/in0 or4_0/out Vdd! 5 11 19 134
+n or4_0/nand2_1/in0 or4_0/nand2_1/a_85_47# or4_0/out 5 11 41 134
+p or4_0/nor2_2/out Vdd! or4_0/out 5 11 19 118
+n or4_0/nor2_2/out GND! or4_0/nand2_1/a_85_47# 5 11 41 118
+p in100 or4_1/nor2_0/a_275_167# or4_1/nor2_0/out 5 11 117 80
+p in101 Vdd! or4_1/nor2_0/a_275_167# 5 11 117 64
+n in100 or4_1/nor2_0/out GND! 5 11 95 80
+n in101 GND! or4_1/nor2_0/out 5 11 95 64
+p in110 or4_1/nor2_2/a_275_167# or4_1/nor2_2/out 5 11 117 27
+p in111 Vdd! or4_1/nor2_2/a_275_167# 5 11 117 11
+n in110 or4_1/nor2_2/out GND! 5 11 95 27
+n in111 GND! or4_1/nor2_2/out 5 11 95 11
+p or4_1/nand2_1/in0 or4_1/out Vdd! 5 11 117 134
+n or4_1/nand2_1/in0 or4_1/nand2_1/a_85_47# or4_1/out 5 11 95 134
+p or4_1/nor2_2/out Vdd! or4_1/out 5 11 117 118
+n or4_1/nor2_2/out GND! or4_1/nand2_1/a_85_47# 5 11 95 118
+p or4_0/out nor2_0/a_275_167# inv_0/in 5 11 61 191
+p or4_1/out Vdd! nor2_0/a_275_167# 5 11 77 191
+n or4_0/out inv_0/in GND! 5 11 61 213
+n or4_1/out GND! inv_0/in 5 11 77 213
+n inv_0/in out GND! 5 12 72 268
+p inv_0/in out Vdd! 5 12 48 268
+R Vdd! 38
+R GND! 50
