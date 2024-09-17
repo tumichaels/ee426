@@ -1,9 +1,9 @@
+= nor2_1/out nand2_0/in0
+= nor2_1/out a_1_155#
 = out nand2_0/out
 = in01 nor2_1/in1
 = in00 nor2_1/in0
-= nor2_1/out nand2_0/in0
-= nor2_1/out a_2_127#
 = in11 nor2_0/in1
 = in10 nor2_0/in0
 = nor2_0/out nand2_0/in1
-= nor2_0/out a_2_111#
+= nor2_0/out a_n9_139#

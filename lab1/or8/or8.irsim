@@ -1,36 +1,36 @@
-vector in in000 in001 in010 in011 in100 in101 in110 in111
-ana in out
 h Vdd!
 l GND!
-setvector in 0b00000000
+vector in in000 in001 in010 in011 in100 in101 in110 in111
+ana in out
+setvector in 00000000
 s
-setvector in 0b10000000
+setvector in 10000000
 s
-setvector in 0b00001000
+setvector in 01000000
 s
-setvector in 0b11000000
+setvector in 00100000
 s
-setvector in 0bl0001000
+setvector in 00010000
 s
-setvector in 0b11001000
+setvector in 00001000
 s
-setvector in 0b11100000
+setvector in 00000100
 s
-setvector in 0b11101000
+setvector in 00000010
 s
-setvector in 0b11001100
+setvector in 00000001
 s
-setvector in 0b11001110
+setvector in 00010001
 s
-setvector in 0b11111000
+setvector in 10010001
 s
-setvector in 0b11111100
+setvector in 11010001
 s
-setvector in 0b11001111
+setvector in 11110001
 s
-setvector in 0b11100111
+setvector in 11111001
 s
-setvector in 0b11110111
+setvector in 11111101
 s
-setvector in 0b11111111
+setvector in 11111111
 s

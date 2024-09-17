@@ -1,32 +1,33 @@
-timestamp 1726533950
+timestamp 1726582099
 version 8.3
 tech sky130l
 style generic
 scale 1 1 7.5
 resistclasses 1000 1000
-use nand2 nand2_1 1 0 -89 0 1 100
-use nor2 nor2_0 1 0 -301 0 1 -74
-use nor2 nor2_2 1 0 -301 0 1 -127
-node "GND!" 0 0 8 26 m1 0 0 0 0
-node "Vdd!" 0 0 -34 26 m1 0 0 0 0
-node "m1_n43_150#" 0 0 -43 150 m1 0 0 0 0
-node "out" 0 0 -13 165 m1 0 0 0 0
-node "in11" 0 0 -45 35 polysilicon 0 0 0 0
-node "in10" 0 0 -45 51 polysilicon 0 0 0 0
-node "in01" 0 0 -45 88 polysilicon 0 0 0 0
-node "in00" 0 0 -45 104 polysilicon 0 0 0 0
-node "a_n42_143#" 0 0 -42 143 pc 0 0 0 0
-merge "nand2_1/in1" "nor2_2/out" 0 0 0 0 0
-merge "nor2_2/out" "a_n42_143#"
-merge "nand2_1/Vdd!" "nor2_2/Vdd!" 0 0 0 0 0
-merge "nor2_2/Vdd!" "nor2_0/Vdd!"
-merge "nor2_0/Vdd!" "Vdd!"
-merge "nand2_1/GND!" "nor2_2/GND!" 0 0 0 0 0
-merge "nor2_2/GND!" "nor2_0/GND!"
-merge "nor2_0/GND!" "GND!"
-merge "nor2_0/in0" "in00" 0 0 0 0 0
-merge "nor2_0/in1" "in01" 0 0 0 0 0
-merge "nand2_1/out" "out" 0 0 0 0 0
-merge "nor2_2/in0" "in10" 0 0 0 0 0
-merge "nor2_2/in1" "in11" 0 0 0 0 0
-merge "nor2_0/out" "m1_n43_150#" 0 0 0 0 0
+use nand2 nand2_0 1 0 -44 0 1 97
+use nor2 nor2_1 1 0 -256 0 1 -87
+use nor2 nor2_0 1 0 -256 0 1 -151
+node "GND!" 0 0 53 -10 m1 0 0 0 0
+node "out" 0 0 32 160 m1 0 0 0 0
+node "Vdd!" 0 0 11 -10 m1 0 0 0 0
+node "in11" 0 0 -19 11 polysilicon 0 0 0 0
+node "in10" 0 0 -19 27 polysilicon 0 0 0 0
+node "in01" 0 0 -19 75 polysilicon 0 0 0 0
+node "in00" 0 0 -19 91 polysilicon 0 0 0 0
+node "a_n9_139#" 0 0 -9 139 polysilicon 0 0 0 0
+node "a_1_155#" 0 0 1 155 polysilicon 0 0 0 0
+merge "nor2_1/in1" "in01" 0 0 0 0 0
+merge "nor2_1/in0" "in00" 0 0 0 0 0
+merge "nand2_0/Vdd!" "nor2_0/Vdd!" 0 0 0 0 0
+merge "nor2_0/Vdd!" "nor2_1/Vdd!"
+merge "nor2_1/Vdd!" "Vdd!"
+merge "nor2_1/out" "nand2_0/in0" 0 0 0 0 0
+merge "nand2_0/in0" "a_1_155#"
+merge "nand2_0/in1" "nor2_0/out" 0 0 0 0 0
+merge "nor2_0/out" "a_n9_139#"
+merge "nor2_0/in0" "in10" 0 0 0 0 0
+merge "nor2_0/in1" "in11" 0 0 0 0 0
+merge "nand2_0/out" "out" 0 0 0 0 0
+merge "nand2_0/GND!" "nor2_0/GND!" 0 0 0 0 0
+merge "nor2_0/GND!" "nor2_1/GND!"
+merge "nor2_1/GND!" "GND!"

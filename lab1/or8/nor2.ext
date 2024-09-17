@@ -1,0 +1,16 @@
+timestamp 1726527990
+version 8.3
+tech sky130l
+style generic
+scale 1 1 7.5
+resistclasses 1000 1000
+node "Vdd!" 1000 0 275 151 pdiffusion 0 0 121 44
+node "in1" 0 0 256 162 polysilicon 0 0 0 0
+node "a_275_167#" 1000 0 275 167 pdiffusion 0 0 121 44
+node "in0" 0 0 256 178 polysilicon 0 0 0 0
+node "GND!" 5828 0 297 151 ndiffusion 242 88 0 0
+node "out" 2000 0 275 183 pdiffusion 121 44 121 44
+device mosfet nfet 297 162 298 163 5 11 "Gnd!" "in1" 10 0 "GND!" 11 0 "out" 11 0
+device mosfet pfet 275 162 276 163 5 11 "Vdd!" "in1" 10 0 "Vdd!" 11 0 "a_275_167#" 11 0
+device mosfet nfet 297 178 298 179 5 11 "Gnd!" "in0" 10 0 "out" 11 0 "GND!" 11 0
+device mosfet pfet 275 178 276 179 5 11 "Vdd!" "in0" 10 0 "a_275_167#" 11 0 "out" 11 0

@@ -10,8 +10,6 @@ setvector in 0100
 s
 setvector in 0010
 s
-setvector in 0001
-s
 setvector in 1100
 s
 setvector in 1010

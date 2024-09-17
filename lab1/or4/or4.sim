@@ -3,13 +3,13 @@ p in10 nor2_0/a_275_167# nor2_0/out 5 11 19 27
 p in11 Vdd! nor2_0/a_275_167# 5 11 19 11
 n in10 nor2_0/out GND! 5 11 41 27
 n in11 GND! nor2_0/out 5 11 41 11
-p in00 nor2_1/a_275_167# nor2_1/out 5 11 19 78
-p in01 Vdd! nor2_1/a_275_167# 5 11 19 62
-n in00 nor2_1/out GND! 5 11 41 78
-n in01 GND! nor2_1/out 5 11 41 62
-p nor2_1/out out Vdd! 5 11 19 126
-n nor2_1/out nand2_0/a_85_47# out 5 11 41 126
-p nor2_0/out Vdd! out 5 11 19 110
-n nor2_0/out GND! nand2_0/a_85_47# 5 11 41 110
+p in00 nor2_1/a_275_167# nor2_1/out 5 11 19 91
+p in01 Vdd! nor2_1/a_275_167# 5 11 19 75
+n in00 nor2_1/out GND! 5 11 41 91
+n in01 GND! nor2_1/out 5 11 41 75
+p nor2_1/out out Vdd! 5 11 19 155
+n nor2_1/out nand2_0/a_85_47# out 5 11 41 155
+p nor2_0/out Vdd! out 5 11 19 139
+n nor2_0/out GND! nand2_0/a_85_47# 5 11 41 139
 R Vdd! 14
 R GND! 18

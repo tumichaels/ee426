@@ -36,17 +36,17 @@ xM4 a_85_47# in1 GND Gnd sky130_fd_pr__nfet_01v8 W=0.825 L=0.375
 *---------------------------------------------------
 *
 *--- subcircuits ---
+xnor2_0 GND nor2
 xnor2_1 GND nor2
 xnand2_0 GND nand2
-xnor2_0 GND nor2
 * -- connections ---
 V1 out xnand2_0:out
 V2 in11 xnor2_0:in1
 V3 in10 xnor2_0:in0
-V4 a_2_111# xnor2_0:out
+V4 a_n9_139# xnor2_0:out
 V5 xnor2_0:out xnand2_0:in1
-V6 a_2_127# xnor2_1:out
-V7 xnor2_1:out xnand2_0:in0
+V6 a_1_155# xnand2_0:in0
+V7 xnand2_0:in0 xnor2_1:out
 V8 in00 xnor2_1:in0
 V9 in01 xnor2_1:in1
 * -- caps ---

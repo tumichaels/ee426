@@ -1,90 +1,104 @@
 magic
 tech sky130l
-timestamp 1726541434
+timestamp 1726586608
 << polysilicon >>
-rect 62 244 71 266
-rect 62 238 64 244
-rect 69 238 71 244
-rect 62 236 71 238
-rect 0 80 19 85
-rect 118 80 137 85
-rect 0 64 19 69
-rect 118 64 137 69
-rect 0 27 19 32
-rect 118 27 137 32
-rect 0 11 19 16
-rect 118 11 137 16
+rect 73 258 80 267
+rect 73 255 75 258
+rect 78 255 80 258
+rect 73 253 80 255
+rect 0 101 30 106
+rect 143 101 173 106
+rect 0 85 30 90
+rect 143 85 173 90
+rect 0 37 30 42
+rect 143 37 173 42
+rect 0 21 30 26
+rect 143 21 173 26
 << pc >>
-rect 64 238 69 244
-rect 58 178 61 181
-rect 74 173 77 176
+rect 75 255 78 258
+rect 42 228 45 231
+rect 42 212 45 215
 << m1 >>
-rect 62 271 70 293
-rect 9 253 38 262
-rect 10 148 19 253
-rect 23 244 73 246
-rect 23 238 64 244
-rect 69 238 73 244
-rect 23 236 73 238
-rect 23 211 34 236
-rect 80 227 87 258
-rect 23 204 50 211
-rect 119 189 126 192
-rect 80 183 126 189
-rect 32 181 62 182
-rect 32 178 58 181
-rect 61 178 62 181
-rect 32 176 62 178
-rect 73 176 105 177
-rect 32 148 39 176
-rect 73 173 74 176
-rect 77 173 105 176
-rect 73 172 105 173
-rect 98 147 105 172
-rect 119 143 126 183
-rect 56 32 82 39
-rect 11 -3 18 6
-rect 119 -3 126 4
-rect 11 -11 126 -3
-rect 11 -20 18 -11
-rect 119 -22 126 -11
+rect 73 270 80 280
+rect 73 258 80 259
+rect 73 255 75 258
+rect 78 255 80 258
+rect 8 231 46 232
+rect 8 228 42 231
+rect 45 228 46 231
+rect 8 227 46 228
+rect 8 187 16 227
+rect 19 215 46 216
+rect 19 212 42 215
+rect 45 212 46 215
+rect 19 211 46 212
+rect 19 198 27 211
+rect 52 209 58 253
+rect 73 218 80 255
+rect 94 241 101 255
+rect 19 192 20 198
+rect 26 192 27 198
+rect 19 191 27 192
+rect 30 195 59 202
+rect 8 182 9 187
+rect 15 182 16 187
+rect 8 181 16 182
+rect 30 181 37 195
+rect 51 187 58 188
+rect 51 182 52 187
+rect 57 182 58 187
+rect 51 156 58 182
+rect 94 181 101 202
+rect 115 197 122 199
+rect 115 193 117 197
+rect 120 193 122 197
+rect 115 156 122 193
+rect 30 -6 37 0
+rect 136 -6 143 10
+rect 30 -20 37 -13
+rect 136 -20 143 -13
 << m2c >>
-rect 54 227 57 231
-rect 55 110 58 114
+rect 20 192 26 198
+rect 9 182 15 187
+rect 52 182 57 187
+rect 117 193 120 197
 << m2 >>
-rect 52 231 60 232
-rect 52 227 54 231
-rect 57 227 60 231
-rect 52 114 60 227
-rect 52 110 55 114
-rect 58 110 60 114
-rect 52 102 60 110
-use or4  or4_0
-timestamp 1726533950
-transform 1 0 45 0 1 -24
-box -45 24 15 174
-use or4  or4_1
-timestamp 1726533950
-transform -1 0 92 0 1 -24
-box -45 24 15 174
-use nor2  nor2_0 ../nor
-timestamp 1726527990
-transform 0 -1 240 1 0 -84
-box 256 151 316 194
+rect 19 198 122 199
+rect 19 192 20 198
+rect 26 197 122 198
+rect 26 193 117 197
+rect 120 193 122 197
+rect 26 192 122 193
+rect 19 191 122 192
+rect 8 187 58 188
+rect 8 182 9 187
+rect 15 182 52 187
+rect 57 182 58 187
+rect 8 181 58 182
 use inv  inv_0
 timestamp 1726537171
-transform 1 0 6 0 -1 332
+transform 1 0 17 0 -1 331
 box 28 51 92 80
+use or4  or4_1
+timestamp 1726582099
+transform -1 0 154 0 1 10
+box -19 -10 60 171
+use or4  or4_0
+timestamp 1726582099
+transform 1 0 19 0 1 10
+box -19 -10 60 171
+use nor2  nor2_0
+timestamp 1726527990
+transform 1 0 -215 0 1 49
+box 256 151 316 194
 << labels >>
-rlabel m1 62 271 70 293 1 out
-rlabel polysilicon 0 80 19 85 7 in000
-rlabel polysilicon 0 64 19 69 7 in001
-rlabel polysilicon 0 27 19 32 7 in010
-rlabel polysilicon 0 11 19 16 7 in011
-rlabel polysilicon 118 80 137 85 3 in100
-rlabel polysilicon 118 64 137 69 3 in101
-rlabel polysilicon 118 27 137 32 3 in110
-rlabel polysilicon 118 11 137 16 3 in111
-rlabel m1 11 -11 126 -3 5 Vdd!
-rlabel space 53 32 84 39 5 GND!
+rlabel polysilicon 0 101 30 106 7 in000
+rlabel polysilicon 0 85 30 90 7 in001
+rlabel polysilicon 0 37 30 42 7 in010
+rlabel polysilicon 0 21 30 26 7 in011
+rlabel polysilicon 143 101 173 106 3 in100
+rlabel polysilicon 143 85 173 90 3 in101
+rlabel polysilicon 143 37 173 42 3 in110
+rlabel polysilicon 143 21 173 26 3 in111
+rlabel m1 73 270 80 280 1 out
 << end >>
