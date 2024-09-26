@@ -1,0 +1,30 @@
+h Vdd!
+l GND!
+stepsize 10
+analyzer c/in0 c/in1 c/out
+s
+
+l c/in0
+l c/in1
+s
+
+h c/in0
+l c/in1
+s
+
+l c/in0
+l c/in1
+s
+
+l c/in0
+h c/in1
+s
+
+h c/in0
+h c/in1
+s
+
+l c/in0
+l c/in1
+s
+
