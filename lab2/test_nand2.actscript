@@ -1,0 +1,29 @@
+watch in0 in1 out
+random
+set in0 0
+set in1 0
+cycle
+get in0 
+get in1 
+get out
+
+set in0 0
+set in1 1
+cycle
+get in0 
+get in1 
+get out
+
+set in0 1
+set in1 0
+cycle
+get in0 
+get in1 
+get out
+
+set in0 1
+set in1 1
+cycle
+get in0 
+get in1 
+get out

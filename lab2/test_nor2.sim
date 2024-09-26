@@ -1,0 +1,5 @@
+| units: 7.5 tech: sky130l format: MIT
+p n/in0 Vdd n/n#5 2 10
+n n/in0 GND n/out 2 6
+n n/in1 GND n/out 2 6
+p n/in1 n/n#5 n/out 2 10

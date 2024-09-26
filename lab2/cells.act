@@ -1,0 +1,34 @@
+defproc inv (bool? in; bool! out)
+{
+	prs {
+		in -> out-
+		~in -> out+
+		/* or in => out- */
+   }
+}
+
+
+defproc nand2 (bool? in0, in1; bool! out)
+{
+	prs {
+		in0 & in1 -> out-
+		~in0 | ~in1 -> out+
+		/* or in0 & in1 => out- */
+	}	
+}
+
+defproc nor2(bool? in0, in1; bool! out)
+{
+	prs {
+		in0 | in1 -> out-
+		~in0 & ~in1 -> out+
+		/* or in0 | in1 => out- */
+	}	
+}
+
+defproc c2elt(bool? in0, in1; bool! out)
+{
+	prs {
+		in0 & in1 #> out-
+	}
+}

@@ -1,0 +1,12 @@
+ana n/in0 n/in1 n/out
+h Vdd!
+l GND!
+l n/in0
+l n/in1
+s
+h n/in0
+s
+h n/in1
+s
+l n/in0
+s
