@@ -1,0 +1,38 @@
+import "prio_queue.act";
+
+
+defproc source (chan!(int<8>) val; chan!(bool) op)
+{
+  chp {
+    op!true; val!4; log("Insert 4 | Status: [4]");
+    op!true; val!5; log("Insert 5 | Status: [4,5]");
+    op!true; val!2; log("Insert 2 | Status: [2,4,5]");
+    op!true; val!1; log("Insert 1 | Status: [1,2,4,5]");
+    op!false; log("Pop | Status: [2,4,5]");
+    op!false; log("Pop | Status: [4,5]");
+    op!false; log("Pop | Status: [5]");
+    op!true; val!10; log("Insert 10 | Status: [5,10]");
+    op!true; val!3; log("Insert 3 | Status: [3,5,10]");
+    op!true; val!4; log("Insert 4 | Status: [3,4,5,10]");
+    op!false; log("Pop | Status: [4,5,10]");
+    op!false; log("Pop | Status: [5,10]");
+    op!false; log("Pop | Status: [10]")
+
+  }
+}
+
+defproc sink (chan?(int<8>) X)
+{
+  int<8> v;
+  chp {
+    *[ X?v; log ("Received value: ", v) ]
+  }
+}
+
+defproc test()
+{
+   source src;
+   sink snk;
+   pque<10> p (src.val,snk.X,src.op);
+}
+

@@ -1,0 +1,83 @@
+defproc prio_queue_cell (chan? (bool) cin; chan! (bool) cout; chan?(int<8>) LIn; chan!(int<9>) LOut; chan?(int<9>) RIn; chan!(int<8>) ROut)
+{
+  int<8> x;
+  int<8> inc;
+  bool command; // True is Insert, False is pop
+  bool empty;
+
+  int<9> pop_val;
+  chp {
+    // Instantiate as empty
+    empty := true;
+    
+    // Loop, get command first
+    *[ cin?command; 
+        [   
+            // If Insert, get the value and then check conditions
+            command ->  LIn?inc; [
+                   // If we're empty, take value and become not empty.
+                   empty -> x := inc; empty := false
+                   //Otherwise, follow a sorting protocol and chose to keep value or push value onwards
+                [] (~empty & (inc <= x)) -> cout!true; ROut!x; x:=inc
+                [] (~empty & (inc > x)) -> cout!true; ROut!inc
+            ]   
+
+            // Removing a value
+            [] ~command -> 
+                [
+                    // Either send am empty bit out or the value
+                    empty -> LOut!256
+                    [] ~empty -> LOut!x
+                ]; 
+                // Get value from next cell 
+                cout!false; RIn?pop_val;
+                [
+                    //Instantiate as expected
+                    bool(pop_val{8}) -> empty := true
+                    [] ~bool(pop_val{8}) -> empty:= false; x := pop_val{7..0}
+                ]  
+        ]
+    ]
+  }
+}
+
+defproc empty_sink(chan?(int<8>) LIn; chan!(int<9>) LOut; chan?(bool) operation){
+    bool op;
+    int<8> overflow;
+    chp{  
+        *[operation?op; 
+            [
+                op -> LIn?overflow; log("Queue Full! Throwing away: ", overflow)
+                []~op -> LOut!256
+            ]
+        ]
+    }
+}
+
+defproc strip_empty_flag(chan?(int<9>) in_with_flag; chan!(int<8>) out_raw){
+    int<9> x;
+    int<8> out;
+    chp{
+        *[in_with_flag?x; out := x{7..0}; out_raw!out]
+    }
+}
+// defproc prio_queue_cell (chan? (bool) cin; chan! (bool) cout; chan?(int<8>) LIn; chan!(int<9>) LOut; chan?(int<9>) RIn; chan!(int<8>) ROut)
+
+template <pint N>
+defproc pque(chan?(int<8>) in; chan!(int<8>) out; chan?(bool) operation){
+    { N >= 1 : "Buffer should have at least one element!" }; // assertion
+
+    prio_queue_cell que[N];
+    (i:N-1: que[i].cout=que[i+1].cin; que[i].ROut=que[i+1].LIn; que[i].RIn=que[i+1].LOut;)
+
+    // First in stack values or input and output values and start of queue.
+    // We strip the empty flag for the user. 
+    strip_empty_flag pop_out(que[0].LOut,out);
+    que[0].LIn=in;
+    que[0].cin = operation;
+
+
+    // Last cell will either throw away values or constantly send empty signals.
+    empty_sink s(que[N-1].ROut, que[N-1].RIn, que[N-1].cout);
+    
+}
