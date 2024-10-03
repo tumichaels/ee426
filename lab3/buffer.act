@@ -1,0 +1,45 @@
+import globals;
+import std::cells;
+import std::channel;
+import std::gates;
+import "./common.act";
+
+
+//
+// your definitions go here
+// Reset will be available as a global signal at this point, as will
+// Vdd and GND
+// 
+// Process names from a namespace use C++ naming conventions
+// (e.g. std::channel::bd). You can also open a namespace.
+// The ACT command open std::cells will add std::cells to the
+// search path for process names.
+//
+open std::cells;
+open std::channel;
+open std::gates;
+
+defproc buffer(bd<8> L; bd<8> R){
+
+    bool ack;
+    /* Control
+      Sends out an acknoeldgement and a request since we have received the value and the next cell doesn't need it.
+      If we are getting a request and right is ready to receive value, send current data.
+      If left cell has received our ack, and the right has acknowledged our data, we can reset c element, and tell right we are done, and left that we are ready for more.
+    */ 
+    ctree_init<2,false,false> celt;
+    celt.in[0] = L.r;
+    INVX1 inv(R.a,celt.in[1]);
+
+    ack = celt.out;
+
+    DELAY<8> d(ack,R.r);
+
+    
+    // Data
+    PULSE<3> p(ack);
+    N_LATCH<8> buf;
+    buf.D = L.d;
+    buf.Q = R.d;
+    buf.CLK = p.r;
+}

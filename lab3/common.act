@@ -1,6 +1,7 @@
 import globals;
 import std::cells;
 import std::channel;
+import std::gates;
 
 //
 // your definitions go here
@@ -14,11 +15,63 @@ import std::channel;
 //
 open std::cells;
 open std::channel;
+open std::gates;
 
+template<pint delay_length>
+defproc DELAY (bool? L; bool! R){
+    INVX1 invs[delay_length];
+    invs[0].A = L;
+    invs[delay_length-1].Y = R;
+    (i : (delay_length - 1) : invs[i].Y = invs[i+1].A;)
+}
+
+template <pint delay>
 defproc PULSE(bool? l; bool! r){
+    pint odd_delay = delay*2 + 1;
+    DELAY<odd_delay> d(l);
+    AND2X1 a(l,d.R,r);
+}
 
-    INVX1 inv1(l);
-    INVX1 inv2(inv1.Y);
-    INVX1 inv3(inv2.Y);
-    AND2X1 a(l,inv3.Y,r);
+
+template <pint N>
+defproc N_LATCH(bool? CLK; bool? D[N]; bool! Q[N]){
+    LATCH latches[N];
+    (i : N : latches[i].CLK = CLK; latches[i].D = D[i]; latches[i].Q = Q[i];)
+}
+
+
+// Initializes the c element with a certain value on reset.
+template<pint N; pbool invert; pbool init>
+defproc ctree_init(bool? in[N]; bool out){
+
+
+    bool reset_out;
+    // NOR FOR High
+    // NAND For 0
+    ctree<N,invert> c;
+    c.out = reset_out;
+
+    OR2X1 ors[N];
+    NOR2X1 nors[N];
+    INVX1 invs[N];
+    [
+        // Sends all ones
+        (init & ~invert) | (~init & invert) ->
+            (i : N : in[i] = ors[i].A; ors[i].B = Reset; ors[i].Y = c.in[i];)
+        // Send all zeros
+        [] else -> 
+            (i : N : in[i] = invs[i].A; nors[i].A = invs[i].Y; nors[i].B = Reset; nors[i].Y = c.in[i];)
+    ]
+    OR2X1 out_or;
+    NOR2X1 out_nor;
+    INVX1 out_inv;
+    [
+        (init) -> out_or.A = reset_out; out_or.B = Reset; out_or.Y = out;
+        [] else -> out_inv.A = reset_out; out_nor.A = out_inv.Y; out_nor.B = Reset; out_nor.Y = out;    
+    ]
+}
+
+
+defproc ctree_init_test(bool? in[8]; bool out){
+    ctree_init<8,false,false> c(in,out);
 }

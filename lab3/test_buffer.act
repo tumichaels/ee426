@@ -1,0 +1,29 @@
+import "source.act";
+import globals;
+
+defproc source (bd<8> X)
+{
+  int<8> i;
+  chp {
+    [~Reset];
+    i := 0;
+  *[ i < 100 -> X!i; i := i + 1 ]
+  }
+}
+
+defproc sink (bd<8> X)
+{
+  int<8> v;
+  chp {
+    [~Reset];
+    *[ X?v; log ("Received value: ", v) ]
+  }
+}
+
+
+defproc test()
+{
+   source src;
+   sink snk;
+   buffer b(src.X, snk.X);
+}
