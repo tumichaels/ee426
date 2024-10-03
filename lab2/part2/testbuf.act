@@ -17,6 +17,18 @@ defproc sink (chan?(int<8>) X)
   }
 }
 
+defproc val_10 (chan?(int<8>) sink_vals; chan!(int<8>) source_vals){
+  int<8> i;
+  int<8> v;
+  chp{
+    i := 0;
+    *[ i < 10 -> source_vals!i; log("Inserted: ",i); i := i + 1 ];
+    log("Inserted 10 values");
+    i := 0;
+    *[ i < 10 -> sink_vals?v; log ("Received value: ", v); i := i + 1 ]
+  }
+}
+
 defproc test()
 {
    source src;
@@ -24,3 +36,8 @@ defproc test()
    buffer<10> b(src.X, snk.X);
 }
 
+defproc test2()
+{
+  val_10 src_sink;
+  buffer<10> b(src_sink.source_vals, src_sink.sink_vals);
+}

@@ -1,0 +1,25 @@
+Part 1
+
+To test the actsim script files, run `./part1_tests.sh` in the part1 folder. This will load up every gates test instance act file and simulate it with the proper scripts and inputs. You should see all different inputs tried and see the correct output for each gate.
+
+To test using irsim, open each respective sim and al file and run `@ test_<gate>.irsim`. This will show irsim representation of the actsim simulations and all inputs and ouputs.
+
+Irsim Test : `irsim sky130l test_<gate>.sim test_<gate>.al`
+
+Part 2
+
+Run `./part2_tests.sh` in the part 2 folder. This will first run the basic 10-place buffer that is the same structure as the 4-place buffer. A first test runs 100 values through it and the sink receives them. Test 2 shows that we can put 10 values in it, and then take out 10 values to recover all values Succesfully.
+
+Prio queue
+
+The priority queue is implemented recursively starting with an individual queue cell. Each cell has 6 channels. The first 3 channels allow you to give it a command (channel 1) and then the cell will either return a value(channel 2) if the command is a pop instruction, or decide to insert a value into its cell (channel 3). It decides whether it wants to keep an inserted value if it is less than the value currently in the cell or if the cell is empty.
+
+After an insert, if the cell already contains a value, it will choose one and push the other to the next cell, essentially recursively calling another insert command and pushing the value (2 more channels). After a pop, the command will then call another pop to the next cell over, pushing the contents of the whole queue forward. Empty cells are denoted by an extra bit and when received will denote itself empty as a bit register within the cell.
+
+The whole queue will always be sorted and the smallest value first as every insert will always push bigger values down the line. Thus when we pop, we always get the smallest value.
+
+In terms of queue implementation, the end of the queue is a trash sink that will discard values if the queue is full. It was also constantly provide "empty" values that proagate up the queue to denote that a cell is empty. These cells are all connected and the empty bit striped from the output.
+
+Priority Queue Testing
+
+`./part2_tests.sh` test the priority queue by showcasing a sequence of inserts and pops that act as you would expect.
