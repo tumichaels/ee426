@@ -1,0 +1,24 @@
+import globals;
+import std::cells;
+import std::channel;
+
+//
+// your definitions go here
+// Reset will be available as a global signal at this point, as will
+// Vdd and GND
+// 
+// Process names from a namespace use C++ naming conventions
+// (e.g. std::channel::bd). You can also open a namespace.
+// The ACT command open std::cells will add std::cells to the
+// search path for process names.
+//
+open std::cells;
+open std::channel;
+
+defproc PULSE(bool? l; bool! r){
+
+    INVX1 inv1(l);
+    INVX1 inv2(inv1.Y);
+    INVX1 inv3(inv2.Y);
+    AND2X1 a(l,inv3.Y,r);
+}
