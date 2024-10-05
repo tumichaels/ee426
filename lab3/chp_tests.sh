@@ -11,7 +11,7 @@ actsim chp_tests.act -Wall:off "buf_test" < chptest.actscript
 # actsim chp_tests.act -Wall:off "init_buf_test" < chptest.actscript
 echo ""
 echo "~~~~~~~~~~~~~~~~~ Source Test ~~~~~~~~~~~~~~~"
-actsim chp_tests.act -Wall:off "source_test" < chptest_setgnd.actscript
+actsim chp_tests.act -Wall:off "source_test" < chptest.actscript
 echo ""
 echo "~~~~~~~~~~~~~~~~~ Sink Test ~~~~~~~~~~~~~~~"
 actsim chp_tests.act -Wall:off "sink_test" < chptest.actscript
@@ -28,4 +28,4 @@ actsim chp_tests.act -Wall:off "merge_test" < chptest.actscript
 
 echo ""
 echo "~~~~~~~~~~~~~~~~~ Adder Test ~~~~~~~~~~~~~~~"
-actsim chp_tests.act -Wall:off "adder_test" < chptest_setgnd.actscript | grep -E -i "Received|sending"
+actsim chp_tests.act -Wall:off "adder_test" < chptest.actscript | grep -E -i "Received|sending"

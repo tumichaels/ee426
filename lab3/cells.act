@@ -236,7 +236,8 @@ defproc add(bd?<8> A,B; bd!<8> Z){
 defproc df_source(bd<8> R){
     
     INVX1 inv(R.a,R.r);
-    (i: 8 : R.d[i] = GND;)
+    TIELOX1 lo[8];
+    (i: 8 : R.d[i] = lo[i].Y;)
 }
 
 defproc df_sink(bd<8> L){

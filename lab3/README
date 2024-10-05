@@ -1,0 +1,10 @@
+Testing Protocols:
+
+To run irsim tests, simply run irsim_test.sh
+
+To run all act/chp tests, run chp_tests.sh
+
+Content:
+
+ALl cells are located inside cells.act with all chp_test cells located in chp_tests.act.
+Common.act contains all supporting cells.

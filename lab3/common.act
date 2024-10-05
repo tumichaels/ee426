@@ -90,7 +90,7 @@ defproc N_MUX2 (bool? A[N], B[N]; bool? S; bool! Y[N])
 template <pint N>
 defproc N_FAX(bool? A[N], B[N]; bool! YS[N]){
     FAX1 adders[N];
-    adders[0].C = GND;
+    TIELOX1 no_carry(adders[0].C);
     (i : N : adders[i].A = A[i]; adders[i].B = B[i]; adders[i].YS = YS[i];)
     (i : N-1 : adders[i].YC = adders[i+1].C;)
 }
