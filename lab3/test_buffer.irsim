@@ -1,6 +1,6 @@
 h Vdd!
 l GND!
-stepsize 10
+stepsize 3
 analyzer b/L/r b/L/a b/R/r b/R/a b/L/d\[0\] b/L/d\[1\] b/L/d\[2\] b/L/d\[3\] b/L/d\[4\] b/L/d\[5\] b/L/d\[6\] b/L/d\[7\] b/R/d\[0\] b/R/d\[1\] b/R/d\[2\] b/R/d\[3\] b/R/d\[4\] b/R/d\[5\] b/R/d\[6\] b/R/d\[7\]
 
 l b/L/d\[0\]
@@ -32,4 +32,14 @@ s
 
 l b/L/r
 h b/R/a
+l b/L/d\[5\]
+l b/L/d\[7\]
+h b/L/d\[6\]
+h b/L/d\[8\]
+s
+
+b/R/a l
+s
+
+h b/L/r
 s

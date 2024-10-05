@@ -120,7 +120,7 @@ defproc split(bd?<8> L; bdbool? C; bd!<8> A,B){
     ack = L.a;
     ack = C.a;
 
-    DELAY<12> d(ack,r_out);
+    DELAY<40> d(ack,r_out);
     
     // Split Request Signal
     INVX1 inv_selector(selector);
@@ -152,7 +152,7 @@ defproc merge(bd?<8> A,B; bdbool? C; bd!<8> Z){
     control_celt.out = control_ack;
     control_ack = C.a;
 
-    DELAY<12> c_done_delay(control_ack,c_done);
+    DELAY<30> c_done_delay(control_ack,c_done);
 
     // Merging Processing
     /* Control
@@ -211,7 +211,7 @@ defproc add(bd?<8> A,B; bd!<8> Z){
 
     
     celt.out = ack;
-    DELAY<20> d(ack,Z.r);
+    DELAY<50> d(ack,Z.r);
 
     //ACK
     ack = A.a;
