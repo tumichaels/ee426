@@ -19,7 +19,7 @@ open std::cells;
 open std::channel;
 open std::gates;
 
-defproc buffer(bd<8> L; bd<8> R){
+defproc buffer(bd?<8> L; bd!<8> R){
 
     bool ack;
     /* Control
@@ -32,19 +32,20 @@ defproc buffer(bd<8> L; bd<8> R){
     INVX1 inv(R.a,celt.in[1]);
 
     ack = celt.out;
+    ack = L.a;
 
-    DELAY<8> d(ack,R.r);
+    DELAY_LATCH d(ack,R.r);
 
     
     // Data
-    PULSE<3> p(ack);
+    PULSE_LATCH p(ack);
     N_LATCH<8> buf;
     buf.D = L.d;
     buf.Q = R.d;
     buf.CLK = p.r;
 }
 
-defproc source(bd<8> R){
+defproc init_buffer(bd?<8> L; bd!<8> R){
 
     bool ack;
     /* Control
@@ -52,19 +53,193 @@ defproc source(bd<8> R){
       If we are getting a request and right is ready to receive value, send current data.
       If left cell has received our ack, and the right has acknowledged our data, we can reset c element, and tell right we are done, and left that we are ready for more.
     */ 
-    ctree_init<2,false,false> celt;
+    ctree_init<2,false,true> celt;
     celt.in[0] = L.r;
     INVX1 inv(R.a,celt.in[1]);
 
     ack = celt.out;
+    ack = L.a;
 
-    DELAY<8> d(ack,R.r);
+    DELAY_LATCH d(ack,R.r);
 
     
     // Data
-    PULSE<3> p(ack);
+    PULSE_LATCH p(ack);
     N_LATCH<8> buf;
     buf.D = L.d;
     buf.Q = R.d;
     buf.CLK = p.r;
 }
+
+defproc copy(bd?<8> L; bd!<8> R1,R2){
+
+    bool ack, r_out;
+    /* Control
+      Sends out an acknoeldgement and a request since we have received the value and the next cell doesn't need it.
+      If we are getting a request and right is ready to receive value, send current data.
+      If left cell has received our ack, and the right has acknowledged our data, we can reset c element, and tell right we are done, and left that we are ready for more.
+    */ 
+    ctree_init<3,false,false> celt;
+    celt.in[0] = L.r;
+    INVX1 inv1(R1.a,celt.in[1]);
+    INVX1 inv2(R2.a,celt.in[2]);
+
+    celt.out = ack; 
+
+    ack = L.a;
+    DELAY_LATCH d(ack,r_out);
+    r_out = R1.r;
+    r_out = R2.r;
+    
+    // Data
+    PULSE_LATCH p(ack);
+    N_LATCH<8> buf;
+    buf.D = L.d;
+    buf.Q = R1.d;
+    buf.Q = R2.d;
+    buf.CLK = p.r;
+}
+
+
+defproc split(bd?<8> L; bdbool? C; bd!<8> A,B){
+    bool ack, r_out, selector;
+    /* Control
+        Waits for both L and C to request, and the
+    */ 
+
+    
+    ctree_init<3,false,false> celt;
+    celt.in[0] = L.r;
+    celt.in[1] = C.r;
+
+    OR2X1 AB_ack(A.a,B.a);
+    INVX1 inv1(AB_ack.Y,celt.in[2]);
+
+    celt.out = ack; 
+
+    ack = L.a;
+    ack = C.a;
+
+    DELAY<12> d(ack,r_out);
+    
+    // Split Request Signal
+    INVX1 inv_selector(selector);
+    AND2X1 A_AND_req(r_out,inv_selector.Y,A.r);
+    AND2X1 B_AND_req(r_out,selector,B.r);
+
+    // Data
+    PULSE_LATCH p(ack);
+    LATCHLO C_store(Reset,p.r,C.d,selector);
+
+    N_LATCH<8> buf;
+    buf.D = L.d;
+    buf.Q = A.d;
+    buf.Q = B.d;
+    buf.CLK = p.r;
+}
+
+
+defproc merge(bd?<8> A,B; bdbool? C; bd!<8> Z){
+    bool control_ack, data_ack, c_done, _ab_r, ab_r, _Za,selector;
+    
+
+    // Control signal processing
+    ctree_init<2,false,false> control_celt;
+    control_celt.in[0] = C.r;
+    INVX1 inv1(Z.a,_Za);
+    control_celt.in[1] = _Za;
+
+    control_celt.out = control_ack;
+    control_ack = C.a;
+
+    DELAY<12> c_done_delay(control_ack,c_done);
+
+    // Merging Processing
+    /* Control
+        Waits for both L and C to request, and the
+    */ 
+    // Setup Merge control logic. We should get a request from data_celt, and our control latch should be saved and computed ab_r properly.
+    // Z should also be ready to receive data.
+    MUX2X1 ab_r_sel(A.r,B.r,selector,_ab_r);
+    INVX1 ab_r_inv(_ab_r, ab_r);
+    ctree_init<3,false,false> data_celt;
+    data_celt.in[0] = ab_r;
+    data_celt.in[1] = c_done;
+    data_celt.in[2] = _Za;
+
+    // Z request
+    data_celt.out = data_ack;
+    DELAY_LATCH d(data_ack,Z.r);
+
+    // Split Ack Signal
+    INVX1 inv_selector(selector);
+    AND2X1 A_AND_req(data_ack,selector,A.a);
+    AND2X1 B_AND_req(data_ack,inv_selector.Y,B.a);
+    
+
+    
+
+    // Data 
+    // - Stores Mux selector value for both data and control 
+    PULSE_LATCH p_control(control_ack);
+    LATCHLO C_store(Reset,p_control.r,C.d,selector);
+
+    PULSE_LATCH p_data(data_ack);
+    N_MUX2<8> mux(A.d,B.d,selector);
+    N_LATCH<8> buf;
+    buf.D = mux.Y;
+    buf.Q = Z.d;
+    buf.CLK = p_data.r;
+    // TODO: Clock pulse for this latch
+}
+
+
+defproc add(bd?<8> A,B; bd!<8> Z){
+    bool ack;
+    
+
+    // Merging Processing
+    /* Control
+        Waits for both L and C to request, and the
+    */ 
+    // Setup Merge control logic. We should get a request from data_celt, and our control latch should be saved and computed ab_r properly.
+
+    ctree_init<3,false,false> celt;
+    celt.in[0] = A.r;
+    celt.in[1] = B.r;
+    INVX1 inv1(Z.a,celt.in[2]);
+
+    
+    celt.out = ack;
+    DELAY<20> d(ack,Z.r);
+
+    //ACK
+    ack = A.a;
+    ack = B.a;
+  
+    
+
+    // Data 
+    // - Stores Mux selector value for both data and control 
+    
+
+    PULSE_LATCH p_data(ack);
+    N_LATCH<8> ABuf(p_data.r, A.d);
+    N_LATCH<8> BBuf(p_data.r, B.d);
+
+    N_FAX<8> adder(ABuf.Q, BBuf.Q, Z.d);
+
+
+}
+
+
+defproc df_source(bd<8> R){
+    
+    INVX1 inv(R.a,R.r);
+    (i: 8 : R.d[i] = GND;)
+}
+
+defproc df_sink(bd<8> L){
+    DELAY<2> d(L.r,L.a);
+}
+

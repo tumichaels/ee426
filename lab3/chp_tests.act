@@ -1,17 +1,19 @@
-import "source.act";
+import "cells.act";
+import std::channel;
+
 import globals;
 
-defproc source (bd<8> X)
+defproc chp_source (bd!<8> X)
 {
   int<8> i;
   chp {
     [~Reset];
     i := 0;
-  *[ i < 100 -> X!i; i := i + 1 ]
+  *[ i < 10 -> X!i; log("Sent Value: ",i); i := i + 1 ]
   }
 }
 
-defproc sink (bd<8> X)
+defproc chp_sink (bd?<8> X)
 {
   int<8> v;
   chp {
@@ -20,10 +22,84 @@ defproc sink (bd<8> X)
   }
 }
 
+defproc chp_ten_sink(bd?<8> X){
+    int<8> v;
+    int<8> i;
+  chp {
+    [~Reset];
+    *[ i < 10 -> X?v; i := i + 1; log("Received value: ", v) ]
+  }
+}
 
-defproc test()
+
+defproc buf_test()
 {
-   source src;
-   sink snk;
+   chp_source src;
+   chp_sink snk;
    buffer b(src.X, snk.X);
+}
+
+defproc init_buf_test()
+{
+   chp_source src;
+   chp_sink snk;
+   init_buffer b(src.X, snk.X);
+}
+
+defproc source_test()
+{
+   df_source src;
+   chp_ten_sink snk(src.R);
+}
+
+defproc sink_test()
+{
+  chp_source src;
+  df_sink snk(src.X);
+}
+
+defproc copy_test(){
+  chp_source src;
+  chp_sink sinkA,sinkB;
+
+  copy cp(src.X, sinkA.X, sinkB.X);
+}
+
+
+defproc chp_split_source(bd!<8> output; bdbool! control){
+  chp{
+    [~Reset]; log("Sending 10 to B"); control!true,output!10;  log("Sending 11 to A"); control!false,output!11;  log("Sending 12 to A");  control!false,output!12;  log("Sent 13 to B");control!true, output!13
+  }
+}
+
+defproc chp_merge_source(bd!<8> A,B; bdbool! control){
+  chp{
+    [~Reset]; log("Sending 10 from A, setting control to A"); control!true, A!10; log("Sending 20 from B, setting control to B"); control!false, B!20;log("Sending 25 from A, setting control to A"); control!true, A!25; 
+    log("Sending 5 from A, setting control to B. Shouldn't pass"); control!false, A!25
+  }
+}
+
+defproc chp_add_source(bd!<8> A,B){
+  chp{
+    [~Reset]; log("Sending 10 on A and 15 on B"); A!10, B!15; log("Sending 100 on A and 150 on B");  A!100, B!150; log("Sending 1 on A and 2 on B");  A!1, B!2; log("Sending 25 on A and 127 on B");  A!25, B!127
+  }
+}
+
+defproc split_test(){
+  chp_split_source src;
+  chp_sink snkA;
+  chp_sink snkB;
+  split s(src.output,src.control,snkA.X,snkB.X);
+}
+
+defproc merge_test(){
+  chp_merge_source src;
+  chp_sink snk;
+  merge m(src.A,src.B,src.control,snk.X);
+}
+
+defproc adder_test(){
+  chp_add_source src;
+  chp_sink snk;
+  add a(src.A,src.B,snk.X);
 }

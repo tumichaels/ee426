@@ -1,0 +1,6 @@
+set GND 0
+set Reset 1
+cycle
+set Reset 0
+cycle
+exit
