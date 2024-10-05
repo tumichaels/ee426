@@ -8,3 +8,27 @@ Content:
 
 ALl cells are located inside cells.act with all chp_test cells located in chp_tests.act.
 Common.act contains all supporting cells.
+
+Runthrough of Tests and how each dataflow process works:
+
+Buffer: Uses simple mechanism from class. The test uses CHP sources and sinks to pass data through.
+
+Init_Buffer: A bit harder. We use the same structure as the buffer but we initialize the control c element such that it starts off sending a request.
+With that, we must also control s.t. acknowledge starts off low and incoming requests are low as well to allow for c element reset.
+This is done using a locking celement that is initialized to one, and turns off when the buffer receives an acknoledge and stops requesting.
+This is fed into a typically RESET NOR gate setup. The tests show the initial token of zero sent, and then the normal source sink transfer.
+
+Source Tests: a simple invertor, a CHP sink tests if it can pull zeros.
+
+Sink Test : A short wire, or just a delay. Src values are able to send and the sink destroys the tokens.
+
+Copy: Self explanatory and similar to buffer, except we request two channels and must get acknowledgement from both before continuing the protocol.
+Testing is self explanatory and shows two sinks receiving values from one src.
+
+Split: Uses similar idea except request signals are demuxed out, and acknowledges are OR'd together.
+
+Merge: Relies on two stages, first a control stage where the selector channel is taken in. Then, it selects which request line the cell desires and then performs
+the whole protocol using another celement. Mux used to select the data channel. Testing shows two sources and selecting between the two. It also demonstrates that
+a channel won't pass through if not selected.
+
+Add: Self explanatory, similar to buffer except it waits for requests from A and B. Accounted also for proper delay from the addition of 8 bits.

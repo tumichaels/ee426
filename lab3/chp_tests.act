@@ -12,6 +12,16 @@ defproc chp_source (bd!<8> X)
   *[ i < 10 -> X!i; log("Sent Value: ",i); i := i + 1 ]
   }
 }
+defproc chp_source_offset (bd!<8> X)
+{
+  int<8> i;
+  chp {
+    [~Reset];
+    i := 5;
+    log("Starting to send values: Init value should have gone to sink.");
+  *[ i < 10 -> X!i; log("Sent Value: ",i); i := i + 1 ]
+  }
+}
 
 defproc chp_sink (bd?<8> X)
 {
@@ -41,7 +51,7 @@ defproc buf_test()
 
 defproc init_buf_test()
 {
-   chp_source src;
+   chp_source_offset src;
    chp_sink snk;
    init_buffer b(src.X, snk.X);
 }

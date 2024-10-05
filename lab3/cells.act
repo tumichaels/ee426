@@ -47,22 +47,36 @@ defproc buffer(bd?<8> L; bd!<8> R){
 
 defproc init_buffer(bd?<8> L; bd!<8> R){
 
-    bool ack;
+    bool ack, init_reset;
     /* Control
       Sends out an acknoeldgement and a request since we have received the value and the next cell doesn't need it.
       If we are getting a request and right is ready to receive value, send current data.
       If left cell has received our ack, and the right has acknowledged our data, we can reset c element, and tell right we are done, and left that we are ready for more.
     */ 
+    //
+
+
     ctree_init<2,false,true> celt;
-    celt.in[0] = L.r;
     INVX1 inv(R.a,celt.in[1]);
 
     ack = celt.out;
-    ack = L.a;
 
     DELAY_LATCH d(ack,R.r);
 
-    
+    // LOCKING Mechanisms
+    ctree_init<2,false,true> lock_ack;
+    lock_ack.in[0] = Reset;
+    lock_ack.in[1] = ack;
+    init_reset = lock_ack.out;
+
+    INVX1 final_ack(ack);
+    NOR2X1 init_ack(init_reset,final_ack.Y,L.a);
+
+    INVX1 final_req(L.r);
+    NOR2X1 init_req(init_reset,final_req.Y,celt.in[0]);
+
+
+
     // Data
     PULSE_LATCH p(ack);
     N_LATCH<8> buf;

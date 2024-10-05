@@ -7,8 +7,8 @@ echo "~~~~~~~~~~~~~~~~~ Buffer Test ~~~~~~~~~~~~~~~"
 actsim chp_tests.act -Wall:off "buf_test" < chptest.actscript
 
 
-# echo "~~~~~~~~~~~~~~~~~ Buffer Test ~~~~~~~~~~~~~~~"
-# actsim chp_tests.act -Wall:off "init_buf_test" < chptest.actscript
+echo "~~~~~~~~~~~~~~~~~ Init_Buffer Test ~~~~~~~~~~~~~~~"
+actsim chp_tests.act -Wall:off "init_buf_test" < chptest.actscript
 echo ""
 echo "~~~~~~~~~~~~~~~~~ Source Test ~~~~~~~~~~~~~~~"
 actsim chp_tests.act -Wall:off "source_test" < chptest.actscript
