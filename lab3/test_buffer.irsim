@@ -32,13 +32,15 @@ s
 
 l b/L/r
 h b/R/a
+l b/L/d\[1\]
+l b/L/d\[3\]
 l b/L/d\[5\]
 l b/L/d\[7\]
 h b/L/d\[6\]
-h b/L/d\[8\]
+h b/L/d\[4\]
 s
 
-b/R/a l
+l b/R/a
 s
 
 h b/L/r
