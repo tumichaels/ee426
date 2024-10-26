@@ -1,0 +1,9 @@
+Testing Protocols:
+
+To test the act script and the dataflow model, enter the part1 folder and run part1_test.sh. This will run the actscript needed to test the accumulator.
+
+Content:
+
+Dataflow model is contained in part1 and tested using an chp program.
+
+The interact script is located in

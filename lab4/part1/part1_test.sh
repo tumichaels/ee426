@@ -1,0 +1,1 @@
+actsim -Wall:off accum_chp_tests.act test < chptest.actscript
