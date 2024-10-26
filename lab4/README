@@ -6,4 +6,6 @@ Content:
 
 Dataflow model is contained in part1 and tested using an chp program.
 
-The interact script is located in
+The interact script is located in part2 with all of the output files. It also contains the cells.act file.
+
+All layouts are built in part3 folder in the mag sub_directory. Some layouts can be tested in the sims sub_directory although some layouts like TIELO don't function properly in irsim. Some of the bigger layouts also seem to crash when attempting to convert to a sim.
