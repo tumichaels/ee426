@@ -1,0 +1,11 @@
+h VDD
+l GND
+
+s
+
+ana in(0) out
+
+h in(0)
+s
+l in(0)
+s

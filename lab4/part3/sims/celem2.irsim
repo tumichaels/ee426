@@ -1,0 +1,17 @@
+h Vdd
+l GND
+
+
+ana in(0) in(1) out
+
+h in(0)
+h in(1)
+s
+l in(0)
+s
+
+l in(1)
+s
+
+h in(0)
+s

@@ -1,0 +1,123 @@
+magic
+tech sky130l
+timestamp 1729915691
+<< ndiffusion >>
+rect 8 10 13 16
+rect 8 7 9 10
+rect 12 7 13 10
+rect 8 6 13 7
+rect 15 15 20 16
+rect 15 12 16 15
+rect 19 12 20 15
+rect 15 6 20 12
+rect 22 10 27 16
+rect 22 7 23 10
+rect 26 7 27 10
+rect 22 6 27 7
+<< ndc >>
+rect 9 7 12 10
+rect 16 12 19 15
+rect 23 7 26 10
+<< ntransistor >>
+rect 13 6 15 16
+rect 20 6 22 16
+<< pdiffusion >>
+rect 8 27 13 53
+rect 8 24 9 27
+rect 12 24 13 27
+rect 8 23 13 24
+rect 15 23 20 53
+rect 22 52 27 53
+rect 22 49 23 52
+rect 26 49 27 52
+rect 22 23 27 49
+<< pdc >>
+rect 9 24 12 27
+rect 23 49 26 52
+<< ptransistor >>
+rect 13 23 15 53
+rect 20 23 22 53
+<< polysilicon >>
+rect 13 58 32 60
+rect 13 53 15 58
+rect 20 53 22 55
+rect 30 45 32 58
+rect 30 44 35 45
+rect 30 41 31 44
+rect 34 41 35 44
+rect 30 40 35 41
+rect 13 16 15 23
+rect 20 21 22 23
+rect 30 22 35 23
+rect 30 21 31 22
+rect 20 19 31 21
+rect 34 19 35 22
+rect 20 16 22 19
+rect 30 18 35 19
+rect 13 4 15 6
+rect 20 4 22 6
+<< pc >>
+rect 31 41 34 44
+rect 31 19 34 22
+<< m1 >>
+rect 8 56 12 60
+rect 16 59 20 60
+rect 16 56 17 59
+rect 23 56 28 60
+rect 32 56 36 60
+rect 8 44 11 56
+rect 23 52 26 56
+rect 23 48 26 49
+rect 8 41 31 44
+rect 34 41 35 44
+rect 9 27 12 28
+rect 9 10 12 24
+rect 19 19 31 22
+rect 34 19 35 22
+rect 15 12 16 15
+rect 19 12 20 15
+rect 8 7 9 8
+rect 23 10 26 11
+rect 12 7 23 9
+rect 26 7 27 10
+rect 8 6 27 7
+rect 8 4 12 6
+<< m2c >>
+rect 17 56 20 59
+rect 32 53 35 56
+rect 16 19 19 22
+rect 16 12 19 15
+<< m2 >>
+rect 16 59 21 60
+rect 16 56 17 59
+rect 20 56 21 59
+rect 16 55 21 56
+rect 31 56 36 57
+rect 16 23 19 55
+rect 31 53 32 56
+rect 35 53 36 56
+rect 31 52 36 53
+rect 15 22 20 23
+rect 15 19 16 22
+rect 19 19 20 22
+rect 15 18 20 19
+rect 15 15 20 16
+rect 34 15 36 52
+rect 15 12 16 15
+rect 19 13 36 15
+rect 19 12 20 13
+rect 15 11 20 12
+<< labels >>
+rlabel polysilicon 14 17 14 17 3 A
+rlabel m1 33 57 33 57 3 GND
+port 1 e
+rlabel m1 25 57 25 57 3 Vdd
+port 2 e
+rlabel m1 17 57 17 57 3 B
+port 3 e
+rlabel m1 9 5 9 5 3 Y
+port 4 e
+rlabel m1 9 57 9 57 3 A
+port 5 e
+rlabel polysilicon 21 17 21 17 3 B
+<< end >>
