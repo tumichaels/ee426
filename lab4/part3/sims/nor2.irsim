@@ -1,0 +1,18 @@
+h Vdd
+l GND
+
+
+ana A B Y
+
+l A
+l B
+s
+h A
+s
+
+l A
+h B
+s
+
+h A
+s
