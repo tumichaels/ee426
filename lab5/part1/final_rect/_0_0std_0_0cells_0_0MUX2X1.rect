@@ -230,6 +230,7 @@ rect Vdd mcon 50 34 53 37
 rect B mcon 25 40 28 43
 rect _S mcon 23 24 26 27
 rect Vdd mcon 16 41 19 44
+rect Y mcon 9 7 12 10
 rect #5 mcon 9 29 12 32
 rect GND m2 75 40 76 43
 rect GND m2 71 43 76 44
@@ -304,14 +305,18 @@ rect Vdd m2 19 41 22 42
 rect Vdd m2 19 42 20 44
 inrect B m2 25 44 48 45
 rect Vdd m2 16 41 19 44
+outrect Y m2 12 7 13 10
 rect #5 m2 12 29 13 30
 rect #5 m2 12 30 31 32
 rect Vdd m2 15 40 22 41
 rect Vdd m2 15 41 16 44
 rect Vdd m2 15 44 20 45
 outrect Y m2 9 4 71 6
+outrect Y m2 9 7 12 10
 rect #5 m2 9 29 12 32
-rect # m2 8 6 13 11
+outrect Y m2 8 6 13 7
+outrect Y m2 8 7 9 10
+outrect Y m2 8 10 13 11
 rect #5 m2 8 28 13 29
 rect #5 m2 8 29 9 32
 rect #5 m2 8 32 13 33

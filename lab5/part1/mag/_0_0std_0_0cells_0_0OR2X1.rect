@@ -71,8 +71,8 @@ rect # polysilicon 20 34 22 38
 rect # polysilicon 31 34 36 39 
 rect # polysilicon 27 32 36 34 
 rect # polysilicon 27 27 29 32 
-rect B polysilicon 13 12 15 19 
-rect A polysilicon 20 12 22 19 
+rect # polysilicon 13 12 15 19 
+rect # polysilicon 20 12 22 19 
 rect _Y polysilicon 27 12 29 19 
 rect # polysilicon 13 4 15 6 
 rect # polysilicon 20 4 22 6 
@@ -128,7 +128,7 @@ rect # m1 23 10 27 11
 rect # m1 26 7 27 10 
 rect # m1 8 0 12 7 
 rect # m1 23 0 27 7 
-rect Y m1 8 -4 27 0 
+rect GND m1 8 -4 27 0 
 rect # m1 35 8 36 11 
 rect Y m1 32 -4 36 8 
 rect # m2c 9 30 12 33 

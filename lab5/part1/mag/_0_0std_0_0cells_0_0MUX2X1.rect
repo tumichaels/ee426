@@ -259,6 +259,10 @@ rect # m2c 43 11 46 14
 rect # m1 43 11 46 14 
 rect # m2 43 11 46 14 
 rect # mcon 43 11 46 14 
+rect # m2c 9 7 12 10 
+rect # m1 9 7 12 10 
+rect # m2 9 7 12 10 
+rect # mcon 9 7 12 10 
 rect # m2c 68 7 71 10 
 rect # m1 68 7 71 10 
 rect # m2 68 7 71 10 
@@ -327,9 +331,12 @@ rect # m2 42 14 76 15
 rect # m2 42 11 43 14 
 rect # m2 46 13 76 14 
 rect # m2 46 11 47 13 
-rect # m2 8 6 13 11 
+rect # m2 8 10 13 11 
+rect # m2 8 7 9 10 
+rect # m2 12 7 13 10 
 rect # m2 42 8 47 11 
 rect # m2 67 10 72 11 
+rect # m2 8 6 13 7 
 rect # m2 67 7 68 10 
 rect # m2 71 7 72 10 
 rect # m2 67 6 72 7 

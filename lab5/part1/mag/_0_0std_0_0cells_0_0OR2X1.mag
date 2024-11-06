@@ -1,6 +1,6 @@
 magic
 tech sky130l
-timestamp 1729901528
+timestamp 1730906934
 << ndiffusion >>
 rect 8 10 13 12
 rect 8 7 9 10
@@ -139,11 +139,7 @@ rlabel polysilicon 28 13 28 13 3 _Y
 rlabel polysilicon 28 18 28 18 3 _Y
 rlabel ndiffusion 23 7 23 7 3 GND
 rlabel pdiffusion 23 20 23 20 3 Vdd
-rlabel polysilicon 21 13 21 13 3 A
-rlabel polysilicon 21 18 21 18 3 A
 rlabel ndiffusion 16 7 16 7 3 _Y
-rlabel polysilicon 14 13 14 13 3 B
-rlabel polysilicon 14 18 14 18 3 B
 rlabel ndiffusion 9 7 9 7 3 GND
 rlabel m1 9 45 9 45 3 A
 port 5 e
@@ -152,8 +148,7 @@ rlabel m1 17 45 17 45 3 Vdd
 port 3 e
 rlabel m1 25 45 25 45 3 B
 port 2 e
-rlabel m1 9 -3 9 -3 3 Y
-port 4 e
 rlabel m1 33 -3 33 -3 3 Y
 port 1 e
+rlabel m1 12 -2 12 -2 2 GND
 << end >>
