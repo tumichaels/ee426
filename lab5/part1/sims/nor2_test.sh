@@ -1,0 +1,1 @@
+irsim _0_0std_0_0cells_0_0NOR2X1.al _0_0std_0_0cells_0_0NOR2X1.sim -nor2.irsim
