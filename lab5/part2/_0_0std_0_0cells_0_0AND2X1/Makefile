@@ -1,9 +1,9 @@
 # Variables for inputs and outputs
-INPUTS := in[0]
-OUTPUTS := out
+INPUTS := A B
+OUTPUTS := Y
 CELL_PROC := std::cells::AND2X1
 
-NUM_TESTS := 1000
+NUM_TESTS := 200
 MAG_FILES := mag/_0_0std_0_0cells_0_0AND2X1.rect mag/welltap_svt.rect
 
 # List of all pairs of inputs and outputs (for the default target)
@@ -41,6 +41,7 @@ $(PAIRS):
 	cp output.lef final_layouts/$(shell echo $@ | tr -d '[]')/output.lef
 	cp output.guide final_layouts/$(shell echo $@ | tr -d '[]')/output.guide
 
+	TritonRoute -lef output.lef -def output.def -guide output.guide -output final_layouts/$(shell echo $@ | tr -d '[]')/routed.def
 
 # Phony target to clean up generated files
 .PHONY: clean

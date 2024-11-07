@@ -371,7 +371,7 @@ MACRO circuitppnp
    CLASS CORE ;
    FOREIGN circuitppnp 0.000000 0.000000 ;
    ORIGIN 0.000000 0.000000 ; 
-   SIZE 163.200000 BY 167.400000 ; 
+   SIZE 73.200000 BY 75.600000 ; 
    SYMMETRY X Y ;
    SITE CoreSite ;
 END circuitppnp
@@ -380,7 +380,7 @@ MACRO circuitwell
    CLASS CORE ;
    FOREIGN circuitwell 0.000000 0.000000 ;
    ORIGIN 0.000000 0.000000 ; 
-   SIZE 163.200000 BY 167.400000 ; 
+   SIZE 73.200000 BY 75.600000 ; 
    SYMMETRY X Y ;
    SITE CoreSite ;
 END circuitwell
