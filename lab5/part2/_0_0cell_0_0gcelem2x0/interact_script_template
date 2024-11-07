@@ -8,12 +8,12 @@ conf:set_string "lefdef.rect_outinitdir" "init_rect"
 # read in the lab4 act file
 act:read "top.act"
 # add the cells file to the design
-act:merge "cells.act"
+act:merge "../cells.act"
 
   # expand the design, substituting all parameters
 act:expand
   # set the top-level process to the expanded accum
-act:top in0_out
+act:top {{TOP_PROC}}
 
 # -- Circuit generation
   # map all the production rules to the cells

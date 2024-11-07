@@ -1,6 +1,0 @@
-rect # ppdiff 8 8 10 10 
-rect # ppdiff 8 5 12 8 
-rect GND ppdiff 8 3 10 5 
-rect Vdd nndiff 8 14 10 21 
-rect Vdd m1 8 20 12 24 
-rect GND m1 8 4 12 8 

@@ -4,7 +4,7 @@ OUTPUTS := out
 CELL_PROC := cell::ginvx0
 
 NUM_TESTS := 1000
-MAG_FILES := mag/{{FILENAME}}.rect mag/welltap_svt.rect
+MAG_FILES := mag/_0_0cell_0_0gcelem2x0.rect mag/welltap_svt.rect
 
 # List of all pairs of inputs and outputs (for the default target)
 PAIRS := $(foreach input,$(INPUTS),$(foreach output,$(OUTPUTS),$(input)_$(output)))

@@ -1,12 +1,13 @@
 import "../cells.act";
-defproc in0_out()
+import std::cells;
+defproc {{TEST_NAME}}()
 {
-  pint NUM = 1000;
+  pint NUM = {{NUM_TESTS}};
 
-  cell::test tst[NUM]; /* put your cell name here */
+  {{CELL_PROC}} tst[NUM]; /* put your cell name here */
 
   // connect the output of cell i to the input of 
   // cell i+1; you will have to change these to 
   // correct port names for the cell you are testings
-  (i:NUM-1: tst[i].out=tst[i+1].in[0];) 
+  (i:NUM-1: tst[i].{{OUT}}=tst[i+1].{{IN}};) 
 }
