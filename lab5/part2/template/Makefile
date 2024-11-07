@@ -32,7 +32,12 @@ $(PAIRS):
     # Run Interact Script
 	interact -Tsky130l < interact_script
 
-	sleep 20
+	-mkdir final_layouts/$(shell echo $@ | tr -d '[]')
+	cp output.def final_layouts/$(shell echo $@ | tr -d '[]')/output.def
+	cp output.lef final_layouts/$(shell echo $@ | tr -d '[]')/output.lef
+	cp output.guide final_layouts/$(shell echo $@ | tr -d '[]')/output.guide
+
+	sleep 2
 
 # Phony target to clean up generated files
 .PHONY: clean
