@@ -1,7 +1,7 @@
-import "cells.act";
-defproc mytest()
+import "../cells.act";
+defproc in0_out()
 {
-  pint NUM = 100;
+  pint NUM = 1000;
 
   cell::ginvx0 tst[NUM]; /* put your cell name here */
 
