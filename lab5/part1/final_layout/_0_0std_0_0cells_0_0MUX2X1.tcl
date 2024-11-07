@@ -1,4 +1,4 @@
-xload _0_0std_0_0cells_0_0MUX2X1
+xload final_rect/_0_0std_0_0cells_0_0MUX2X1
 box 0 0 80 48
 label prboundary
 box 71 7 72 10

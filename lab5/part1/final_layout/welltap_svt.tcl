@@ -1,4 +1,4 @@
-xload welltap_svt
+xload final_rect/welltap_svt
 box 0 0 16 28
 label prboundary
 box 8 3 10 5

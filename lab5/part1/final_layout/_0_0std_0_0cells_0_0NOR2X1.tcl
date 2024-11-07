@@ -1,4 +1,4 @@
-xload _0_0std_0_0cells_0_0NOR2X1
+xload final_rect/_0_0std_0_0cells_0_0NOR2X1
 box 0 0 40 56
 label prboundary
 box 26 11 27 15
