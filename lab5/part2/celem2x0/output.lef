@@ -338,3 +338,21 @@ MACRO welltap_svt
     END GND
 END welltap_svt
 
+MACRO circuitppnp
+   CLASS CORE ;
+   FOREIGN circuitppnp 0.000000 0.000000 ;
+   ORIGIN 0.000000 0.000000 ; 
+   SIZE 37.200000 BY 37.800000 ; 
+   SYMMETRY X Y ;
+   SITE CoreSite ;
+END circuitppnp
+
+MACRO circuitwell
+   CLASS CORE ;
+   FOREIGN circuitwell 0.000000 0.000000 ;
+   ORIGIN 0.000000 0.000000 ; 
+   SIZE 37.200000 BY 37.800000 ; 
+   SYMMETRY X Y ;
+   SITE CoreSite ;
+END circuitwell
+
