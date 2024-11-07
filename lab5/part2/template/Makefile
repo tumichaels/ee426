@@ -41,6 +41,7 @@ $(PAIRS):
 	cp output.lef final_layouts/$(shell echo $@ | tr -d '[]')/output.lef
 	cp output.guide final_layouts/$(shell echo $@ | tr -d '[]')/output.guide
 
+	TritonRoute -lef output.lef -def output.def -guide output.guide -output final_layouts/$(shell echo $@ | tr -d '[]')/routed.def
 
 # Phony target to clean up generated files
 .PHONY: clean
