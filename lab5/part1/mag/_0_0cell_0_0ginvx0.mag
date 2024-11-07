@@ -1,6 +1,6 @@
 magic
 tech sky130l
-timestamp 1730865207
+timestamp 1731021415
 << ndiffusion >>
 rect 8 11 13 12
 rect 8 8 9 11
@@ -42,11 +42,9 @@ rect 13 4 15 6
 << pc >>
 rect 24 15 27 18
 << m1 >>
-rect 8 31 12 32
-rect 8 28 9 31
-rect 16 28 20 32
-rect 24 31 28 32
-rect 27 28 28 31
+rect 7 31 12 32
+rect 7 28 9 31
+rect 16 28 22 31
 rect 16 24 19 28
 rect 9 23 12 24
 rect 15 21 16 24
@@ -57,37 +55,36 @@ rect 19 15 24 18
 rect 27 15 28 18
 rect 23 14 28 15
 rect 15 8 16 11
-rect 19 8 24 11
-rect 8 4 12 8
+rect 19 8 28 11
+rect 7 4 12 8
+rect 27 5 28 8
+rect 24 4 28 5
 << m2c >>
 rect 9 28 12 31
-rect 24 28 27 31
+rect 22 28 25 31
 rect 16 15 19 18
-rect 24 8 27 11
+rect 24 5 27 8
 << m2 >>
 rect 8 31 13 32
 rect 8 28 9 31
 rect 12 28 13 31
 rect 8 27 13 28
-rect 23 31 28 32
-rect 23 28 24 31
-rect 27 28 28 31
-rect 23 27 28 28
+rect 21 31 26 32
+rect 21 28 22 31
+rect 25 28 26 31
+rect 21 27 26 28
 rect 9 18 12 27
 rect 15 18 20 19
 rect 9 15 16 18
 rect 19 15 20 18
 rect 15 14 20 15
-rect 24 12 27 27
-rect 23 11 28 12
-rect 23 8 24 11
-rect 27 8 28 11
-rect 23 7 28 8
+rect 23 8 28 9
+rect 23 5 24 8
+rect 27 5 28 8
+rect 23 4 28 5
 << labels >>
 rlabel polysilicon 14 13 14 13 3 in(0)
 rlabel polysilicon 14 18 14 18 3 in(0)
-rlabel m2c 25 29 25 29 3 GND
-port 1 e
 rlabel m1 17 29 17 29 3 Vdd
 port 2 e
 rlabel m1 9 5 9 5 3 out
@@ -95,6 +92,6 @@ port 3 e
 rlabel m1 9 29 9 29 3 in(0)
 port 4 e
 rlabel ndc 10 9 10 9 2 out
-rlabel m2 27 31 28 32 6 GND
 rlabel m2 8 31 9 32 4 in(0)
+rlabel m1 24 4 28 8 8 GND
 << end >>
