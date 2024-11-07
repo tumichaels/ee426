@@ -152,11 +152,10 @@ rect # m1 28 35 29 38
 rect in[1] m1 32 36 37 39 
 rect # m1 40 36 41 39 
 rect # m1 56 36 57 39 
-rect GND m1 80 36 84 40 
 rect # m1 24 34 29 35 
 rect # m1 16 32 21 33 
 rect # m1 26 33 29 34 
-rect # m1 79 35 84 36 
+rect GND m1 79 35 84 40 
 rect # m1 26 30 73 33 
 rect # m1 79 32 80 35 
 rect # m1 83 32 84 35 
@@ -239,7 +238,7 @@ rect # m2 20 33 21 36
 rect Vdd m2 56 36 57 39 
 rect # m2 60 36 61 39 
 rect # m2 56 35 61 36 
-rect # m2 79 35 84 36 
+rect # m2 79 35 84 40 
 rect # m2 16 32 21 33 
 rect # m2 4 30 18 32 
 rect # m2 4 15 6 30 
