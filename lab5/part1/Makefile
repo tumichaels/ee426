@@ -35,6 +35,7 @@ final_layout : $(FINAL_MAG_FILES) output.def output.lef
 	cp output.def final_layout/output.def
 	cp output.lef final_layout/output.lef
 
+mag_rect : $(MAG_RECT_FILES)
 
 # Phony target to clean up generated files
 .PHONY: clean
