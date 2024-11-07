@@ -1,7 +1,7 @@
 # Variables for inputs and outputs
 INPUTS := in[0]
 OUTPUTS := out
-CELL_PROC := cell::ginvx0
+CELL_PROC := std::cells::LATCHINV
 
 NUM_TESTS := 1000
 MAG_FILES := mag/_0_0std_0_0cells_0_0LATCHINV.rect mag/welltap_svt.rect
