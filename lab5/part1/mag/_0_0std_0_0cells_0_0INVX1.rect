@@ -41,6 +41,7 @@ rect # pc 24 14 27 17
 rect # polysilicon 24 14 27 17 
 rect # m1 24 14 27 17 
 rect # m1 7 31 12 33 
+rect # m1 23 32 28 33 
 rect A m1 7 28 9 31 
 rect # m1 16 31 28 32 
 rect Vdd m1 16 28 24 31 
@@ -90,9 +91,9 @@ rect # m2 23 31 28 32
 rect # m2 23 28 24 31 
 rect # m2 27 28 28 31 
 rect # m2 23 27 28 28 
-rect # m2 10 17 13 27 
+rect # m2 8 17 11 27 
 rect # m2 15 17 20 18 
-rect # m2 10 15 16 17 
+rect # m2 8 15 16 17 
 rect # m2 15 14 16 15 
 rect # m2 19 14 20 17 
 rect # m2 15 13 20 14 
