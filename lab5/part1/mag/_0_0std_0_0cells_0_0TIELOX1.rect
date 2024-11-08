@@ -40,7 +40,8 @@ rect # polysilicon 13 4 15 6
 rect # pc 24 16 27 19 
 rect # polysilicon 24 16 27 19 
 rect # m1 24 16 27 19 
-rect Vdd m1 8 32 12 36 
+rect # m1 8 35 12 36 
+rect Vdd m1 8 32 9 35 
 rect # m1 9 28 12 32 
 rect # m1 23 35 28 36 
 rect # m1 23 32 24 35 
@@ -59,6 +60,10 @@ rect # m1 8 7 9 8
 rect # m1 15 8 16 11 
 rect GND m1 19 8 24 11 
 rect Y m1 8 4 12 7 
+rect # m2c 9 32 12 35 
+rect # m1 9 32 12 35 
+rect # m2 9 32 12 35 
+rect # mcon 9 32 12 35 
 rect GND m2c 24 32 27 35 
 rect GND m1 24 32 27 35 
 rect GND m2 24 32 27 35 
@@ -67,6 +72,10 @@ rect # m2c 24 8 27 11
 rect # m1 24 8 27 11 
 rect # m2 24 8 27 11 
 rect # mcon 24 8 27 11 
+rect # m2 8 35 13 36 
+rect # m2 8 32 9 35 
+rect # m2 12 32 13 35 
+rect # m2 8 31 13 32 
 rect # m2 23 35 28 36 
 rect # m2 23 32 24 35 
 rect # m2 27 32 28 35 
