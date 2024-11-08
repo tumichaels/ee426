@@ -1,0 +1,21 @@
+magic
+tech sky130l
+timestamp 1731041402
+<< ppdiff >>
+rect 8 8 10 10
+rect 8 5 12 8
+rect 8 3 10 5
+<< nndiff >>
+rect 8 14 10 21
+<< m1 >>
+rect 8 20 12 24
+rect 8 4 12 8
+<< labels >>
+rlabel space 0 0 16 28 6 prboundary
+rlabel ppdiff 9 4 9 4 3 GND
+rlabel ppdiff 9 6 9 6 3 GND
+rlabel ppdiff 9 9 9 9 3 GND
+rlabel nndiff 9 15 9 15 3 Vdd
+rlabel m1 9 5 9 5 3 GND
+rlabel m1 9 21 9 21 3 Vdd
+<< end >>
