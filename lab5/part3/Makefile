@@ -34,7 +34,7 @@ $(FINAL_LAYOUT_DIR)/%.mag: $(FINAL_LAYOUT_DIR)/%.tcl
 final_layout : $(FINAL_MAG_FILES) output.def output.lef
 	cp output.def final_layout/output.def
 	cp output.lef final_layout/output.lef
-
+	TritonRoute -lef output.lef -def output.def -guide output.guide -output final_layout/routed.def
 mag_rect : $(MAG_RECT_FILES)
 
 # Phony target to clean up generated files
