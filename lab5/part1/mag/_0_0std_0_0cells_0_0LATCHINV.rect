@@ -59,13 +59,13 @@ rect # pdiffusion 12 25 13 28
 rect #7 pdiffusion 8 23 13 25 
 rect # pdiffusion 15 38 19 43 
 rect # pdiffusion 15 27 20 38 
-rect Vdd pdiffusion 15 24 16 27 
+rect # pdiffusion 15 24 16 27 
 rect # pdiffusion 19 24 20 27 
-rect Vdd pdiffusion 15 23 20 24 
+rect # pdiffusion 15 23 20 24 
 rect # pdiffusion 22 27 27 38 
-rect _clk pdiffusion 22 24 23 27 
+rect # pdiffusion 22 24 23 27 
 rect # pdiffusion 26 24 27 27 
-rect _clk pdiffusion 22 23 27 24 
+rect # pdiffusion 22 23 27 24 
 rect # pdiffusion 33 27 38 33 
 rect # pdiffusion 33 24 34 27 
 rect # pdiffusion 37 24 38 27 
@@ -82,7 +82,7 @@ rect #7 pdiffusion 58 23 63 24
 rect # pdiffusion 65 40 70 43 
 rect # pdiffusion 65 37 66 40 
 rect # pdiffusion 69 37 70 40 
-rect _q pdiffusion 65 23 70 37 
+rect # pdiffusion 65 23 70 37 
 rect # pdc 9 25 12 28 
 rect # pdiffusion 9 25 12 28 
 rect # m1 9 25 12 28 
