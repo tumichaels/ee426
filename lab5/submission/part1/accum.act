@@ -1,0 +1,40 @@
+import "dataflow.act";
+import std::channel;
+
+
+defproc accum (bd?<8> L; bd?<1> C; bd!<8> R){
+
+    bd<8> final_Y, Y_init, Y, ACCUM_Y, ACCUM_Y_POST_SPLIT;
+
+    copy<1> control(C); 
+    copy<8> y_output(final_Y, R, Y_init);
+
+    // Initialize Y to have a value
+    init_buffer init(Y_init, Y);
+
+    // calculate x + y
+    add accumulator(L,Y,ACCUM_Y);
+
+    df_sink y_reset;
+    df_source zeros;
+    // Control of 1 sends value off to final mux
+    split select_use_accum(ACCUM_Y,control.R1, 
+        y_reset.L, 
+        ACCUM_Y_POST_SPLIT);
+
+    
+    // Decides whether to reset y value to 0 or to use the previous accumulated value.
+    merge final_output(ACCUM_Y_POST_SPLIT, zeros.R, control.R2, final_Y);
+    
+} 
+
+
+// chp {
+//       y := 0;
+//    *[ L?x,C?c;
+//       [c=0 -> y := 0
+//      []c=1 -> y := y + x
+//       ];
+//       R!y 
+//     ]
+// }

@@ -1,0 +1,11 @@
+Testing Protools
+
+part1 
+In part1, everything compiles by one make script. Any changes to mag will compile all the way to the final layout.
+Run `make` and ensure you run in a terminal that has access to a graphical interface(X11) for the magic scripts 
+that save the final mag.
+
+part2
+Each directory has a mag folder with the final mag, the interact script, and also output.lef and routed.def files
+for every input pair. These are stored in the final_layouts directory.
+Any changes to mag in part1, after rerunning make will recreate all routability test files.
