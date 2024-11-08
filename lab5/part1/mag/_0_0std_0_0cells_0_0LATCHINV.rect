@@ -165,12 +165,14 @@ rect # polysilicon 33 37 36 40
 rect # m1 33 37 36 40 
 rect # m1 8 47 12 48 
 rect CLK m1 8 44 9 47 
-rect # m1 24 47 28 48 
-rect # m1 40 47 44 48 
+rect # m1 24 47 29 48 
 rect D m1 24 44 25 47 
 rect # m1 28 44 29 47 
+rect # m1 40 47 45 48 
 rect q m1 40 44 41 47 
-rect # m1 41 43 44 44 
+rect # m1 44 44 45 47 
+rect # m1 24 43 29 44 
+rect # m1 41 43 45 44 
 rect # m1 49 47 52 48 
 rect # m1 56 47 60 48 
 rect Vdd m1 56 44 57 47 
@@ -273,7 +275,7 @@ rect # m2 56 47 61 48
 rect # m2 56 44 57 47 
 rect # m2 60 44 61 47 
 rect # m2 56 43 61 44 
-rect # m2 71 44 76 45 
+rect # m2 71 44 76 48 
 rect # m2 32 40 37 41 
 rect # m2 32 37 33 40 
 rect # m2 36 37 37 40 
