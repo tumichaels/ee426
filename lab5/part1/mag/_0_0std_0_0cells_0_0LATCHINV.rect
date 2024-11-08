@@ -168,11 +168,11 @@ rect CLK m1 8 44 9 47
 rect # m1 24 47 29 48 
 rect D m1 24 44 25 47 
 rect # m1 28 44 29 47 
-rect # m1 40 47 45 48 
+rect # m1 24 43 29 44 
+rect q m1 40 47 45 48 
 rect q m1 40 44 41 47 
 rect # m1 44 44 45 47 
-rect # m1 24 43 29 44 
-rect # m1 41 43 45 44 
+rect # m1 40 43 45 44 
 rect # m1 49 47 52 48 
 rect # m1 56 47 60 48 
 rect Vdd m1 56 44 57 47 

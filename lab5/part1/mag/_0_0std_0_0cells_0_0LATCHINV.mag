@@ -1,6 +1,6 @@
 magic
 tech sky130l
-timestamp 1731030668
+timestamp 1731030982
 << ndiffusion >>
 rect 8 10 13 16
 rect 8 7 9 10
@@ -144,11 +144,11 @@ rect 8 44 9 47
 rect 24 47 29 48
 rect 24 44 25 47
 rect 28 44 29 47
+rect 24 43 29 44
 rect 40 47 45 48
 rect 40 44 41 47
 rect 44 44 45 47
-rect 24 43 29 44
-rect 41 43 45 44
+rect 40 43 45 44
 rect 49 47 52 48
 rect 56 47 60 48
 rect 56 44 57 47
@@ -282,9 +282,8 @@ rlabel m1 9 5 9 5 3 _q
 port 5 e
 rlabel m1 9 45 9 45 3 CLK
 port 6 e
-rlabel m1 41 45 41 45 3 q
-port 3 e
 rlabel m1 73 45 73 45 3 GND
 port 1 e
 rlabel ndiffusion 49 13 49 13 1 #10
+rlabel m1 40 47 45 48 5 q
 << end >>
