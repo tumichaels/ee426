@@ -1,9 +1,9 @@
 # Variables for inputs and outputs
-INPUTS := in[0]
-OUTPUTS := out
+INPUTS := D CLK q
+OUTPUTS := _q
 CELL_PROC := std::cells::LATCHINV
 
-NUM_TESTS := 1000
+NUM_TESTS := 100
 MAG_FILES := mag/_0_0std_0_0cells_0_0LATCHINV.rect mag/welltap_svt.rect
 
 # List of all pairs of inputs and outputs (for the default target)
@@ -18,7 +18,7 @@ mag/%.rect : ../../part1/mag/%.rect
 # Rule to process each pair
 $(PAIRS):
 	$(eval in :=$(shell echo $@ | cut -d '_' -f1))
-	$(eval out :=$(shell echo $@ | cut -d '_' -f2))
+	$(eval out :=$(shell echo $@ | sed 's/[^_]*_//'))
 	echo Processing input='$(in)' and output='$(out)'; 
 
     # Custom command to run on the pair $(input) and $(output)
@@ -41,6 +41,7 @@ $(PAIRS):
 	cp output.lef final_layouts/$(shell echo $@ | tr -d '[]')/output.lef
 	cp output.guide final_layouts/$(shell echo $@ | tr -d '[]')/output.guide
 
+	TritonRoute -lef output.lef -def output.def -guide output.guide -output final_layouts/$(shell echo $@ | tr -d '[]')/routed.def
 
 # Phony target to clean up generated files
 .PHONY: clean
