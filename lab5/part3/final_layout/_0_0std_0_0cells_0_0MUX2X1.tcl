@@ -29,6 +29,10 @@ box 67 42 68 45
 paint polysilicon
 box 68 43 68 43
 label "_S" right polysilicon
+box 53 34 54 37
+paint pdiffusion
+box 54 35 54 35
+label "Vdd" right pdiffusion
 box 67 6 72 7
 paint ndiffusion
 box 68 7 68 7
@@ -69,9 +73,9 @@ box 64 42 67 45
 paint polysilicon
 box 65 43 65 43
 label "_S" right polysilicon
-box 53 34 54 37
+box 50 34 53 37
 paint pdiffusion
-box 54 35 54 35
+box 51 35 51 35
 label "Vdd" right pdiffusion
 box 65 6 67 16
 paint ntransistor
@@ -101,14 +105,26 @@ box 63 45 68 46
 paint polysilicon
 box 64 46 64 46
 label "_S" right polysilicon
-box 50 34 53 37
+box 46 7 47 10
+paint ndiffusion
+box 47 8 47 8
+label "GND" right ndiffusion
+box 49 23 54 34
 paint pdiffusion
-box 51 35 51 35
+box 50 24 50 24
 label "Vdd" right pdiffusion
-box 51 42 52 45
+box 49 34 50 37
+paint pdiffusion
+box 50 35 50 35
+label "Vdd" right pdiffusion
+box 49 37 54 38
+paint pdiffusion
+box 50 38 50 38
+label "Vdd" right pdiffusion
+box 47 38 49 40
 paint polysilicon
-box 52 43 52 43
-label "B" right polysilicon
+box 48 39 48 39
+label "S" right polysilicon
 box 60 6 65 7
 paint ndiffusion
 box 61 7 61 7
@@ -133,54 +149,44 @@ box 60 27 65 38
 paint pdiffusion
 box 61 28 61 28
 label "#5" right pdiffusion
-box 49 23 54 34
-paint pdiffusion
-box 50 24 50 24
-label "Vdd" right pdiffusion
-box 49 34 50 37
-paint pdiffusion
-box 50 35 50 35
-label "Vdd" right pdiffusion
-box 49 37 54 38
-paint pdiffusion
-box 50 38 50 38
-label "Vdd" right pdiffusion
-box 48 42 51 45
+box 43 7 46 10
+paint ndiffusion
+box 44 8 44 8
+label "GND" right ndiffusion
+box 47 16 49 23
 paint polysilicon
-box 49 43 49 43
+box 48 17 48 17
+label "S" right polysilicon
+box 47 23 49 38
+paint ptransistor
+box 48 24 48 24
+label "S" right ptransistor
+box 41 42 42 45
+paint polysilicon
+box 42 43 42 43
 label "B" right polysilicon
 box 50 7 53 10
 paint ndiffusion
 box 51 8 51 8
 label "#10" right ndiffusion
-box 47 16 49 23
+box 42 7 43 10
+paint ndiffusion
+box 43 8 43 8
+label "GND" right ndiffusion
+box 40 23 47 38
+paint pdiffusion
+box 37 24 38 27
+paint pdiffusion
+box 38 25 38 25
+label "Y" right pdiffusion
+box 38 42 41 45
 paint polysilicon
-box 48 17 48 17
+box 39 43 39 43
 label "B" right polysilicon
-box 47 23 49 38
-paint ptransistor
-box 48 24 48 24
-label "B" right ptransistor
-box 47 38 49 41
+box 37 45 42 46
 paint polysilicon
-box 48 39 48 39
+box 38 46 38 46
 label "B" right polysilicon
-box 47 41 52 42
-paint polysilicon
-box 48 42 48 42
-label "B" right polysilicon
-box 47 42 48 45
-paint polysilicon
-box 48 43 48 43
-label "B" right polysilicon
-box 47 45 52 46
-paint polysilicon
-box 48 46 48 46
-label "B" right polysilicon
-box 65 4 67 6
-paint polysilicon
-box 66 5 66 5
-label "_S" right polysilicon
 box 49 6 54 7
 paint ndiffusion
 box 50 7 50 7
@@ -193,24 +199,10 @@ box 49 10 54 16
 paint ndiffusion
 box 50 11 50 11
 label "#10" right ndiffusion
-box 46 7 47 10
-paint ndiffusion
-box 47 8 47 8
-label "GND" right ndiffusion
-box 40 23 47 38
-paint pdiffusion
-box 37 24 38 27
-paint pdiffusion
-box 38 25 38 25
-label "Y" right pdiffusion
-box 47 6 49 16
-paint ntransistor
-box 48 7 48 7
-label "B" right ntransistor
-box 43 7 46 10
-paint ndiffusion
-box 44 8 44 8
-label "GND" right ndiffusion
+box 38 8 40 10
+paint polysilicon
+box 39 9 39 9
+label "S" right polysilicon
 box 40 10 47 16
 paint ndiffusion
 box 41 11 41 11
@@ -226,11 +218,11 @@ label "S" right polysilicon
 box 38 21 40 23
 paint polysilicon
 box 39 22 39 22
-label "S" right polysilicon
+label "B" right polysilicon
 box 38 23 40 38
 paint ptransistor
 box 39 24 39 24
-label "S" right ptransistor
+label "B" right ptransistor
 box 34 24 37 27
 paint pdiffusion
 box 35 25 35 25
@@ -238,27 +230,19 @@ label "Y" right pdiffusion
 box 38 38 40 41
 paint polysilicon
 box 39 39 39 39
-label "S" right polysilicon
-box 33 42 40 43
-paint polysilicon
-box 34 43 34 43
-label "S" right polysilicon
-box 33 43 34 45
-paint polysilicon
-box 34 44 34 44
-label "S" right polysilicon
-box 47 4 49 6
-paint polysilicon
-box 48 5 48 5
 label "B" right polysilicon
-box 42 6 47 7
-paint ndiffusion
-box 43 7 43 7
-label "GND" right ndiffusion
-box 42 7 43 10
-paint ndiffusion
-box 43 8 43 8
-label "GND" right ndiffusion
+box 37 42 38 45
+paint polysilicon
+box 38 43 38 43
+label "B" right polysilicon
+box 65 4 67 6
+paint polysilicon
+box 66 5 66 5
+label "_S" right polysilicon
+box 47 6 49 16
+paint ntransistor
+box 48 7 48 7
+label "S" right ntransistor
 box 38 10 40 16
 paint ntransistor
 box 39 11 39 11
@@ -283,10 +267,18 @@ box 33 27 38 38
 paint pdiffusion
 box 34 28 34 28
 label "Y" right pdiffusion
-box 30 42 33 45
+box 29 43 30 45
 paint polysilicon
-box 31 43 31 43
+box 30 44 30 44
 label "S" right polysilicon
+box 29 45 34 46
+paint polysilicon
+box 30 46 30 46
+label "S" right polysilicon
+box 42 6 47 7
+paint ndiffusion
+box 43 7 43 7
+label "GND" right ndiffusion
 box 26 7 27 10
 paint ndiffusion
 box 27 8 27 8
@@ -299,25 +291,21 @@ box 33 12 34 15
 paint ndiffusion
 box 34 13 34 13
 label "_S" right ndiffusion
-box 29 41 40 42
-paint polysilicon
-box 30 42 30 42
-label "S" right polysilicon
-box 29 42 30 45
-paint polysilicon
-box 30 43 30 43
-label "S" right polysilicon
-box 29 45 34 46
-paint polysilicon
-box 30 46 30 46
-label "S" right polysilicon
 box 26 24 27 27
 paint pdiffusion
 box 27 25 27 25
 label "_S" right pdiffusion
-box 38 4 40 10
+box 37 41 42 42
 paint polysilicon
-box 39 5 39 5
+box 38 42 38 42
+label "B" right polysilicon
+box 33 42 34 45
+paint polysilicon
+box 34 43 34 43
+label "S" right polysilicon
+box 47 4 49 6
+paint polysilicon
+box 48 5 48 5
 label "S" right polysilicon
 box 23 7 26 10
 paint ndiffusion
@@ -327,6 +315,10 @@ box 23 24 26 27
 paint pdiffusion
 box 24 25 24 25
 label "_S" right pdiffusion
+box 30 42 33 45
+paint polysilicon
+box 31 43 31 43
+label "S" right polysilicon
 box 22 6 27 7
 paint ndiffusion
 box 23 7 23 7
@@ -355,9 +347,17 @@ box 19 27 20 30
 paint pdiffusion
 box 20 28 20 28
 label "Vdd" right pdiffusion
-box 20 31 22 33
+box 20 31 22 41
 paint polysilicon
 box 21 32 21 32
+label "S" right polysilicon
+box 20 41 34 42
+paint polysilicon
+box 21 42 21 42
+label "S" right polysilicon
+box 20 42 30 43
+paint polysilicon
+box 21 43 21 43
 label "S" right polysilicon
 box 20 4 22 6
 paint polysilicon
@@ -387,7 +387,7 @@ box 16 27 19 30
 paint pdiffusion
 box 17 28 17 28
 label "Vdd" right pdiffusion
-box 20 2 40 4
+box 20 2 49 4
 paint polysilicon
 box 21 3 21 3
 label "S" right polysilicon
@@ -513,9 +513,9 @@ box 50 34 53 37
 paint pdc
 box 51 35 51 35
 label "Vdd" right pdc
-box 48 42 51 45
+box 38 42 41 45
 paint pc
-box 49 43 49 43
+box 39 43 39 43
 label "B" right pc
 box 50 7 53 10
 paint ndc
@@ -663,19 +663,25 @@ box 61 10 64 11
 paint m1
 box 62 11 62 11
 label "#10" right m1
-box 48 45 51 46
-paint m1
-box 49 46 49 46
-label "B" right m1
-port class input
-port make
 box 53 7 61 10
 paint m1
 box 54 8 54 8
 label "#10" right m1
-box 48 42 51 45
+box 40 40 45 42
 paint m1
-box 49 43 49 43
+box 41 41 41 41
+label "B" right m1
+port class input
+port make
+box 41 42 45 45
+paint m1
+box 42 43 42 43
+label "B" right m1
+port class input
+port make
+box 40 45 44 46
+paint m1
+box 41 46 41 46
 label "B" right m1
 port class input
 port make
@@ -707,27 +713,9 @@ box 35 28 35 28
 label "Y" right m1
 port class output
 port make
-box 40 40 46 41
+box 38 42 41 45
 paint m1
-box 41 41 41 41
-label "B" right m1
-port class input
-port make
-box 40 41 51 42
-paint m1
-box 41 42 41 42
-label "B" right m1
-port class input
-port make
-box 40 42 48 45
-paint m1
-box 41 43 41 43
-label "B" right m1
-port class input
-port make
-box 40 45 44 46
-paint m1
-box 41 46 41 46
+box 39 43 39 43
 label "B" right m1
 port class input
 port make
@@ -741,6 +729,12 @@ box 34 12 37 15
 paint m1
 box 35 13 35 13
 label "_S" right m1
+box 37 42 38 45
+paint m1
+box 38 43 38 43
+label "B" right m1
+port class input
+port make
 box 44 6 47 7
 paint m1
 box 45 7 45 7
@@ -921,15 +915,15 @@ box 10 43 10 43
 label "A" right m1
 port class input
 port make
-box 6 40 13 42
+box 7 40 13 42
 paint m1
-box 7 41 7 41
+box 8 41 8 41
 label "A" right m1
 port class input
 port make
-box 6 42 9 45
+box 7 42 9 45
 paint m1
-box 7 43 7 43
+box 8 43 8 43
 label "A" right m1
 port class input
 port make
