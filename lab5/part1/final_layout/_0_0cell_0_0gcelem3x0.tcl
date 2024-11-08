@@ -583,9 +583,15 @@ box 74 15 74 15
 label "out" right m1
 port class output
 port make
-box 44 49 45 52
+box 44 49 49 52
 paint m1
 box 45 50 45 50
+label "in(2)" right m1
+port class input
+port make
+box 44 53 49 58
+paint m1
+box 45 54 45 54
 label "in(2)" right m1
 port class input
 port make
@@ -607,12 +613,6 @@ box 42 50 42 50
 label "in(2)" right m1
 port class input
 port make
-box 40 55 44 56
-paint m1
-box 41 56 41 56
-label "in(2)" right m1
-port class input
-port make
 box 73 11 76 14
 paint m1
 box 74 12 74 12
@@ -631,10 +631,16 @@ box 41 50 41 50
 label "in(2)" right m1
 port class input
 port make
-box 40 52 45 55
+box 40 52 49 53
 paint m1
 box 41 53 41 53
 label "in(2)" right m1
+port class input
+port make
+box 28 53 29 56
+paint m1
+box 29 54 29 54
+label "in(1)" right m1
 port class input
 port make
 box 52 10 76 11
@@ -667,12 +673,6 @@ box 26 54 26 54
 label "in(1)" right m1
 port class input
 port make
-box 25 56 28 57
-paint m1
-box 26 57 26 57
-label "in(1)" right m1
-port class input
-port make
 box 49 10 52 13
 paint m1
 box 50 11 50 11
@@ -697,15 +697,21 @@ box 31 47 31 47
 label "in(0)" right m1
 port class input
 port make
-box 24 52 28 53
+box 23 52 29 53
 paint m1
-box 25 53 25 53
+box 24 53 24 53
 label "in(1)" right m1
 port class input
 port make
-box 24 53 25 56
+box 23 53 25 56
 paint m1
-box 25 54 25 54
+box 24 54 24 54
+label "in(1)" right m1
+port class input
+port make
+box 23 56 29 58
+paint m1
+box 24 57 24 57
 label "in(1)" right m1
 port class input
 port make

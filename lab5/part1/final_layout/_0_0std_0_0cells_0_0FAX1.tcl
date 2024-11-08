@@ -1195,10 +1195,6 @@ box 82 97 82 97
 label "C" right m1
 port class input
 port make
-box 77 93 78 96
-paint m1
-box 78 94 78 94
-label "_YC" right m1
 box 121 27 122 30
 paint m1
 box 122 28 122 28
@@ -1213,9 +1209,35 @@ box 80 44 84 46
 paint m1
 box 81 45 81 45
 label "_YS" right m1
+box 77 93 78 96
+paint m1
+box 78 94 78 94
+label "_YC" right m1
 box 74 93 77 96
 paint m1
 box 75 94 75 94
+label "_YC" right m1
+box 107 27 108 30
+paint m1
+box 108 28 108 28
+label "YC" right m1
+port class output
+port make
+box 74 38 77 53
+paint m1
+box 75 39 75 39
+label "_YC" right m1
+box 74 53 104 55
+paint m1
+box 75 54 75 54
+label "_YC" right m1
+box 74 55 108 56
+paint m1
+box 75 56 75 56
+label "_YC" right m1
+box 74 56 77 92
+paint m1
+box 75 57 75 57
 label "_YC" right m1
 box 70 84 71 87
 paint m1
@@ -1241,28 +1263,18 @@ box 71 109 71 109
 label "A" right m1
 port class input
 port make
-box 107 27 108 30
+box 104 27 107 30
 paint m1
-box 108 28 108 28
+box 105 28 105 28
 label "YC" right m1
 port class output
 port make
-box 74 38 77 53
+box 118 41 119 44
 paint m1
-box 75 39 75 39
-label "_YC" right m1
-box 74 53 104 55
-paint m1
-box 75 54 75 54
-label "_YC" right m1
-box 74 55 108 56
-paint m1
-box 75 56 75 56
-label "_YC" right m1
-box 74 56 77 92
-paint m1
-box 75 57 75 57
-label "_YC" right m1
+box 119 42 119 42
+label "YS" right m1
+port class output
+port make
 box 67 84 70 87
 paint m1
 box 68 85 68 85
@@ -1281,18 +1293,22 @@ box 68 109 68 109
 label "A" right m1
 port class input
 port make
-box 104 27 107 30
+box 114 36 126 38
 paint m1
-box 105 28 105 28
-label "YC" right m1
-port class output
-port make
-box 118 41 119 44
-paint m1
-box 119 42 119 42
+box 115 37 115 37
 label "YS" right m1
 port class output
 port make
+box 115 41 118 44
+paint m1
+box 116 42 116 42
+label "YS" right m1
+port class output
+port make
+box 66 46 67 49
+paint m1
+box 67 47 67 47
+label "Vdd" right m1
 box 66 83 71 84
 paint m1
 box 67 84 67 84
@@ -1329,22 +1345,6 @@ box 67 112 67 112
 label "A" right m1
 port class input
 port make
-box 114 36 126 38
-paint m1
-box 115 37 115 37
-label "YS" right m1
-port class output
-port make
-box 115 41 118 44
-paint m1
-box 116 42 116 42
-label "YS" right m1
-port class output
-port make
-box 66 46 67 49
-paint m1
-box 67 47 67 47
-label "Vdd" right m1
 box 121 26 129 27
 paint m1
 box 122 27 122 27
@@ -1405,18 +1405,6 @@ box 62 46 63 47
 paint m1
 box 63 47 63 47
 label "Vdd" right m1
-box 59 76 62 92
-paint m1
-box 60 77 60 77
-label "C" right m1
-port class input
-port make
-box 61 93 62 96
-paint m1
-box 62 94 62 94
-label "C" right m1
-port class input
-port make
 box 104 26 108 27
 paint m1
 box 105 27 105 27
@@ -1443,9 +1431,15 @@ box 107 52 108 55
 paint m1
 box 108 53 108 53
 label "_YC" right m1
-box 58 93 61 96
+box 59 76 62 92
 paint m1
-box 59 94 59 94
+box 60 77 60 77
+label "C" right m1
+port class input
+port make
+box 61 93 62 96
+paint m1
+box 62 94 62 94
 label "C" right m1
 port class input
 port make
@@ -1519,9 +1513,9 @@ box 58 47 63 49
 paint m1
 box 59 48 59 48
 label "Vdd" right m1
-box 56 93 58 96
+box 58 93 61 96
 paint m1
-box 57 94 57 94
+box 59 94 59 94
 label "C" right m1
 port class input
 port make
@@ -1545,9 +1539,9 @@ box 55 46 58 49
 paint m1
 box 56 47 56 47
 label "Vdd" right m1
-box 53 93 56 96
+box 56 93 58 96
 paint m1
-box 54 94 54 94
+box 57 94 57 94
 label "C" right m1
 port class input
 port make
@@ -1563,6 +1557,16 @@ box 54 46 55 47
 paint m1
 box 55 47 55 47
 label "Vdd" right m1
+box 53 93 56 96
+paint m1
+box 54 94 54 94
+label "C" right m1
+port class input
+port make
+box 83 25 84 28
+paint m1
+box 84 26 84 26
+label "_YS" right m1
 box 52 92 62 93
 paint m1
 box 53 93 53 93
@@ -1587,16 +1591,6 @@ box 57 102 57 102
 label "B" right m1
 port class input
 port make
-box 83 25 84 28
-paint m1
-box 84 26 84 26
-label "_YS" right m1
-box 53 101 56 104
-paint m1
-box 54 102 54 102
-label "B" right m1
-port class input
-port make
 box 80 25 83 28
 paint m1
 box 81 26 81 26
@@ -1605,9 +1599,9 @@ box 80 28 84 41
 paint m1
 box 81 29 81 29
 label "_YS" right m1
-box 38 101 53 104
+box 53 101 56 104
 paint m1
-box 39 102 39 102
+box 54 102 54 102
 label "B" right m1
 port class input
 port make
@@ -1619,9 +1613,9 @@ box 50 47 55 49
 paint m1
 box 51 48 51 48
 label "Vdd" right m1
-box 35 101 38 104
+box 38 101 53 104
 paint m1
-box 36 102 36 102
+box 39 102 39 102
 label "B" right m1
 port class input
 port make
@@ -1636,6 +1630,24 @@ label "GND" right m1
 box 47 46 50 49
 paint m1
 box 48 47 48 47
+label "Vdd" right m1
+box 35 101 38 104
+paint m1
+box 36 102 36 102
+label "B" right m1
+port class input
+port make
+box 71 26 74 29
+paint m1
+box 72 27 72 27
+label "GND" right m1
+box 46 45 51 46
+paint m1
+box 47 46 47 46
+label "Vdd" right m1
+box 46 46 47 47
+paint m1
+box 47 47 47 47
 label "Vdd" right m1
 box 34 92 38 100
 paint m1
@@ -1661,18 +1673,6 @@ box 35 105 35 105
 label "B" right m1
 port class input
 port make
-box 71 26 74 29
-paint m1
-box 72 27 72 27
-label "GND" right m1
-box 46 45 51 46
-paint m1
-box 47 46 47 46
-label "Vdd" right m1
-box 46 46 47 47
-paint m1
-box 47 47 47 47
-label "Vdd" right m1
 box 125 4 129 26
 paint m1
 box 126 5 126 5
@@ -1723,12 +1723,6 @@ box 28 40 29 43
 paint m1
 box 29 41 29 41
 label "_YC" right m1
-box 26 107 31 108
-paint m1
-box 27 108 27 108
-label "A" right m1
-port class input
-port make
 box 80 17 121 18
 paint m1
 box 81 18 81 18
@@ -1741,6 +1735,12 @@ box 25 40 28 43
 paint m1
 box 26 41 26 41
 label "_YC" right m1
+box 26 107 31 108
+paint m1
+box 27 108 27 108
+label "A" right m1
+port class input
+port make
 box 39 22 42 26
 paint m1
 box 40 23 40 23
@@ -1757,24 +1757,14 @@ box 24 40 25 43
 paint m1
 box 25 41 25 41
 label "_YC" right m1
-box 32 26 35 29
-paint m1
-box 33 27 33 27
-label "GND" right m1
-box 19 92 24 93
-paint m1
-box 20 93 20 93
-label "B" right m1
-port class input
-port make
-box 120 18 121 21
-paint m1
-box 121 19 121 19
-label "_YS" right m1
 box 116 21 121 22
 paint m1
 box 117 22 117 22
 label "_YS" right m1
+box 32 26 35 29
+paint m1
+box 33 27 33 27
+label "GND" right m1
 box 31 25 36 26
 paint m1
 box 32 26 32 26
@@ -1787,33 +1777,27 @@ box 20 28 21 31
 paint m1
 box 21 29 21 29
 label "_YC" right m1
-box 117 18 120 21
+box 19 92 24 93
 paint m1
-box 118 19 118 19
+box 20 93 20 93
+label "B" right m1
+port class input
+port make
+box 120 18 121 21
+paint m1
+box 121 19 121 19
+label "_YS" right m1
+box 80 21 84 25
+paint m1
+box 81 22 81 22
 label "_YS" right m1
 box 17 28 20 31
 paint m1
 box 18 29 18 29
 label "_YC" right m1
-box 13 71 18 72
+box 117 18 120 21
 paint m1
-box 14 72 14 72
-label "C" right m1
-port class input
-port make
-box 110 10 111 13
-paint m1
-box 111 11 111 11
-label "YC" right m1
-port class output
-port make
-box 80 18 117 21
-paint m1
-box 81 19 81 19
-label "_YS" right m1
-box 80 21 84 25
-paint m1
-box 81 22 81 22
+box 118 19 118 19
 label "_YS" right m1
 box 16 27 21 28
 paint m1
@@ -1831,6 +1815,26 @@ box 16 33 77 38
 paint m1
 box 17 34 17 34
 label "_YC" right m1
+box 13 71 18 72
+paint m1
+box 14 72 14 72
+label "C" right m1
+port class input
+port make
+box 110 10 111 13
+paint m1
+box 111 11 111 11
+label "YC" right m1
+port class output
+port make
+box 80 18 117 21
+paint m1
+box 81 19 81 19
+label "_YS" right m1
+box 12 19 42 22
+paint m1
+box 13 20 13 20
+label "GND" right m1
 box 12 46 13 47
 paint m1
 box 13 47 13 47
@@ -1863,9 +1867,17 @@ box 108 11 108 11
 label "YC" right m1
 port class output
 port make
+box 9 19 12 22
+paint m1
+box 10 20 10 20
+label "GND" right m1
 box 9 46 12 49
 paint m1
 box 10 47 10 47
+label "Vdd" right m1
+box 9 58 12 61
+paint m1
+box 10 59 10 59
 label "Vdd" right m1
 box 14 72 17 75
 paint m1
@@ -1903,9 +1915,13 @@ box 9 11 9 11
 label "YC" right m1
 port class output
 port make
-box 8 18 42 22
+box 8 18 42 19
 paint m1
 box 9 19 9 19
+label "GND" right m1
+box 8 19 9 22
+paint m1
+box 9 20 9 20
 label "GND" right m1
 box 8 45 13 46
 paint m1
@@ -1923,9 +1939,13 @@ box 8 50 11 58
 paint m1
 box 9 51 9 51
 label "Vdd" right m1
-box 8 58 12 62
+box 8 58 9 61
 paint m1
 box 9 59 9 59
+label "Vdd" right m1
+box 8 61 12 62
+paint m1
+box 9 62 9 62
 label "Vdd" right m1
 box 8 72 14 75
 paint m1
@@ -1979,14 +1999,14 @@ box 96 46 99 49
 paint mcon
 box 97 47 97 47
 label "Vdd" right mcon
-box 71 26 74 29
-paint mcon
-box 72 27 72 27
-label "GND" right mcon
 box 87 93 90 96
 paint mcon
 box 88 94 88 94
 label "C" right mcon
+box 71 26 74 29
+paint mcon
+box 72 27 72 27
+label "GND" right mcon
 box 55 46 58 49
 paint mcon
 box 56 47 56 47
@@ -1995,6 +2015,14 @@ box 53 93 56 96
 paint mcon
 box 54 94 54 94
 label "C" right mcon
+box 9 19 12 22
+paint mcon
+box 10 20 10 20
+label "GND" right mcon
+box 9 58 12 61
+paint mcon
+box 10 59 10 59
+label "Vdd" right mcon
 box 110 34 111 37
 paint m2
 box 111 35 111 35
@@ -2109,6 +2137,12 @@ box 71 26 74 29
 paint m2
 box 72 27 72 27
 label "GND" right m2
+box 90 93 91 96
+paint m2
+box 91 94 91 94
+label "C" right m2
+port class input
+port make
 box 70 25 75 26
 paint m2
 box 71 26 71 26
@@ -2129,9 +2163,9 @@ box 58 47 96 49
 paint m2
 box 59 48 59 48
 label "Vdd" right m2
-box 90 93 91 96
+box 87 93 90 96
 paint m2
-box 91 94 91 94
+box 88 94 88 94
 label "C" right m2
 port class input
 port make
@@ -2139,9 +2173,9 @@ box 55 46 58 49
 paint m2
 box 56 47 56 47
 label "Vdd" right m2
-box 87 93 90 96
+box 56 93 87 96
 paint m2
-box 88 94 88 94
+box 57 94 57 94
 label "C" right m2
 port class input
 port make
@@ -2157,18 +2191,20 @@ box 54 49 101 50
 paint m2
 box 55 50 55 50
 label "Vdd" right m2
-box 56 93 87 96
-paint m2
-box 57 94 57 94
-label "C" right m2
-port class input
-port make
 box 53 93 56 96
 paint m2
 box 54 94 54 94
 label "C" right m2
 port class input
 port make
+box 12 19 13 22
+paint m2
+box 13 20 13 20
+label "GND" right m2
+box 12 58 13 61
+paint m2
+box 13 59 13 59
+label "Vdd" right m2
 box 52 92 91 93
 paint m2
 box 53 93 53 93
@@ -2187,4 +2223,36 @@ box 53 97 53 97
 label "C" right m2
 port class input
 port make
+box 9 19 12 22
+paint m2
+box 10 20 10 20
+label "GND" right m2
+box 9 58 12 61
+paint m2
+box 10 59 10 59
+label "Vdd" right m2
+box 8 18 13 19
+paint m2
+box 9 19 9 19
+label "GND" right m2
+box 8 19 9 22
+paint m2
+box 9 20 9 20
+label "GND" right m2
+box 8 22 13 23
+paint m2
+box 9 23 9 23
+label "GND" right m2
+box 8 57 13 58
+paint m2
+box 9 58 9 58
+label "Vdd" right m2
+box 8 58 9 61
+paint m2
+box 9 59 9 59
+label "Vdd" right m2
+box 8 61 13 62
+paint m2
+box 9 62 9 62
+label "Vdd" right m2
 proc lcell { x } { load "_0_0cell_0_0g${x}x0" }

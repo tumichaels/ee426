@@ -509,10 +509,6 @@ box 80 32 83 35
 paint m1
 box 81 33 81 33
 label "GND" right m1
-box 80 36 84 40
-paint m1
-box 81 37 81 37
-label "GND" right m1
 box 73 24 74 27
 paint m1
 box 74 25 74 25
@@ -529,7 +525,7 @@ box 79 32 80 35
 paint m1
 box 80 33 80 33
 label "GND" right m1
-box 79 35 84 36
+box 79 35 84 40
 paint m1
 box 80 36 80 36
 label "GND" right m1
@@ -907,7 +903,7 @@ box 60 23 65 24
 paint m2
 box 61 24 61 24
 label "Vdd" right m2
-box 79 35 84 36
+box 79 35 84 40
 paint m2
 box 80 36 80 36
 label "GND" right m2

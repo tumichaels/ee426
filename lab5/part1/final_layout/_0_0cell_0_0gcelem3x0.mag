@@ -1,6 +1,6 @@
 magic
 tech sky130l
-timestamp 1731009248
+timestamp 1731040961
 << ndiffusion >>
 rect 8 22 13 24
 rect 8 19 9 22
@@ -124,19 +124,20 @@ rect 16 11 19 14
 rect 73 11 76 14
 rect 37 3 40 6
 << m1 >>
-rect 25 56 28 57
+rect 23 56 29 58
 rect 8 55 12 56
 rect 8 52 9 55
-rect 24 53 25 56
-rect 24 52 28 53
-rect 40 55 44 56
+rect 23 53 25 56
+rect 28 53 29 56
+rect 44 53 49 58
+rect 23 52 29 53
+rect 40 52 49 53
 rect 56 55 60 56
-rect 40 52 45 55
 rect 56 52 57 55
 rect 72 55 76 56
 rect 72 52 73 55
 rect 40 49 41 52
-rect 44 49 45 52
+rect 44 49 49 52
 rect 16 44 19 45
 rect 8 33 9 36
 rect 12 33 13 36
@@ -285,7 +286,6 @@ rlabel ntransistor 54 10 54 10 3 in(2)
 rlabel pdiffusion 52 33 52 33 3 out
 rlabel polysilicon 45 38 45 38 3 #10
 rlabel polysilicon 45 51 45 51 3 in(2)
-rlabel polysilicon 29 54 29 54 3 in(1)
 rlabel polysilicon 41 5 41 5 3 in(0)
 rlabel ndiffusion 49 10 49 10 3 out
 rlabel ptransistor 54 32 54 32 3 in(2)
@@ -300,6 +300,8 @@ rlabel pdiffusion 47 33 47 33 3 out
 rlabel pdiffusion 47 36 47 36 3 out
 rlabel polysilicon 41 49 41 49 3 in(2)
 rlabel polysilicon 20 42 20 42 3 GND
+rlabel polysilicon 25 53 25 53 3 in(1)
+rlabel polysilicon 25 54 25 54 3 in(1)
 rlabel polysilicon 25 57 25 57 3 in(1)
 rlabel polysilicon 45 17 45 17 3 #10
 rlabel ntransistor 45 19 45 19 3 #10
@@ -336,12 +338,12 @@ rlabel m1 74 15 74 15 3 out
 port 1 e
 rlabel m1 45 50 45 50 3 in(2)
 port 2 e
+rlabel m1 45 54 45 54 3 in(2)
+port 2 e
 rlabel m1 76 20 76 20 3 #10
 rlabel ndc 76 21 76 21 3 #10
 rlabel m1 76 24 76 24 3 #10
 rlabel pc 42 50 42 50 3 in(2)
-port 2 e
-rlabel m1 41 56 41 56 3 in(2)
 port 2 e
 rlabel pc 74 12 74 12 3 out
 port 1 e
@@ -349,6 +351,8 @@ rlabel m1 41 50 41 50 3 in(2)
 port 2 e
 rlabel m1 41 53 41 53 3 in(2)
 port 2 e
+rlabel m1 29 54 29 54 3 in(1)
+port 4 e
 rlabel m1 53 11 53 11 3 out
 port 1 e
 rlabel m1 53 12 53 12 3 out
@@ -357,17 +361,17 @@ rlabel m1 49 14 49 14 3 out
 port 1 e
 rlabel pc 26 54 26 54 3 in(1)
 port 4 e
-rlabel m1 26 57 26 57 3 in(1)
-port 4 e
 rlabel ndc 50 11 50 11 3 out
 port 1 e
 rlabel m1 31 19 31 19 3 in(0)
 port 3 e
 rlabel m1 31 22 31 22 3 in(0)
 port 3 e
-rlabel m1 25 53 25 53 3 in(1)
+rlabel m1 24 53 24 53 3 in(1)
 port 4 e
-rlabel m1 25 54 25 54 3 in(1)
+rlabel m1 24 54 24 54 3 in(1)
+port 4 e
+rlabel m1 24 57 24 57 3 in(1)
 port 4 e
 rlabel m1 23 16 23 16 3 Vdd
 rlabel pc 17 42 17 42 3 GND
