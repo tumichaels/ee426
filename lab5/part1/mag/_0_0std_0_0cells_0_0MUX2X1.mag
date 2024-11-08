@@ -1,6 +1,6 @@
 magic
 tech sky130l
-timestamp 1731032464
+timestamp 1731033036
 << ndiffusion >>
 rect 8 6 13 16
 rect 15 6 20 16
@@ -91,12 +91,15 @@ rect 8 45 15 46
 rect 8 42 9 45
 rect 12 42 15 45
 rect 8 41 15 42
-rect 13 38 15 41
-rect 38 45 44 46
-rect 38 42 40 45
-rect 43 42 44 45
-rect 38 41 44 42
+rect 29 45 34 46
+rect 29 42 30 45
+rect 33 43 34 45
 rect 47 45 52 46
+rect 33 42 40 43
+rect 29 41 40 42
+rect 13 38 15 41
+rect 34 40 40 41
+rect 38 38 40 40
 rect 47 42 48 45
 rect 51 42 52 45
 rect 47 41 52 42
@@ -104,7 +107,6 @@ rect 63 45 68 46
 rect 63 42 64 45
 rect 67 42 68 45
 rect 63 41 68 42
-rect 38 38 40 41
 rect 47 38 49 41
 rect 65 38 67 41
 rect 20 31 22 33
@@ -123,30 +125,27 @@ rect 47 4 49 6
 rect 65 4 67 6
 << pc >>
 rect 9 42 12 45
-rect 40 42 43 45
+rect 30 42 33 45
 rect 48 42 51 45
 rect 64 42 67 45
 << m1 >>
-rect 39 45 44 46
+rect 48 45 51 46
 rect 8 42 9 45
 rect 12 42 13 45
-rect 24 44 28 45
 rect 8 40 13 42
 rect 8 32 13 33
 rect 8 29 9 32
 rect 12 29 13 32
 rect 8 28 13 29
 rect 16 30 19 41
-rect 24 43 32 44
-rect 24 40 28 43
-rect 31 40 32 43
-rect 39 42 40 45
-rect 43 42 44 45
-rect 39 40 44 42
-rect 48 45 51 46
+rect 24 42 30 45
+rect 33 42 34 45
+rect 24 40 34 42
+rect 39 42 48 45
 rect 64 45 67 46
-rect 48 41 51 42
+rect 39 41 51 42
 rect 56 43 60 44
+rect 39 40 46 41
 rect 59 40 60 43
 rect 64 41 67 42
 rect 72 43 76 44
@@ -188,8 +187,6 @@ rect 7 3 12 4
 << m2c >>
 rect 16 41 19 44
 rect 9 29 12 32
-rect 28 40 31 43
-rect 48 42 51 45
 rect 56 40 59 43
 rect 64 42 67 45
 rect 72 40 75 43
@@ -201,23 +198,14 @@ rect 43 11 46 14
 rect 13 5 16 8
 rect 68 7 71 10
 << m2 >>
-rect 47 45 52 46
+rect 63 45 68 46
 rect 15 44 20 45
-rect 31 44 48 45
 rect 15 41 16 44
 rect 19 42 20 44
-rect 27 43 48 44
+rect 55 43 60 44
 rect 19 41 22 42
 rect 15 40 22 41
 rect 20 37 22 40
-rect 27 40 28 43
-rect 31 42 48 43
-rect 51 42 52 45
-rect 63 45 68 46
-rect 31 40 32 42
-rect 47 41 52 42
-rect 55 43 60 44
-rect 27 39 32 40
 rect 55 40 56 43
 rect 59 40 60 43
 rect 63 42 64 45
@@ -284,11 +272,7 @@ rlabel polysilicon 14 17 14 17 3 A
 rlabel polysilicon 14 22 14 22 3 A
 rlabel pdiffusion 9 24 9 24 3 #5
 rlabel ndiffusion 50 7 50 7 3 #10
-rlabel polysilicon 48 17 48 17 3 B
-rlabel polysilicon 48 22 48 22 3 B
 rlabel ndiffusion 41 11 41 11 3 GND
-rlabel polysilicon 39 17 39 17 3 S
-rlabel polysilicon 39 22 39 22 3 S
 rlabel ndiffusion 34 11 34 11 3 _S
 rlabel polysilicon 66 17 66 17 3 _S
 rlabel pdiffusion 61 24 61 24 3 #5
@@ -306,4 +290,6 @@ rlabel m1 9 41 9 41 3 A
 port 6 e
 rlabel ndiffusion 22 6 27 16 1 GND
 rlabel m2 69 8 70 10 1 +Y
+rlabel polysilicon 38 16 40 23 1 B
+rlabel polysilicon 47 16 49 23 1 S
 << end >>
