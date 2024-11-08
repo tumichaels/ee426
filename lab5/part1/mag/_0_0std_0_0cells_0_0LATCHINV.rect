@@ -15,7 +15,7 @@ rect # ndiffusion 40 10 45 16
 rect # ndiffusion 40 7 41 10 
 rect # ndiffusion 44 7 45 10 
 rect # ndiffusion 40 6 45 7 
-rect # ndiffusion 47 10 52 16 
+rect #10 ndiffusion 47 10 52 16 
 rect # ndiffusion 47 7 48 10 
 rect # ndiffusion 51 7 52 10 
 rect # ndiffusion 47 6 52 7 
@@ -76,9 +76,9 @@ rect # pdiffusion 47 29 48 32
 rect # pdiffusion 51 29 52 32 
 rect # pdiffusion 47 23 52 29 
 rect # pdiffusion 58 27 63 43 
-rect #7 pdiffusion 58 24 59 27 
+rect # pdiffusion 58 24 59 27 
 rect # pdiffusion 62 24 63 27 
-rect #7 pdiffusion 58 23 63 24 
+rect # pdiffusion 58 23 63 24 
 rect # pdiffusion 65 40 70 43 
 rect # pdiffusion 65 37 66 40 
 rect # pdiffusion 69 37 70 40 
@@ -212,9 +212,9 @@ rect # m1 26 9 28 10
 rect # m1 26 7 41 9 
 rect # m1 44 7 45 10 
 rect # m1 22 6 45 7 
-rect #10 m1 51 7 59 10 
+rect # m1 51 7 59 10 
 rect # m1 62 7 63 10 
-rect #10 m1 48 6 51 7 
+rect # m1 48 6 51 7 
 rect # m1 59 6 62 7 
 rect # m2c 9 44 12 47 
 rect # m1 9 44 12 47 
