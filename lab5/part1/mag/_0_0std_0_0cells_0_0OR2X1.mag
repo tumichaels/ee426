@@ -1,6 +1,6 @@
 magic
 tech sky130l
-timestamp 1731042374
+timestamp 1731049288
 << ndiffusion >>
 rect 8 10 13 12
 rect 8 7 9 10
@@ -14,38 +14,38 @@ rect 22 10 27 12
 rect 22 7 23 10
 rect 26 7 27 10
 rect 22 6 27 7
-rect 29 11 36 12
-rect 29 8 32 11
-rect 35 8 36 11
-rect 29 6 36 8
+rect 29 10 36 12
+rect 29 7 30 10
+rect 33 7 36 10
+rect 29 6 36 7
 << ndc >>
 rect 9 7 12 10
 rect 16 8 19 11
 rect 23 7 26 10
-rect 32 8 35 11
+rect 30 7 33 10
 << ntransistor >>
 rect 13 6 15 12
 rect 20 6 22 12
 rect 27 6 29 12
 << pdiffusion >>
-rect 8 28 13 34
-rect 8 23 9 28
-rect 12 23 13 28
-rect 8 19 13 23
+rect 8 23 13 34
+rect 8 20 9 23
+rect 12 20 13 23
+rect 8 19 13 20
 rect 15 19 20 34
 rect 22 27 26 34
 rect 22 24 27 27
 rect 22 21 23 24
 rect 26 21 27 24
 rect 22 19 27 21
-rect 29 24 36 27
-rect 29 21 32 24
-rect 35 21 36 24
-rect 29 19 36 21
+rect 29 23 36 27
+rect 29 20 30 23
+rect 33 20 36 23
+rect 29 19 36 20
 << pdc >>
-rect 9 23 12 28
+rect 9 20 12 23
 rect 23 21 26 24
-rect 32 21 35 24
+rect 30 20 33 23
 << ptransistor >>
 rect 13 19 15 34
 rect 20 19 22 34
@@ -60,13 +60,12 @@ rect 20 42 28 43
 rect 20 39 24 42
 rect 27 39 28 42
 rect 20 38 28 39
-rect 31 42 36 43
-rect 31 39 32 42
-rect 35 39 36 42
 rect 20 34 22 38
-rect 31 34 36 39
-rect 27 32 36 34
-rect 27 27 29 32
+rect 27 34 34 35
+rect 27 31 30 34
+rect 33 31 34 34
+rect 27 30 34 31
+rect 27 27 29 30
 rect 13 12 15 19
 rect 20 12 22 19
 rect 27 12 29 19
@@ -76,76 +75,58 @@ rect 27 4 29 6
 << pc >>
 rect 9 39 12 42
 rect 24 39 27 42
-rect 32 39 35 42
+rect 30 31 33 34
 << m1 >>
 rect 8 43 12 48
-rect 16 47 20 48
-rect 16 44 17 47
+rect 24 43 28 48
 rect 8 42 13 43
 rect 8 39 9 42
 rect 12 39 13 42
 rect 8 38 13 39
-rect 8 33 13 34
-rect 8 30 9 33
-rect 12 30 13 33
-rect 8 29 13 30
-rect 8 28 12 29
-rect 8 23 9 28
-rect 8 17 12 23
-rect 16 25 20 44
-rect 24 43 28 48
 rect 23 42 28 43
 rect 23 39 24 42
 rect 27 39 28 42
 rect 23 38 28 39
-rect 31 42 36 43
-rect 31 39 32 42
-rect 35 39 36 42
-rect 31 33 36 39
-rect 31 30 32 33
-rect 35 30 36 33
-rect 31 29 36 30
-rect 16 24 27 25
-rect 16 21 23 24
+rect 32 44 36 48
+rect 32 41 35 44
+rect 32 37 35 38
+rect 16 31 30 34
+rect 33 31 34 34
+rect 16 23 19 31
+rect 8 20 9 23
+rect 12 20 19 23
+rect 22 24 27 25
+rect 22 21 23 24
 rect 26 21 27 24
 rect 22 20 27 21
-rect 32 24 36 25
-rect 35 21 36 24
-rect 8 14 20 17
-rect 16 11 20 14
-rect 32 11 36 21
-rect 8 10 12 11
-rect 8 7 9 10
+rect 30 23 33 24
+rect 16 11 19 20
+rect 9 5 12 11
+rect 15 8 16 11
 rect 19 8 20 11
-rect 16 7 20 8
-rect 23 10 27 11
-rect 26 7 27 10
-rect 8 0 12 7
-rect 23 0 27 7
-rect 8 -3 9 0
-rect 12 -3 27 0
-rect 8 -4 27 -3
-rect 35 8 36 11
-rect 32 -4 36 8
+rect 23 10 26 11
+rect 23 5 26 7
+rect 9 2 26 5
+rect 30 10 33 20
+rect 30 3 33 7
+rect 9 0 12 2
+rect 30 0 35 3
+rect 8 -4 12 0
+rect 32 -4 36 0
 << m2c >>
-rect 17 44 20 47
-rect 9 30 12 33
-rect 32 30 35 33
-rect 9 -3 12 0
+rect 32 38 35 41
+rect 23 21 26 24
 << m2 >>
-rect 16 47 21 48
-rect 16 44 17 47
-rect 20 44 21 47
-rect 16 43 21 44
-rect 8 33 36 34
-rect 8 30 9 33
-rect 12 30 32 33
-rect 35 30 36 33
-rect 8 29 36 30
-rect 8 0 13 1
-rect 8 -3 9 0
-rect 12 -3 13 0
-rect 8 -4 13 -3
+rect 31 41 36 42
+rect 31 38 32 41
+rect 35 38 36 41
+rect 31 37 36 38
+rect 32 25 34 37
+rect 22 24 34 25
+rect 22 21 23 24
+rect 26 23 34 24
+rect 26 21 27 23
+rect 22 20 27 21
 << labels >>
 rlabel pdiffusion 30 20 30 20 3 Y
 rlabel ndiffusion 30 7 30 7 3 Y
@@ -158,11 +139,10 @@ rlabel ndiffusion 9 7 9 7 3 GND
 rlabel m1 9 45 9 45 3 A
 port 5 e
 rlabel pdiffusion 9 20 9 20 3 _Y
-rlabel m1 17 45 17 45 3 Vdd
-port 3 e
 rlabel m1 25 45 25 45 3 B
 port 2 e
 rlabel m1 33 -3 33 -3 3 Y
 port 1 e
-rlabel m1 12 -2 12 -2 2 GND
+rlabel m1 8 -4 12 0 2 GND
+rlabel m1 32 44 36 48 6 Vdd
 << end >>
