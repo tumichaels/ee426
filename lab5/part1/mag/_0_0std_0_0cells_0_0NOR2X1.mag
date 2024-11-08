@@ -1,6 +1,6 @@
 magic
 tech sky130l
-timestamp 1729905853
+timestamp 1731038141
 << ndiffusion >>
 rect 8 11 13 12
 rect 8 7 9 11
@@ -57,6 +57,8 @@ rect 9 39 12 42
 rect 24 39 27 42
 << m1 >>
 rect 8 43 12 48
+rect 16 47 20 48
+rect 16 44 17 47
 rect 8 42 13 43
 rect 8 39 9 42
 rect 12 39 13 42
@@ -64,7 +66,7 @@ rect 8 38 13 39
 rect 8 33 13 34
 rect 8 30 9 33
 rect 12 32 13 33
-rect 16 32 20 48
+rect 16 32 20 44
 rect 24 43 28 48
 rect 23 42 28 43
 rect 23 39 24 42
@@ -87,7 +89,21 @@ rect 23 11 27 12
 rect 26 7 27 11
 rect 8 4 12 7
 rect 23 4 27 7
-rect 8 0 27 4
+rect 8 1 9 4
+rect 12 1 27 4
+rect 8 0 27 1
+<< m2c >>
+rect 17 44 20 47
+rect 9 1 12 4
+<< m2 >>
+rect 16 47 21 48
+rect 16 44 17 47
+rect 20 44 21 47
+rect 16 43 21 44
+rect 8 4 13 5
+rect 8 1 9 4
+rect 12 1 13 4
+rect 8 0 13 1
 << labels >>
 rlabel ndiffusion 23 7 23 7 3 GND
 rlabel pdiffusion 23 20 23 20 3 Y
