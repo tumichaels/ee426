@@ -44,6 +44,18 @@ defproc N_LATCH(bool? CLK; bool? D[N]; bool! Q[N]){
     (i : N : latches[i].CLK = CLK; latches[i].D = D[i]; latches[i].Q = Q[i]; latches[i].R = Reset;)
 }
 
+template <pint N, init_num>
+defproc N_LATCH_INIT(bool? CLK; bool? D[N]; bool! Q[N]){
+    LATCHLO latchesL[N];
+    LATCHHI latchesH[N];
+
+    (i : N : [((init_num >> i) % 2) = 0 -> latchesL[i].CLK = CLK; latchesL[i].D = D[i]; latchesL[i].Q = Q[i]; latchesL[i].R = Reset;
+            [] else -> latchesH[i].CLK = CLK; latchesH[i].D = D[i]; latchesH[i].Q = Q[i]; latchesH[i].S = Reset;
+        ]
+    )
+}
+
+
 
 // Initializes the c element with a certain value on reset.
 template<pint N; pbool invert; pbool init>

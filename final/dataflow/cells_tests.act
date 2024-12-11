@@ -53,19 +53,19 @@ defproc init_buf_test()
 {
    chp_source_offset src;
    chp_sink snk;
-   init_buffer<8> b(src.X, snk.X);
+   init_buffer<8,56> b(src.X, snk.X);
 }
 
 defproc source_test()
 {
-   df_source src;
+   df_source<8,20> src;
    chp_ten_sink snk(src.R);
 }
 
 defproc sink_test()
 {
   chp_source src;
-  df_sink snk(src.X);
+  df_sink<8> snk(src.X);
 }
 
 defproc copy_test(){

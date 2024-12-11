@@ -47,7 +47,7 @@ defproc buffer(bd?<N> L; bd!<N> R){
     buf.CLK = p.r;
 }
 
-template <pint N>
+template <pint N, init_num>
 defproc init_buffer(bd?<N> L; bd!<N> R){
 
     bool ack, init_reset;
@@ -82,7 +82,7 @@ defproc init_buffer(bd?<N> L; bd!<N> R){
 
     // Data
     PULSE_LATCH p(ack);
-    N_LATCH<N> buf;
+    N_LATCH_INIT<N,init_num> buf;
     buf.D = L.d;
     buf.Q = R.d;
     buf.CLK = p.r;
@@ -250,16 +250,33 @@ defproc add(bd?<N> A,B; bd!<N> Z){
 
 }
 
-template <pint N, num>
-defproc df_source(bd<8> R){
-    
-
-
+template <pint N, source_num>
+defproc df_source(bd<N> R){
     
     INVX1 inv(R.a,R.r);
-    TIELOX1 lo[8];
-    (i: 8 : R.d[i] = lo[i].Y;)
+    TIELOX1 lo[N];
+    TIEHIX1 hi[N];
+
+    (i : N : [((source_num >> i) % 2) = 0 -> R.d[i] = lo[i].Y;
+            [] else -> R.d[i] = hi[i].Y;
+        ]
+    )
 }
+
+// template <pint bits, num_to_send>
+// defproc chp_send_one_buffer (data_chan! out[bits]){
+//     pint bits_to_send[bits];
+
+//     (i : bits : [((num_to_send >> i) % 2) = 0 -> bits_to_send[i] = 0;
+//             [] else -> bits_to_send[i] = 1;
+//         ]
+//     )
+//     chp{
+//         //[Reset]; [~Reset];
+//         [~Reset];
+//         (,i : bits : out[i]!bits_to_send[i];log("bit sent, index:",i,"| bit:",bits_to_send[i]))
+//     }
+// }
 
 template <pint N>
 defproc df_sink(bd<N> L){
