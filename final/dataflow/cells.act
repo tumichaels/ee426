@@ -118,8 +118,8 @@ defproc copy(bd?<N> L; bd!<N> R1,R2){
     buf.CLK = p.r;
 }
 
-
-defproc split(bd?<8> L; bd?<1> C; bd!<8> A,B){
+template <pint N>
+defproc split(bd?<N> L; bd?<1> C; bd!<N> A,B){
     bool ack, r_out, selector;
     /* Control
         Waits for both L and C to request, and the
@@ -149,15 +149,15 @@ defproc split(bd?<8> L; bd?<1> C; bd!<8> A,B){
     PULSE_LATCH p(ack);
     LATCHLO C_store(Reset,p.r,C.d[0],selector);
 
-    N_LATCH<8> buf;
+    N_LATCH<N> buf;
     buf.D = L.d;
     buf.Q = A.d;
     buf.Q = B.d;
     buf.CLK = p.r;
 }
 
-
-defproc merge(bd?<8> A,B; bd?<1> C; bd!<8> Z){
+template <pint N>
+defproc merge(bd?<N> A,B; bd?<1> C; bd!<N> Z){
     bool control_ack, data_ack, c_done, _ab_r, ab_r, _Za,selector;
     
 
@@ -203,16 +203,16 @@ defproc merge(bd?<8> A,B; bd?<1> C; bd!<8> Z){
     LATCHLO C_store(Reset,p_control.r,C.d[0],selector);
 
     PULSE_LATCH p_data(data_ack);
-    N_MUX2<8> mux(A.d,B.d,selector);
-    N_LATCH<8> buf;
+    N_MUX2<N> mux(A.d,B.d,selector);
+    N_LATCH<N> buf;
     buf.D = mux.Y;
     buf.Q = Z.d;
     buf.CLK = p_data.r;
     // TODO: Clock pulse for this latch
 }
 
-
-defproc add(bd?<8> A,B; bd!<8> Z){
+template <pint N>
+defproc add(bd?<N> A,B; bd!<N> Z){
     bool ack;
     
 
@@ -242,23 +242,27 @@ defproc add(bd?<8> A,B; bd!<8> Z){
     
 
     PULSE_LATCH p_data(ack);
-    N_LATCH<8> ABuf(p_data.r, A.d);
-    N_LATCH<8> BBuf(p_data.r, B.d);
+    N_LATCH<N> ABuf(p_data.r, A.d);
+    N_LATCH<N> BBuf(p_data.r, B.d);
 
-    N_FAX<8> adder(ABuf.Q, BBuf.Q, Z.d);
+    N_FAX<N> adder(ABuf.Q, BBuf.Q, Z.d);
 
 
 }
 
-
+template <pint N, num>
 defproc df_source(bd<8> R){
+    
+
+
     
     INVX1 inv(R.a,R.r);
     TIELOX1 lo[8];
     (i: 8 : R.d[i] = lo[i].Y;)
 }
 
-defproc df_sink(bd<8> L){
+template <pint N>
+defproc df_sink(bd<N> L){
     DELAY<2> d(L.r,L.a);
 }
 
