@@ -1,0 +1,23 @@
+import "accum.act";
+
+
+defproc chp_sources_sink(bd!<8> L; bd!<1> C; bd?<8> X){
+    int<8> i;
+    int<8> v;
+    chp{
+        [~Reset];
+        i := 0;
+        log ("Adding first 5 integers");
+        *[ i < 5 -> log("Sending: ", i); L!i, C!1 ; i := i + 1; X?v; log ("Received value: ", v)];
+        log ("Reseting accum");
+        L!3, C!0;
+        X?v; log ("Received value: ", v);
+        log ("Adding next 5 integers");
+        *[ i < 10 -> log("Sending: ", i); L!i, C!1 ; i := i + 1 ; X?v; log ("Received value: ", v)]
+    }
+}
+
+defproc test(){
+    chp_sources_sink s;
+    accum a(s.L,s.C,s.X);
+}
