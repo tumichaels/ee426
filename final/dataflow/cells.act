@@ -246,8 +246,6 @@ defproc add(bd?<N> A,B; bd!<N> Z){
     N_LATCH<N> BBuf(p_data.r, B.d);
 
     N_FAX<N> adder(ABuf.Q, BBuf.Q, Z.d);
-
-
 }
 
 template <pint N, source_num>
@@ -282,4 +280,3 @@ template <pint N>
 defproc df_sink(bd<N> L){
     DELAY<2> d(L.r,L.a);
 }
-
