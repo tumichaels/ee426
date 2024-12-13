@@ -45,13 +45,37 @@ defproc N_LATCH(bool? CLK; bool? D[N]; bool! Q[N]){
 
 template <pint N, init_num>
 defproc N_LATCH_INIT(bool? CLK; bool? D[N]; bool! Q[N]){
-    LATCHLO latchesL[N];
-    LATCHHI latchesH[N];
+    pint ind,lo_size,hi_size,lo,hi;
+    ind=0;
+    lo_size=0;
+    hi_size=0;
+    *[ ind < N -> [
+        ((init_num >> ind) % 2) = 0 -> lo_size = lo_size + 1;
+            [] else -> hi_size = hi_size + 1;
+        ];
+        ind = ind + 1;
+    ]
+    [
+        lo_size != 0 -> LATCHLO latchesL[lo_size];
+    ]
+    [
+        hi_size != 0 -> LATCHHI latchesH[hi_size];
+    ]
+    
+    lo=0;
+    hi=0;
+    ind=0;
+    *[ ind < N -> [
+        ((init_num >> ind) % 2) = 0 -> latchesL[lo].CLK = CLK; latchesL[lo].D = D[ind]; latchesL[lo].Q = Q[ind]; latchesL[lo].R = Reset; lo = lo + 1;
+            [] else -> latchesH[hi].CLK = CLK; latchesH[hi].D = D[ind]; latchesH[hi].Q = Q[ind]; latchesH[hi].S = Reset; hi = hi + 1;
+        ];
+        ind = ind + 1;
+    ]
 
-    (i : N : [((init_num >> i) % 2) = 0 -> latchesL[i].CLK = CLK; latchesL[i].D = D[i]; latchesL[i].Q = Q[i]; latchesL[i].R = Reset;
-            [] else -> latchesH[i].CLK = CLK; latchesH[i].D = D[i]; latchesH[i].Q = Q[i]; latchesH[i].S = Reset;
-        ]
-    )
+    // (i : N : [((init_num >> i) % 2) = 0 -> latchesL[i].CLK = CLK; latchesL[i].D = D[i]; latchesL[i].Q = Q[i]; latchesL[i].R = Reset;
+    //         [] else -> latchesH[i].CLK = CLK; latchesH[i].D = D[i]; latchesH[i].Q = Q[i]; latchesH[i].S = Reset;
+    //     ]
+    // )
 }
 
 
