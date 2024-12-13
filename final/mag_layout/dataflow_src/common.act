@@ -1,0 +1,155 @@
+import globals;
+import std::cells;
+import "channel.act";
+import std::gates;
+
+//
+// your definitions go here
+// Reset will be available as a global signal at this point, as will
+// Vdd and GND
+// 
+// Process names from a namespace use C++ naming conventions
+// (e.g. std::channel::bd). You can also open a namespace.
+// The ACT command open std::cells will add std::cells to the
+// search path for process names.
+//
+open std::cells;
+open std::gates;
+
+template<pint delay_length>
+defproc DELAY (bool? L; bool! R){
+    INVX1 invs[delay_length];
+    invs[0].A = L;
+    invs[delay_length-1].Y = R;
+    (i : (delay_length - 1) : invs[i].Y = invs[i+1].A;)
+}
+
+defproc DELAY_LATCH <: DELAY<44> (){}
+
+
+template <pint delay>
+defproc PULSE(bool? l; bool! r){
+    pint odd_delay = delay*2 + 1;
+    DELAY<odd_delay> d(l);
+    AND2X1 a(l,d.R,r);
+}
+
+defproc PULSE_LATCH <: PULSE<20> (){}
+
+
+template <pint N>
+defproc N_LATCH(bool? CLK; bool? D[N]; bool! Q[N]){
+    LATCHLO latches[N];
+    (i : N : latches[i].CLK = CLK; latches[i].D = D[i]; latches[i].Q = Q[i]; latches[i].R = Reset;)
+}
+
+template <pint N, init_num>
+defproc N_LATCH_INIT(bool? CLK; bool? D[N]; bool! Q[N]){
+    pint ind,lo_size,hi_size,lo,hi;
+    ind=0;
+    lo_size=0;
+    hi_size=0;
+    *[ ind < N -> [
+        ((init_num >> ind) % 2) = 0 -> lo_size = lo_size + 1;
+            [] else -> hi_size = hi_size + 1;
+        ];
+        ind = ind + 1;
+    ]
+    [
+        lo_size != 0 -> LATCHLO latchesL[lo_size];
+    ]
+    [
+        hi_size != 0 -> LATCHHI latchesH[hi_size];
+    ]
+    
+    lo=0;
+    hi=0;
+    ind=0;
+    *[ ind < N -> [
+        ((init_num >> ind) % 2) = 0 -> latchesL[lo].CLK = CLK; latchesL[lo].D = D[ind]; latchesL[lo].Q = Q[ind]; latchesL[lo].R = Reset; lo = lo + 1;
+            [] else -> latchesH[hi].CLK = CLK; latchesH[hi].D = D[ind]; latchesH[hi].Q = Q[ind]; latchesH[hi].S = Reset; hi = hi + 1;
+        ];
+        ind = ind + 1;
+    ]
+
+    // (i : N : [((init_num >> i) % 2) = 0 -> latchesL[i].CLK = CLK; latchesL[i].D = D[i]; latchesL[i].Q = Q[i]; latchesL[i].R = Reset;
+    //         [] else -> latchesH[i].CLK = CLK; latchesH[i].D = D[i]; latchesH[i].Q = Q[i]; latchesH[i].S = Reset;
+    //     ]
+    // )
+}
+
+
+
+// Initializes the c element with a certain value on reset.
+template<pint N; pbool invert; pbool init>
+defproc ctree_init(bool? in[N]; bool out){
+
+
+    bool reset_out;
+    // NOR FOR High
+    // NAND For 0
+    ctree<N,invert> c;
+    c.out = reset_out;
+
+    [
+        // Sends all ones
+        (init & ~invert) | (~init & invert) ->
+            OR2X1 ors[N]; (i : N : in[i] = ors[i].A; ors[i].B = Reset; ors[i].Y = c.in[i];)
+        // Send all zeros
+        [] else -> 
+            NOR2X1 nors[N]; INVX1 invs[N];
+            (i : N : invs[i].A = in[i]; nors[i].A = invs[i].Y; nors[i].B = Reset; nors[i].Y = c.in[i];)
+    ]
+    
+    
+
+    [
+        (init) -> OR2X1 out_or;out_or.A = reset_out; out_or.B = Reset; out_or.Y = out;
+        [] else -> NOR2X1 out_nor; INVX1 out_inv; out_inv.A = reset_out; out_nor.A = out_inv.Y; out_nor.B = Reset; out_nor.Y = out;    
+    ]
+}
+
+
+defproc ctree_init_test(bool? in[8]; bool out){
+    ctree_init<8,false,false> c(in,out);
+}
+
+template <pint N>
+defproc N_MUX2 (bool? A[N], B[N]; bool? S; bool! Y[N])
+{
+   MUX2X1 muxes[N];
+   INVX1 invs[N];
+   (i : N : muxes[i].A = A[i]; muxes[i].B = B[i]; muxes[i].S = S; muxes[i].Y = invs[i].A; invs[i].Y = Y[i];)
+}
+
+template <pint N>
+defproc N_FAX(bool? A[N], B[N]; bool! YS[N]){
+    FAX1 adders[N];
+    TIELOX1 no_carry(adders[0].C);
+    (i : N : adders[i].A = A[i]; adders[i].B = B[i]; adders[i].YS = YS[i];)
+    (i : N-1 : adders[i].YC = adders[i+1].C;)
+}
+
+
+template <pint N>
+defproc N_AND(bool? A[N], B[N]; bool! Y[N])
+{
+    AND2X1 ands[N];
+    (i : N : ands[i].A = A[i]; ands[i].B = B[i]; ands[i].Y = Y[i];)
+}
+
+template <pint N>
+defproc N_XOR(bool? A[N], B[N]; bool! Y[N])
+{
+    XOR2X1 ands[N];
+    (i : N : ands[i].A = A[i]; ands[i].B = B[i]; ands[i].Y = Y[i];)
+}
+
+template <pint N>
+defproc N_INV(bool? A[N]; bool! Y[N])
+{
+    INVX1 invs[N];
+    (i : N : invs[i].A = A[i]; invs[i].Y = Y[i];)
+}
+
+
