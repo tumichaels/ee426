@@ -1,6 +1,5 @@
 import "cells.act";
-import std::channel;
-
+import "channel.act";
 import globals;
 
 defproc chp_source (bd!<8> X)
@@ -49,11 +48,40 @@ defproc buf_test()
    buffer<8> b(src.X, snk.X);
 }
 
+template<pint N>
+defproc slack(bd?<8> L; bd!<8> R){
+  buffer<8> b[N];
+  (i : N-1 : b[i].R = b[i+1].L;)
+  b[0].L = L;
+  b[N-1].R = R;
+}
+
+defproc multi_buf_test()
+{
+  init_buffer<8,10> b[64];
+  (i : 63 : b[i].R = b[i+1].L;)
+  
+  chp_sink snk;
+  buffer<8> b_out;
+  slack<128> b_slack;
+  b_out.R = snk.X;
+  copy<8> output;
+  output.L = b[63].R;
+  output.R1 = b_out.L;
+  output.R2 = b_slack.L;
+
+  b_slack.R = b[0].L;
+  
+}
+
+
+
+
 defproc init_buf_test()
 {
    chp_source_offset src;
    chp_sink snk;
-   init_buffer<8,56> b(src.X, snk.X);
+   init_buffer<8,562> b(src.X, snk.X);
 }
 
 defproc source_test()

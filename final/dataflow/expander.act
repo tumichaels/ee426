@@ -1,0 +1,135 @@
+import "cells.act";
+import "channel.act";
+
+
+template<pint N, num, init>
+defproc init_buf_slack(bd?<N> L; bd!<N> R){
+  init_buffer<N,init> b[num];
+  (i : num-1 : b[i].R = b[i+1].L;)
+  b[0].L = L;
+  b[num-1].R = R;
+}
+
+template<pint N, num>
+defproc slack(bd?<N> L; bd!<N> R){
+  buffer<N> b[num];
+  (i : num-1 : b[i].R = b[i+1].L;)
+  b[0].L = L;
+  b[num-1].R = R;
+}
+
+defproc sigma0(bd?<32> L; bd!<32> R){
+    copy<32> in_copy(L);
+
+    rot<32,7> rot1(in_copy.R1);
+    rot<32,18> rot2(in_copy.R1);
+    shift<32,3> shift(in_copy.R2);
+
+    xor<32> xor1(rot1.R,rot2.R);
+    xor<32> xor2(shift.R,xor1.Z,R);
+
+}
+
+
+// The main controller for the expander. Utilizes a token buffer loop to repeat send a sequence of tokens.
+// This controller sequentially adds in order the values need to calculate new messages and control flow of messages.
+defproc controller(bd!<1> msg_in_control, w0_control, w1_control, w9_control, w14_control){
+    //msg_in
+    init_buf_slack<1,16,0> original_message;
+    init_buf_slack<1,48,1> new_words;
+    slack<1,128> msg_in_slack;
+    msg_in_slack.R = new_words.L;
+    new_words.R = original_message.L;
+    copy<1> msg_in(original_message.R, msg_in_control, msg_in_slack.L);
+    
+    //w0_control
+    init_buf_slack<1,48,1> w0_allow;
+    init_buf_slack<1,16,0> w0_block;
+    slack<1,128> w0_slack;
+    w0_slack.R = w0_block.L;
+    w0_block.R = w0_allow.L;
+    copy<1> w0(w0_allow.R, w0_control, w0_slack.L);
+
+    //w1_control
+    init_buffer<1,0> init_w1_block;
+    init_buf_slack<1,48,1> w1_allow;
+    init_buf_slack<1,15,0> w1_block;
+    slack<1,128> w1_slack;
+    w1_slack.R = w1_block.L;
+    w1_block.R = w1_allow.L;
+    w1_allow.R = init_w1_block.L;
+    copy<1> w1(init_w1_block.R, w1_control, w1_slack.L);
+
+    //w9_control
+    init_buf_slack<1,9,0> init_w9_block;
+    init_buf_slack<1,48,1> w9_allow;
+    init_buf_slack<1,7,0> w9_block;
+    slack<1,128> w9_slack;
+    w9_slack.R = w9_block.L;
+    w9_block.R = w9_allow.L;
+    w9_allow.R = init_w9_block.L;
+    copy<1> w9(init_w9_block.R, w9_control, w9_slack.L);
+
+    //w14_control
+    init_buf_slack<1,14,0> init_w14_block;
+    init_buf_slack<1,48,1> w14_allow;
+    init_buf_slack<1,2,0> w14_block;
+    slack<1,128> w14_slack;
+    w14_slack.R = w14_block.L;
+    w14_block.R = w14_allow.L;
+    w14_allow.R = init_w14_block.L;
+    copy<1> w14(init_w14_block.R, w14_control, w14_slack.L);
+
+}
+
+defproc expander(bd?<32> in; bd!<32> out){
+
+    controller c;
+
+    merge<32> msg_input( , in, c.msg_in_control);
+
+    copy<32> msg_out(msg_input.Z,out);
+
+    // copy<32> w14_copy(msg_out.R2);
+    // df_sink<32> w14_sink;
+    // split<32> w14_filter(w14_copy.R1, c.w14_control, w14_sink.L, proccess_w14);
+
+
+    // copy<32> w9_copy(w14_copy.R2);
+    // df_sink<32> w9_sink;
+    // split<32> w9_filter(w9_copy.R1, c.w9_control, w9_sink.L, proccess_w9);
+    
+
+    // copy<32> w1_copy(w9_copy.R2);
+    // df_sink<32> w1_sink;
+    // split<32> w1_filter(w1_copy.R1, c.w1_control, w1_sink.L, proccess_w1);
+
+    // df_sink<32> w0_sink;
+    // split<32> w0_filter(w1_copy.R2, c.w0_control, w0_sink.L, proccess_w0);
+    
+    
+
+}
+template<pint N>
+defproc chp_sink (bd?<N> X)
+{
+  int<N> v;
+  chp {
+    [~Reset];
+    *[ X?v; log ("Received value: ", v) ]
+  }
+}
+
+defproc controller_test(){
+    controller c;
+    chp_sink<1> l(c.w14_control);
+}
+
+defproc sigma_test(){
+    df_source<32,825373492> source;
+    sigma0 s(source.R);
+    buffer<32> b(s.R);
+
+    chp_sink<32> snk(b.R);
+}
+

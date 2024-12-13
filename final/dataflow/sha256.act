@@ -1,11 +1,7 @@
 import "cells.act";
-import std::channel;
+import "channel.act";
 
 
-
-defproc expander(
-    
-)
 
 
 defproc accum (bd?<8> L; bd?<1> C; bd!<8> R){

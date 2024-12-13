@@ -1,6 +1,6 @@
 import globals;
 import std::cells;
-import std::channel;
+import "channel.act";
 import std::gates;
 
 //
@@ -14,7 +14,6 @@ import std::gates;
 // search path for process names.
 //
 open std::cells;
-open std::channel;
 open std::gates;
 
 template<pint delay_length>
@@ -107,30 +106,26 @@ defproc N_FAX(bool? A[N], B[N]; bool! YS[N]){
     (i : N-1 : adders[i].YC = adders[i+1].C;)
 }
 
+
 template <pint N>
 defproc N_AND(bool? A[N], B[N]; bool! Y[N])
 {
     AND2X1 ands[N];
-    (i : N : ands[i].A = A[i]; ands[i].B = B[i]; ands[i].Y = Y[i])
+    (i : N : ands[i].A = A[i]; ands[i].B = B[i]; ands[i].Y = Y[i];)
 }
 
 template <pint N>
 defproc N_XOR(bool? A[N], B[N]; bool! Y[N])
 {
     XOR2X1 ands[N];
-    (i : N : ands[i].A = A[i]; ands[i].B = B[i]; ands[i].Y = Y[i])
-}
-
-template <pint N>
-defproc N_AND(bool? A[N], B[N]; bool! Y[N])
-{
-    AND2X1 ands[N];
-    (i : N : ands[i].A = A[i]; ands[i].B = B[i]; ands[i].Y = Y[i])
+    (i : N : ands[i].A = A[i]; ands[i].B = B[i]; ands[i].Y = Y[i];)
 }
 
 template <pint N>
 defproc N_INV(bool? A[N]; bool! Y[N])
 {
-    inv invs[N];
-    (i : N : invs[i].A = A[i]; invs[i].Y = Y[i])
+    INVX1 invs[N];
+    (i : N : invs[i].A = A[i]; invs[i].Y = Y[i];)
 }
+
+

@@ -1,3 +1,2 @@
 import "cells.act";
-import std::channel;
-
+import "channel.act";

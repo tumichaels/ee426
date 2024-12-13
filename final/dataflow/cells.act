@@ -1,6 +1,6 @@
 import globals;
 import std::cells;
-import std::channel;
+import "channel.act";
 import std::gates;
 import "./common.act";
 
@@ -16,7 +16,6 @@ import "./common.act";
 // search path for process names.
 //
 open std::cells;
-open std::channel;
 open std::gates;
 
 
@@ -248,35 +247,91 @@ defproc add(bd?<N> A,B; bd!<N> Z){
     N_FAX<N> adder(ABuf.Q, BBuf.Q, Z.d);
 }
 
+
+template <pint N>
+defproc xor(bd?<N> A,B; bd!<N> Z){
+    bool ack;
+    
+    // Merging Processing
+    /* Control
+        Waits for both L and C to request, and the
+    */ 
+    // Setup Merge control logic. We should get a request from data_celt, and our control latch should be saved and computed ab_r properly.
+
+    ctree_init<3,false,false> celt;
+    celt.in[0] = A.r;
+    celt.in[1] = B.r;
+    INVX1 inv1(Z.a,celt.in[2]);
+
+    
+    celt.out = ack;
+    DELAY<50> d(ack,Z.r);
+
+    //ACK
+    ack = A.a;
+    ack = B.a;
+  
+    
+
+    // Data 
+    // - Stores Mux selector value for both data and control 
+    
+
+    PULSE_LATCH p_data(ack);
+    N_LATCH<N> ABuf(p_data.r, A.d);
+    N_LATCH<N> BBuf(p_data.r, B.d);
+
+    N_XOR<N> xor(ABuf.Q, BBuf.Q, Z.d);
+}
+    
+
+
 template <pint N, source_num>
 defproc df_source(bd<N> R){
     
     INVX1 inv(R.a,R.r);
-    TIELOX1 lo[N];
-    TIEHIX1 hi[N];
+    TIELOX1 lo;
+    TIEHIX1 hi;
 
-    (i : N : [((source_num >> i) % 2) = 0 -> R.d[i] = lo[i].Y;
-            [] else -> R.d[i] = hi[i].Y;
+    (i : N : [((source_num >> i) % 2) = 0 -> R.d[i] = lo.Y;
+            [] else -> R.d[i] = hi.Y;
         ]
     )
 }
 
-// template <pint bits, num_to_send>
-// defproc chp_send_one_buffer (data_chan! out[bits]){
-//     pint bits_to_send[bits];
-
-//     (i : bits : [((num_to_send >> i) % 2) = 0 -> bits_to_send[i] = 0;
-//             [] else -> bits_to_send[i] = 1;
-//         ]
-//     )
-//     chp{
-//         //[Reset]; [~Reset];
-//         [~Reset];
-//         (,i : bits : out[i]!bits_to_send[i];log("bit sent, index:",i,"| bit:",bits_to_send[i]))
-//     }
-// }
 
 template <pint N>
 defproc df_sink(bd<N> L){
     DELAY<2> d(L.r,L.a);
+}
+
+
+
+// Miscellaneous- Shifts and Rotations don't require handshakes.
+//In place shifts and rotations
+template <pint N,rot>
+defproc rot(bd<N> L; bd<N> R){
+    L.r = R.r;
+    L.a = R.a;
+    //Right
+    // (i : N-rot : L.d[i] = R.d[i+rot];)
+    // (i : rot : L.d[N-i-1] = R.d[rot-i-1];)
+
+    //Left
+    (i : N-rot : L.d[N-i-1] = R.d[N-i-1-rot];)
+    (i : rot : L.d[i] = R.d[N-rot+i];)
+}
+
+template <pint N,shift>
+defproc shift(bd<N> L; bd<N> R){
+    TIELOX1 zero;
+    L.r = R.r;
+    L.a = R.a;
+    //Right
+    // (i : N-shift : L.d[i] = R.d[i+shift];)
+    // (i : shift : R.d[i] = zero.Y;)
+
+    //Left
+    (i : N-shift : L.d[N-i-1] = R.d[N-i-1-shift];)
+    (i : shift : R.d[N-shift+i] = zero.Y;)
 }
