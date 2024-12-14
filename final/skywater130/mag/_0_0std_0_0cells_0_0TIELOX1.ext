@@ -1,0 +1,19 @@
+timestamp 1729892103
+version 8.3
+tech sky130l
+style generic
+scale 1 1 7.5
+resistclasses 1000 1000
+port "GND" 1 25 33 25 33 m2c
+port "Y" 2 9 5 9 5 m1
+port "Vdd" 3 9 33 9 33 m1
+node "GND" 1200 0 25 33 m2c 30 22 0 0
+equiv "GND" "GND"
+node "Y" 1200 0 9 5 m1 30 22 0 0
+node "Vdd" 2000 0 9 33 m1 0 0 50 30
+equiv "Vdd" "Vdd"
+node "x" 2000 0 13 4 polysilicon 0 0 50 30
+equiv "x" "x"
+equiv "x" "x"
+device mosfet nfet 13 6 14 7 2 6 "Gnd!" "x" 4 0 "Y" 6 0 "GND" 6 0
+device mosfet pfet 13 19 14 20 2 10 "Vdd!" "x" 4 0 "Vdd" 10 0 "x" 10 0

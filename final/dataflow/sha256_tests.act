@@ -98,5 +98,19 @@ defproc k_source_test()
 }
 
 defproc compressor_test(){
+  chp_source<16,{825373492,892745528,959524913,825307697,858862641,892417585,925972529,959525424,842084914,875705393,2147483648,0,0,0,0,320}> src;
+  expander exp(src.X);
+
+  chp_sink<32> a;
+  chp_sink<32> b;
+  chp_sink<32> c;
+  chp_sink<32> d;
+  chp_sink<32> e;
+  chp_sink<32> f;
+  chp_sink<32> g;
+  chp_sink<32> h;
+
+
+  compressor comp(exp.out,a.X,b.X,c.X,d.X,e.X,f.X,g.X,h.X);
 
 }

@@ -1,0 +1,253 @@
+magic
+tech sky130l
+timestamp 1731040983
+<< ndiffusion >>
+rect 8 18 13 20
+rect 8 15 9 18
+rect 12 15 13 18
+rect 8 14 13 15
+rect 15 19 20 20
+rect 15 16 16 19
+rect 19 16 20 19
+rect 15 14 20 16
+rect 22 18 27 20
+rect 22 15 23 18
+rect 26 15 27 18
+rect 22 14 27 15
+rect 29 19 36 20
+rect 29 16 32 19
+rect 35 16 36 19
+rect 29 14 36 16
+<< ndc >>
+rect 9 15 12 18
+rect 16 16 19 19
+rect 23 15 26 18
+rect 32 16 35 19
+<< ntransistor >>
+rect 13 14 15 20
+rect 20 14 22 20
+rect 27 14 29 20
+<< pdiffusion >>
+rect 8 36 13 42
+rect 8 31 9 36
+rect 12 31 13 36
+rect 8 27 13 31
+rect 15 27 20 42
+rect 22 35 26 42
+rect 22 32 27 35
+rect 22 29 23 32
+rect 26 29 27 32
+rect 22 27 27 29
+rect 29 32 36 35
+rect 29 29 32 32
+rect 35 29 36 32
+rect 29 27 36 29
+<< pdc >>
+rect 9 31 12 36
+rect 23 29 26 32
+rect 32 29 35 32
+<< ptransistor >>
+rect 13 27 15 42
+rect 20 27 22 42
+rect 27 27 29 35
+<< polysilicon >>
+rect 8 50 15 51
+rect 8 47 9 50
+rect 12 47 15 50
+rect 8 46 15 47
+rect 13 42 15 46
+rect 20 50 28 51
+rect 20 47 24 50
+rect 27 47 28 50
+rect 20 46 28 47
+rect 31 50 36 51
+rect 31 47 32 50
+rect 35 47 36 50
+rect 20 42 22 46
+rect 31 42 36 47
+rect 27 40 36 42
+rect 27 35 29 40
+rect 13 20 15 27
+rect 20 20 22 27
+rect 27 20 29 27
+rect 13 12 15 14
+rect 20 12 22 14
+rect 27 12 29 14
+<< pc >>
+rect 9 47 12 50
+rect 24 47 27 50
+rect 32 47 35 50
+<< m1 >>
+rect 8 51 12 56
+rect 8 50 13 51
+rect 8 47 9 50
+rect 12 47 13 50
+rect 8 46 13 47
+rect 8 41 13 42
+rect 8 38 9 41
+rect 12 38 13 41
+rect 8 37 13 38
+rect 8 36 12 37
+rect 8 31 9 36
+rect 8 25 12 31
+rect 16 33 20 56
+rect 24 51 28 56
+rect 23 50 28 51
+rect 23 47 24 50
+rect 27 47 28 50
+rect 23 46 28 47
+rect 31 50 36 51
+rect 31 47 32 50
+rect 35 47 36 50
+rect 31 41 36 47
+rect 31 38 32 41
+rect 35 38 36 41
+rect 31 37 36 38
+rect 16 32 27 33
+rect 16 29 23 32
+rect 26 29 27 32
+rect 22 28 27 29
+rect 32 32 36 33
+rect 35 29 36 32
+rect 8 22 20 25
+rect 16 19 20 22
+rect 32 19 36 29
+rect 8 18 12 19
+rect 8 15 9 18
+rect 19 16 20 19
+rect 16 15 20 16
+rect 23 18 27 19
+rect 26 15 27 18
+rect 8 8 12 15
+rect 23 8 27 15
+rect 8 4 27 8
+rect 35 16 36 19
+rect 32 4 36 16
+<< m2c >>
+rect 9 38 12 41
+rect 32 38 35 41
+<< m2 >>
+rect 8 41 36 42
+rect 8 38 9 41
+rect 12 38 32 41
+rect 35 38 36 41
+rect 8 37 36 38
+<< labels >>
+rlabel space 0 0 40 60 6 prboundary
+rlabel polysilicon 32 43 32 43 3 _Y
+rlabel ndiffusion 30 15 30 15 3 Y
+rlabel ndiffusion 30 17 30 17 3 Y
+rlabel ndiffusion 30 20 30 20 3 Y
+rlabel pdiffusion 30 28 30 28 3 Y
+rlabel pdiffusion 30 30 30 30 3 Y
+rlabel pdiffusion 30 33 30 33 3 Y
+rlabel polysilicon 28 36 28 36 3 _Y
+rlabel polysilicon 28 41 28 41 3 _Y
+rlabel polysilicon 28 13 28 13 3 _Y
+rlabel ntransistor 28 15 28 15 3 _Y
+rlabel polysilicon 28 21 28 21 3 _Y
+rlabel ptransistor 28 28 28 28 3 _Y
+rlabel ndiffusion 23 15 23 15 3 GND
+rlabel ndiffusion 23 16 23 16 3 GND
+rlabel ndiffusion 23 19 23 19 3 GND
+rlabel pdiffusion 23 28 23 28 3 Vdd
+rlabel pdiffusion 23 30 23 30 3 Vdd
+rlabel pdiffusion 23 33 23 33 3 Vdd
+rlabel pdiffusion 23 36 23 36 3 Vdd
+rlabel polysilicon 21 13 21 13 3 B
+rlabel ntransistor 21 15 21 15 3 B
+rlabel polysilicon 21 21 21 21 3 B
+rlabel ptransistor 21 28 21 28 3 B
+rlabel polysilicon 21 43 21 43 3 B
+rlabel polysilicon 21 47 21 47 3 B
+rlabel polysilicon 21 48 21 48 3 B
+rlabel polysilicon 21 51 21 51 3 B
+rlabel ndiffusion 16 15 16 15 3 _Y
+rlabel ndiffusion 16 17 16 17 3 _Y
+rlabel ndiffusion 16 20 16 20 3 _Y
+rlabel ndiffusion 13 16 13 16 3 GND
+rlabel pdiffusion 13 32 13 32 3 _Y
+rlabel polysilicon 14 13 14 13 3 A
+rlabel ntransistor 14 15 14 15 3 A
+rlabel polysilicon 14 21 14 21 3 A
+rlabel ptransistor 14 28 14 28 3 A
+rlabel polysilicon 14 43 14 43 3 A
+rlabel ndiffusion 9 15 9 15 3 GND
+rlabel pdiffusion 9 28 9 28 3 _Y
+rlabel m1 36 17 36 17 3 Y
+port 1 e
+rlabel m1 36 30 36 30 3 Y
+port 1 e
+rlabel m1 36 48 36 48 3 _Y
+rlabel ndc 33 17 33 17 3 Y
+port 1 e
+rlabel m1 33 20 33 20 3 Y
+port 1 e
+rlabel pdc 33 30 33 30 3 Y
+port 1 e
+rlabel m1 33 33 33 33 3 Y
+port 1 e
+rlabel pc 33 48 33 48 3 _Y
+rlabel m1 32 48 32 48 3 _Y
+rlabel m1 24 19 24 19 3 GND
+rlabel m1 27 16 27 16 3 GND
+rlabel m1 28 48 28 48 3 B
+port 2 e
+rlabel m1 32 51 32 51 3 _Y
+rlabel ndc 24 16 24 16 3 GND
+rlabel pc 25 48 25 48 3 B
+port 2 e
+rlabel m1 25 52 25 52 3 B
+port 2 e
+rlabel m1 20 17 20 17 3 _Y
+rlabel m1 27 30 27 30 3 Vdd
+rlabel m1 32 38 32 38 3 _Y
+rlabel m1 32 39 32 39 3 _Y
+rlabel m1 32 42 32 42 3 _Y
+rlabel m1 24 47 24 47 3 B
+port 2 e
+rlabel m1 24 48 24 48 3 B
+port 2 e
+rlabel m1 24 51 24 51 3 B
+port 2 e
+rlabel m1 17 16 17 16 3 _Y
+rlabel ndc 17 17 17 17 3 _Y
+rlabel m1 17 20 17 20 3 _Y
+rlabel pdc 24 30 24 30 3 Vdd
+rlabel m1 33 5 33 5 3 Y
+port 1 e
+rlabel m1 24 9 24 9 3 GND
+rlabel m1 23 29 23 29 3 Vdd
+rlabel m1 17 30 17 30 3 Vdd
+rlabel m1 17 33 17 33 3 Vdd
+rlabel m1 17 34 17 34 3 Vdd
+rlabel m1 13 48 13 48 3 A
+port 3 e
+rlabel ndc 10 16 10 16 3 GND
+rlabel pdc 10 32 10 32 3 _Y
+rlabel pc 10 48 10 48 3 A
+port 3 e
+rlabel m1 9 5 9 5 3 GND
+rlabel m1 9 9 9 9 3 GND
+rlabel m1 9 16 9 16 3 GND
+rlabel m1 9 19 9 19 3 GND
+rlabel m1 9 23 9 23 3 _Y
+rlabel m1 9 26 9 26 3 _Y
+rlabel m1 9 32 9 32 3 _Y
+rlabel m1 9 37 9 37 3 _Y
+rlabel m1 9 47 9 47 3 A
+port 3 e
+rlabel m1 9 48 9 48 3 A
+port 3 e
+rlabel m1 9 51 9 51 3 A
+port 3 e
+rlabel m1 9 52 9 52 3 A
+port 3 e
+rlabel m2 36 39 36 39 3 _Y
+rlabel m2c 33 39 33 39 3 _Y
+rlabel m2 13 39 13 39 3 _Y
+rlabel m2c 10 39 10 39 3 _Y
+rlabel m2 9 38 9 38 3 _Y
+rlabel m2 9 39 9 39 3 _Y
+rlabel m2 9 42 9 42 3 _Y
+<< end >>

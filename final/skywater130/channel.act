@@ -1,0 +1,70 @@
+import std;
+// Created new channel to be big endian
+/*------------------------------------------------------------------------
+ *
+ *  Bundled data
+ *
+ *------------------------------------------------------------------------
+ */
+template<pbool reset; pint V; pint M>
+defchan gen_Mbd <: chan(int<M>) (bool?! d[M]; bool?! r; bool!? a)
+{
+  { 0 <= V & std::ceil_log2(V) < M : "Initial token value out of range" };
+
+  spec {
+    /* timing fork */
+    timing a- : d* < r*+
+  }
+
+  methods {
+    /*-- initialize channel, sender end --*/
+    send_init {
+      [ reset -> (,i:M: [ ((V >> i) & 1) = 0 -> d[i]- [] else -> d[i]+ ])
+     [] else -> (,i:M: d[i]-)
+      ];r-
+    }
+
+    /*-- set output data --*/
+    set {
+      (,i:M: [((self >> i) & 1) = 0 -> d[i]- [] else -> d[i]+ ]);r+
+    }
+
+    /*-- finish synchronization --*/
+    send_up {
+      [a]
+    }
+
+    /*-- reset part of the protocol --*/
+    send_rest {
+      r-;[~a]
+    }
+
+    /*-- initialize channel, receiver end --*/
+    recv_init {
+      a-
+    }
+
+    /*-- get value --*/
+    get {
+      [r];
+      self := 0;
+      (;i:M: self := self | (int(d[i]) << i))
+    }
+    // [M-i-1]
+    /*-- finish synchronization action --*/
+    recv_up {
+      a+
+    }
+
+    /*-- reset part of the protocol --*/
+    recv_rest {
+      [~r];a-
+    }
+
+    /*-- probe expression on receiver --*/
+    recv_probe = r;
+
+    // no sender probe
+  }
+}
+export defchan bd <: gen_Mbd<false,0> () { }

@@ -137,7 +137,7 @@ defproc split(bd?<N> L; bd?<1> C; bd!<N> A,B){
     ack = L.a;
     ack = C.a;
 
-    DELAY<40> d(ack,r_out);
+    DELAY<20> d(ack,r_out);
     
     // Split Request Signal
     INVX1 inv_selector(selector);
@@ -169,7 +169,7 @@ defproc merge(bd?<N> A,B; bd?<1> C; bd!<N> Z){
     control_celt.out = control_ack;
     control_ack = C.a;
 
-    DELAY<30> c_done_delay(control_ack,c_done);
+    DELAY<15> c_done_delay(control_ack,c_done);
 
     // Merging Processing
     /* Control
@@ -263,7 +263,7 @@ defproc concat(bd?<N> A,B; bd!<2*N> Z){
 
     
     celt.out = ack;
-    DELAY<50> d(ack,Z.r);
+    DELAY<10> d(ack,Z.r);
 
     //ACK
     ack = A.a;
@@ -318,7 +318,7 @@ defproc rot(bd<N> L; bd<N> R){
 
 template <pint N,shift>
 defproc shift(bd<N> L; bd<N> R){
-    TIELOX1 zero[N];
+    TIELOX1 zero;
     L.r = R.r;
     L.a = R.a;
     //Right
@@ -327,7 +327,7 @@ defproc shift(bd<N> L; bd<N> R){
 
     //Left
     (i : N-shift : L.d[N-i-1] = R.d[N-i-1-shift];)
-    (i : shift : R.d[N-shift+i] = zero[i].Y;)
+    (i : shift : R.d[N-shift+i] = zero.Y;)
 }
 
 
@@ -346,7 +346,7 @@ defproc and(bd?<N> A,B; bd!<N> Z){
     INVX1 inv1(Z.a,celt.in[2]);
     
     celt.out = ack;
-    DELAY<50> d(ack,Z.r);
+    DELAY<30> d(ack,Z.r);
 
     //ACK
     ack = A.a;

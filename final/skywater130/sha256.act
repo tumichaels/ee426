@@ -1,4 +1,4 @@
-import "cells.act";
+import "dataflow.act";
 import "channel.act";
 import "compressor.act";
 import "expander.act";

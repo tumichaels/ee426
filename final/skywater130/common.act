@@ -24,7 +24,7 @@ defproc DELAY (bool? L; bool! R){
     (i : (delay_length - 1) : invs[i].Y = invs[i+1].A;)
 }
 
-defproc DELAY_LATCH <: DELAY<44> (){}
+defproc DELAY_LATCH <: DELAY<30> (){}
 
 
 template <pint delay>
@@ -34,7 +34,7 @@ defproc PULSE(bool? l; bool! r){
     AND2X1 a(l,d.R,r);
 }
 
-defproc PULSE_LATCH <: PULSE<20> (){}
+defproc PULSE_LATCH <: PULSE<10> (){}
 
 
 template <pint N>
