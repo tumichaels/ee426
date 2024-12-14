@@ -47,7 +47,7 @@ defproc controller(bd!<1> msg_in_control, w0_control, w1_control, w9_control, w1
     //msg_in
     init_buf_slack<1,16,0> original_message;
     init_buf_slack<1,48,1> new_words;
-    slack<1,64> msg_in_slack;
+    slack<1,32> msg_in_slack;
     msg_in_slack.R = new_words.L;
     new_words.R = original_message.L;
     copy<1> msg_in(original_message.R, msg_in_control, msg_in_slack.L);
@@ -64,7 +64,7 @@ defproc controller(bd!<1> msg_in_control, w0_control, w1_control, w9_control, w1
     init_buffer<1,0> init_w1_block;
     init_buf_slack<1,48,1> w1_allow;
     init_buf_slack<1,15,0> w1_block;
-    slack<1,64> w1_slack;
+    slack<1,32> w1_slack;
     w1_slack.R = w1_block.L;
     w1_block.R = w1_allow.L;
     w1_allow.R = init_w1_block.L;
@@ -74,7 +74,7 @@ defproc controller(bd!<1> msg_in_control, w0_control, w1_control, w9_control, w1
     init_buf_slack<1,9,0> init_w9_block;
     init_buf_slack<1,48,1> w9_allow;
     init_buf_slack<1,7,0> w9_block;
-    slack<1,64> w9_slack;
+    slack<1,32> w9_slack;
     w9_slack.R = w9_block.L;
     w9_block.R = w9_allow.L;
     w9_allow.R = init_w9_block.L;
@@ -84,7 +84,7 @@ defproc controller(bd!<1> msg_in_control, w0_control, w1_control, w9_control, w1
     init_buf_slack<1,14,0> init_w14_block;
     init_buf_slack<1,48,1> w14_allow;
     init_buf_slack<1,2,0> w14_block;
-    slack<1,64> w14_slack;
+    slack<1,32> w14_slack;
     w14_slack.R = w14_block.L;
     w14_block.R = w14_allow.L;
     w14_allow.R = init_w14_block.L;
@@ -173,10 +173,10 @@ defproc expander(bd?<32> in; bd!<32> out){
     split<32> w0_filter(w1_copy.R2, c.w0_control, w0_sink.L, w0);
 
     //Calculating
-    slack<32,50> w0_slack(w0);
-    slack<32,50> w1_slack(w1);
-    slack<32,40> w9_slack(w9);
-    slack<32,10> w14_slack(w14);
+    slack<32,30> w0_slack(w0);
+    slack<32,20> w1_slack(w1);
+    slack<32,10> w9_slack(w9);
+    slack<32,5> w14_slack(w14);
     generate_word calculate(w0_slack.R,w1_slack.R,w9_slack.R,w14_slack.R,new_word);
 }
 

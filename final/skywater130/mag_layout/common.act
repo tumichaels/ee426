@@ -24,7 +24,7 @@ defproc DELAY (bool? L; bool! R){
     (i : (delay_length - 1) : invs[i].Y = invs[i+1].A;)
 }
 
-defproc DELAY_LATCH <: DELAY<30> (){}
+defproc DELAY_LATCH <: DELAY<20> (){}
 
 
 template <pint delay>

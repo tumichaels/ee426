@@ -1,74 +1,82 @@
 xload final_rect/_0_0std_0_0cells_0_0NOR2X1
-box 0 0 40 48
+box 0 0 48 52
 label prboundary
-box 34 31 35 34
+box 37 41 38 44
 paint polysilicon
-box 35 32 35 32
+box 38 42 38 42
 label "B" right polysilicon
-box 32 17 34 30
+box 34 41 37 44
 paint polysilicon
-box 33 18 33 18
+box 35 42 35 42
 label "B" right polysilicon
-box 31 31 34 34
+box 33 42 34 44
 paint polysilicon
-box 32 32 32 32
+box 34 43 34 43
+label "B" right polysilicon
+box 33 44 38 45
+paint polysilicon
+box 34 45 34 45
 label "B" right polysilicon
 box 26 7 27 10
 paint ndiffusion
 box 27 8 27 8
-label "Y" right ndiffusion
-box 30 30 35 31
+label "GND" right ndiffusion
+box 32 17 34 40
 paint polysilicon
-box 31 31 31 31
+box 33 18 33 18
 label "B" right polysilicon
-box 30 31 31 34
+box 32 40 38 41
 paint polysilicon
-box 31 32 31 32
+box 33 41 33 41
 label "B" right polysilicon
-box 30 34 35 35
+box 32 41 34 42
 paint polysilicon
-box 31 35 31 35
+box 33 42 33 42
 label "B" right polysilicon
-box 26 20 27 23
+box 26 30 27 33
 paint pdiffusion
-box 27 21 27 21
-label "Y" right pdiffusion
+box 27 31 27 31
+label "Vdd" right pdiffusion
 box 23 7 26 10
 paint ndiffusion
 box 24 8 24 8
-label "Y" right ndiffusion
-box 23 20 26 23
+label "GND" right ndiffusion
+box 23 30 26 33
 paint pdiffusion
-box 24 21 24 21
-label "Y" right pdiffusion
+box 24 31 24 31
+label "Vdd" right pdiffusion
 box 22 6 27 7
 paint ndiffusion
 box 23 7 23 7
-label "Y" right ndiffusion
+label "GND" right ndiffusion
 box 22 7 23 10
 paint ndiffusion
 box 23 8 23 8
-label "Y" right ndiffusion
+label "GND" right ndiffusion
 box 22 10 27 12
 paint ndiffusion
 box 23 11 23 11
-label "Y" right ndiffusion
-box 19 7 20 10
-paint ndiffusion
-box 20 8 20 8
 label "GND" right ndiffusion
-box 22 19 27 20
+box 19 8 20 11
+paint ndiffusion
+box 20 9 20 9
+label "Y" right ndiffusion
+box 22 19 27 30
 paint pdiffusion
 box 23 20 23 20
-label "Y" right pdiffusion
-box 22 20 23 23
+label "Vdd" right pdiffusion
+box 22 30 23 33
 paint pdiffusion
-box 23 21 23 21
-label "Y" right pdiffusion
-box 22 23 27 34
+box 23 31 23 31
+label "Vdd" right pdiffusion
+box 22 33 27 34
 paint pdiffusion
-box 23 24 23 24
-label "Y" right pdiffusion
+box 23 34 23 34
+label "Vdd" right pdiffusion
+box 20 34 22 36
+paint polysilicon
+box 21 35 21 35
+label "B" right polysilicon
 box 20 4 22 6
 paint polysilicon
 box 21 5 21 5
@@ -77,10 +85,10 @@ box 20 6 22 12
 paint ntransistor
 box 21 7 21 7
 label "B" right ntransistor
-box 16 7 19 10
+box 16 8 19 11
 paint ndiffusion
-box 17 8 17 8
-label "GND" right ndiffusion
+box 17 9 17 9
+label "Y" right ndiffusion
 box 20 12 22 15
 paint polysilicon
 box 21 13 21 13
@@ -97,47 +105,39 @@ box 20 19 22 34
 paint ptransistor
 box 21 20 21 20
 label "B" right ptransistor
-box 20 34 22 36
+box 13 42 15 45
 paint polysilicon
-box 21 35 21 35
-label "B" right polysilicon
-box 19 41 20 44
-paint polysilicon
-box 20 42 20 42
+box 14 43 14 43
 label "A" right polysilicon
-box 15 6 20 7
+box 15 6 20 8
 paint ndiffusion
 box 16 7 16 7
-label "GND" right ndiffusion
-box 15 7 16 10
+label "Y" right ndiffusion
+box 15 8 16 11
 paint ndiffusion
-box 16 8 16 8
-label "GND" right ndiffusion
-box 15 10 20 12
+box 16 9 16 9
+label "Y" right ndiffusion
+box 15 11 20 12
 paint ndiffusion
-box 16 11 16 11
-label "GND" right ndiffusion
+box 16 12 16 12
+label "Y" right ndiffusion
 box 12 7 13 10
 paint ndiffusion
 box 13 8 13 8
-label "Y" right ndiffusion
+label "GND" right ndiffusion
 box 15 19 20 34
 paint pdiffusion
-box 12 30 13 33
+box 12 23 13 26
 paint pdiffusion
-box 13 31 13 31
-label "Vdd" right pdiffusion
-box 16 41 19 44
+box 13 24 13 24
+label "Y" right pdiffusion
+box 13 34 15 41
 paint polysilicon
-box 17 42 17 42
+box 14 35 14 35
 label "A" right polysilicon
-box 15 42 16 44
+box 10 42 13 45
 paint polysilicon
-box 16 43 16 43
-label "A" right polysilicon
-box 15 44 20 45
-paint polysilicon
-box 16 45 16 45
+box 11 43 11 43
 label "A" right polysilicon
 box 13 4 15 6
 paint polysilicon
@@ -150,7 +150,7 @@ label "A" right ntransistor
 box 9 7 12 10
 paint ndiffusion
 box 10 8 10 8
-label "Y" right ndiffusion
+label "GND" right ndiffusion
 box 13 12 15 19
 paint polysilicon
 box 14 13 14 13
@@ -159,320 +159,394 @@ box 13 19 15 34
 paint ptransistor
 box 14 20 14 20
 label "A" right ptransistor
-box 9 30 12 33
+box 9 23 12 26
 paint pdiffusion
-box 10 31 10 31
-label "Vdd" right pdiffusion
-box 13 34 15 40
+box 10 24 10 24
+label "Y" right pdiffusion
+box 9 41 15 42
 paint polysilicon
-box 14 35 14 35
+box 10 42 10 42
 label "A" right polysilicon
-box 13 40 20 41
+box 9 42 10 45
 paint polysilicon
-box 14 41 14 41
+box 10 43 10 43
 label "A" right polysilicon
-box 13 41 16 42
+box 9 45 15 46
 paint polysilicon
-box 14 42 14 42
+box 10 46 10 46
 label "A" right polysilicon
 box 8 6 13 7
 paint ndiffusion
 box 9 7 9 7
-label "Y" right ndiffusion
+label "GND" right ndiffusion
 box 8 7 9 10
 paint ndiffusion
 box 9 8 9 8
-label "Y" right ndiffusion
+label "GND" right ndiffusion
 box 8 10 13 12
 paint ndiffusion
 box 9 11 9 11
-label "Y" right ndiffusion
-box 8 19 13 30
+label "GND" right ndiffusion
+box 8 19 13 23
 paint pdiffusion
 box 9 20 9 20
-label "Vdd" right pdiffusion
-box 8 30 9 33
+label "Y" right pdiffusion
+box 8 23 9 26
 paint pdiffusion
-box 9 31 9 31
-label "Vdd" right pdiffusion
-box 8 33 13 34
+box 9 24 9 24
+label "Y" right pdiffusion
+box 8 26 13 34
 paint pdiffusion
-box 9 34 9 34
-label "Vdd" right pdiffusion
-box 31 31 34 34
+box 9 27 9 27
+label "Y" right pdiffusion
+box 34 41 37 44
 paint pc
-box 32 32 32 32
+box 35 42 35 42
 label "B" right pc
+box 23 30 26 33
+paint pdc
+box 24 31 24 31
+label "Vdd" right pdc
 box 23 7 26 10
 paint ndc
 box 24 8 24 8
-label "Y" right ndc
-box 23 20 26 23
-paint pdc
-box 24 21 24 21
-label "Y" right pdc
-box 16 7 19 10
-paint ndc
-box 17 8 17 8
 label "GND" right ndc
-box 16 41 19 44
+box 16 8 19 11
+paint ndc
+box 17 9 17 9
+label "Y" right ndc
+box 10 42 13 45
 paint pc
-box 17 42 17 42
+box 11 43 11 43
 label "A" right pc
 box 9 7 12 10
 paint ndc
 box 10 8 10 8
-label "Y" right ndc
-box 9 30 12 33
+label "GND" right ndc
+box 9 23 12 26
 paint pdc
-box 10 31 10 31
-label "Vdd" right pdc
-box 32 39 36 45
+box 10 24 10 24
+label "Y" right pdc
+box 37 42 39 44
 paint m1
-box 33 40 33 40
+box 38 43 38 43
 label "B" right m1
 port class input
 port make
-box 31 30 34 31
+box 34 40 37 41
 paint m1
-box 32 31 32 31
+box 35 41 35 41
 label "B" right m1
 port class input
 port make
-box 31 31 34 34
+box 34 41 37 44
 paint m1
-box 32 32 32 32
+box 35 42 35 42
 label "B" right m1
 port class input
 port make
-box 31 34 34 36
+box 32 42 34 44
 paint m1
-box 32 35 32 35
+box 33 43 33 43
 label "B" right m1
 port class input
 port make
-box 31 36 36 39
+box 32 44 39 48
 paint m1
-box 32 37 32 37
+box 33 45 33 45
 label "B" right m1
 port class input
 port make
+box 23 10 26 16
+paint m1
+box 24 11 24 11
+label "GND" right m1
+box 23 29 26 30
+paint m1
+box 24 30 24 30
+label "Vdd" right m1
+box 23 30 26 33
+paint m1
+box 24 31 24 31
+label "Vdd" right m1
+box 23 33 26 41
+paint m1
+box 24 34 24 34
+label "Vdd" right m1
+box 23 41 26 44
+paint m1
+box 24 42 24 42
+label "Vdd" right m1
+box 23 44 26 48
+paint m1
+box 24 45 24 45
+label "Vdd" right m1
 box 23 7 26 10
 paint m1
 box 24 8 24 8
-label "Y" right m1
-port class output
-port make
-box 23 10 26 13
-paint m1
-box 24 11 24 11
-label "Y" right m1
-port class output
-port make
-box 19 7 20 10
-paint m1
-box 20 8 20 8
 label "GND" right m1
-box 23 16 26 20
+box 19 8 20 11
 paint m1
-box 24 17 24 17
-label "Y" right m1
-port class output
-port make
-box 23 20 26 23
-paint m1
-box 24 21 24 21
-label "Y" right m1
-port class output
-port make
-box 23 23 26 24
-paint m1
-box 24 24 24 24
+box 20 9 20 9
 label "Y" right m1
 port class output
 port make
 box 35 5 36 8
 paint m1
 box 36 6 36 6
-label "GND" right m1
-box 16 7 19 10
+label "Y" right m1
+port class output
+port make
+box 16 8 19 11
 paint m1
-box 17 8 17 8
-label "GND" right m1
-box 19 41 20 44
-paint m1
-box 20 42 20 42
-label "A" right m1
-port class input
+box 17 9 17 9
+label "Y" right m1
+port class output
 port make
 box 32 4 36 5
 paint m1
 box 33 5 33 5
-label "GND" right m1
+label "Y" right m1
+port class output
+port make
 box 32 5 35 8
 paint m1
 box 33 6 33 6
-label "GND" right m1
-box 15 7 16 10
+label "Y" right m1
+port class output
+port make
+box 15 8 16 11
 paint m1
-box 16 8 16 8
-label "GND" right m1
-box 16 36 20 41
+box 16 9 16 9
+label "Y" right m1
+port class output
+port make
+box 12 23 13 26
 paint m1
-box 17 37 17 37
+box 13 24 13 24
+label "Y" right m1
+port class output
+port make
+box 10 41 13 42
+paint m1
+box 11 42 11 42
 label "A" right m1
 port class input
 port make
-box 16 41 19 44
+box 10 42 13 45
 paint m1
-box 17 42 17 42
-label "A" right m1
-port class input
-port make
-box 16 44 20 45
-paint m1
-box 17 45 17 45
+box 11 43 11 43
 label "A" right m1
 port class input
 port make
 box 23 6 26 7
 paint m1
 box 24 7 24 7
+label "GND" right m1
+box 9 10 12 16
+paint m1
+box 10 11 10 11
+label "GND" right m1
+box 9 16 26 19
+paint m1
+box 10 17 10 17
+label "GND" right m1
+box 9 23 12 26
+paint m1
+box 10 24 10 24
 label "Y" right m1
 port class output
 port make
 box 9 7 12 10
 paint m1
 box 10 8 10 8
+label "GND" right m1
+box 8 23 9 26
+paint m1
+box 9 24 9 24
 label "Y" right m1
 port class output
 port make
-box 9 10 12 13
+box 8 44 10 45
 paint m1
-box 10 11 10 11
-label "Y" right m1
-port class output
+box 9 45 9 45
+label "A" right m1
+port class input
 port make
-box 9 13 26 16
+box 8 45 13 47
 paint m1
-box 10 14 10 14
-label "Y" right m1
-port class output
+box 9 46 9 46
+label "A" right m1
+port class input
 port make
-box 9 29 12 30
+box 8 47 12 48
 paint m1
-box 10 30 10 30
-label "Vdd" right m1
-box 9 30 12 33
-paint m1
-box 10 31 10 31
-label "Vdd" right m1
-box 9 33 12 36
-paint m1
-box 10 34 10 34
-label "Vdd" right m1
-box 9 36 12 39
-paint m1
-box 10 37 10 37
-label "Vdd" right m1
-box 8 4 12 7
-paint m1
-box 9 5 9 5
-label "Y" right m1
-port class output
+box 9 48 9 48
+label "A" right m1
+port class input
 port make
-box 8 7 9 8
+box 6 2 12 7
 paint m1
-box 9 8 9 8
-label "Y" right m1
-port class output
-port make
-box 8 36 9 39
+box 7 3 7 3
+label "GND" right m1
+box 6 7 9 8
 paint m1
-box 9 37 9 37
-label "Vdd" right m1
-box 8 39 12 44
-paint m1
-box 9 40 9 40
-label "Vdd" right m1
+box 7 8 7 8
+label "GND" right m1
 box 32 5 35 8
 paint mcon
 box 33 6 33 6
-label "GND" right mcon
-box 16 7 19 10
+label "Y" right mcon
+box 23 41 26 44
 paint mcon
-box 17 8 17 8
-label "GND" right mcon
-box 9 36 12 39
-paint mcon
-box 10 37 10 37
+box 24 42 24 42
 label "Vdd" right mcon
+box 16 8 19 11
+paint mcon
+box 17 9 17 9
+label "Y" right mcon
+box 9 23 12 26
+paint mcon
+box 10 24 10 24
+label "Y" right mcon
 box 35 5 36 8
 paint m2
 box 36 6 36 6
-label "GND" right m2
+label "Y" right m2
+port class output
+port make
 box 32 5 35 8
 paint m2
 box 33 6 33 6
-label "GND" right m2
+label "Y" right m2
+port class output
+port make
 box 31 4 36 5
 paint m2
 box 32 5 32 5
-label "GND" right m2
+label "Y" right m2
+port class output
+port make
 box 31 5 32 8
 paint m2
 box 32 6 32 6
-label "GND" right m2
-box 19 7 20 8
+label "Y" right m2
+port class output
+port make
+box 31 8 36 9
 paint m2
-box 20 8 20 8
-label "GND" right m2
-box 19 8 36 9
+box 32 9 32 9
+label "Y" right m2
+port class output
+port make
+box 31 9 33 15
+paint m2
+box 32 10 32 10
+label "Y" right m2
+port class output
+port make
+box 19 8 20 11
 paint m2
 box 20 9 20 9
-label "GND" right m2
-box 19 9 34 10
+label "Y" right m2
+port class output
+port make
+box 18 12 20 15
 paint m2
-box 20 10 20 10
-label "GND" right m2
-box 16 7 19 10
+box 19 13 19 13
+label "Y" right m2
+port class output
+port make
+box 18 15 33 17
 paint m2
-box 17 8 17 8
-label "GND" right m2
-box 15 6 20 7
+box 19 16 19 16
+label "Y" right m2
+port class output
+port make
+box 18 17 20 22
 paint m2
-box 16 7 16 7
-label "GND" right m2
-box 15 7 16 10
+box 19 18 19 18
+label "Y" right m2
+port class output
+port make
+box 26 41 27 44
+paint m2
+box 27 42 27 42
+label "Vdd" right m2
+box 16 8 19 11
+paint m2
+box 17 9 17 9
+label "Y" right m2
+port class output
+port make
+box 23 41 26 44
+paint m2
+box 24 42 24 42
+label "Vdd" right m2
+box 15 7 20 8
 paint m2
 box 16 8 16 8
-label "GND" right m2
-box 15 10 20 11
+label "Y" right m2
+port class output
+port make
+box 15 8 16 11
 paint m2
-box 16 11 16 11
-label "GND" right m2
-box 12 36 13 39
+box 16 9 16 9
+label "Y" right m2
+port class output
+port make
+box 15 11 20 12
 paint m2
-box 13 37 13 37
+box 16 12 16 12
+label "Y" right m2
+port class output
+port make
+box 12 23 20 24
+paint m2
+box 13 24 13 24
+label "Y" right m2
+port class output
+port make
+box 12 24 13 26
+paint m2
+box 13 25 13 25
+label "Y" right m2
+port class output
+port make
+box 22 40 27 41
+paint m2
+box 23 41 23 41
 label "Vdd" right m2
-box 9 36 12 39
+box 22 41 23 44
 paint m2
-box 10 37 10 37
+box 23 42 23 42
 label "Vdd" right m2
-box 8 35 13 36
+box 22 44 27 48
 paint m2
-box 9 36 9 36
+box 23 45 23 45
 label "Vdd" right m2
-box 8 36 9 39
+box 9 23 12 26
 paint m2
-box 9 37 9 37
-label "Vdd" right m2
-box 8 39 13 40
+box 10 24 10 24
+label "Y" right m2
+port class output
+port make
+box 8 22 20 23
 paint m2
-box 9 40 9 40
-label "Vdd" right m2
-box 8 40 12 44
+box 9 23 9 23
+label "Y" right m2
+port class output
+port make
+box 8 23 9 26
 paint m2
-box 9 41 9 41
-label "Vdd" right m2
+box 9 24 9 24
+label "Y" right m2
+port class output
+port make
+box 8 26 13 27
+paint m2
+box 9 27 9 27
+label "Y" right m2
+port class output
+port make
 proc lcell { x } { load "_0_0cell_0_0g${x}x0" }

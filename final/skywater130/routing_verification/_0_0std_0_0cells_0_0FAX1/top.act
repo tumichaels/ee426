@@ -1,0 +1,13 @@
+import "../cells.act";
+import std::cells;
+defproc C_YS()
+{
+  pint NUM = 1000;
+
+  std::cells::FAX1 tst[NUM]; /* put your cell name here */
+
+  // connect the output of cell i to the input of 
+  // cell i+1; you will have to change these to 
+  // correct port names for the cell you are testings
+  (i:NUM-1: tst[i].YS=tst[i+1].C;) 
+}

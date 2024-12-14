@@ -216,7 +216,7 @@ defproc k_source(bd!<32> R)
   k_01.L = k_02.R;
   k_00.L = k_01.R;
 
-  slack<32, 64> loop_slack;
+  slack<32, 32> loop_slack;
   copy<32> out(k_00.R, loop_slack.L, R);
   k_63.L = loop_slack.R;
 }
@@ -257,7 +257,7 @@ defproc controller_compressor(bd!<1> final_out_control,forward_source_control){
   //final_out
   init_buf_slack<1,63,0> continue_next;
   init_buf_slack<1,1,1> final_output;
-  slack<1,64> final_out_slack;
+  slack<1,32> final_out_slack;
 
   final_out_slack.R = final_output.L;
   final_output.R = continue_next.L;
@@ -266,7 +266,7 @@ defproc controller_compressor(bd!<1> final_out_control,forward_source_control){
   //forward_source_control
   init_buf_slack<1,1,1> init_value;
   init_buf_slack<1,63,0> pass_forward;
-  slack<1,64> forward_source_slack;
+  slack<1,32> forward_source_slack;
 
   forward_source_slack.R = pass_forward.L;
   pass_forward.R = init_value.L;
