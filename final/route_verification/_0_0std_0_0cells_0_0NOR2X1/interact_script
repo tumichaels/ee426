@@ -13,7 +13,7 @@ act:merge "../cells.act"
   # expand the design, substituting all parameters
 act:expand
   # set the top-level process to the expanded accum
-act:top {{TOP_PROC}}
+act:top A_Y
 
 # -- Circuit generation
   # map all the production rules to the cells
@@ -27,7 +27,7 @@ ckt:map
 load-scm "phydb.scm"
 
   # set the layout density, and calculate the area multiplier
-define density 1    
+define density 0.5
 define area (* 1.05 (/ 1 density))
 
   # create the layout problem with aspect ratio 1.0

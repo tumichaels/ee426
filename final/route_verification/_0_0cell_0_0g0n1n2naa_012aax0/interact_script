@@ -13,7 +13,7 @@ act:merge "../cells.act"
   # expand the design, substituting all parameters
 act:expand
   # set the top-level process to the expanded accum
-act:top {{TOP_PROC}}
+act:top in2_out
 
 # -- Circuit generation
   # map all the production rules to the cells

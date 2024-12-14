@@ -27,7 +27,7 @@ ckt:map
 load-scm "phydb.scm"
 
   # set the layout density, and calculate the area multiplier
-define density 0.5    
+define density 1    
 define area (* 1.05 (/ 1 density))
 
   # create the layout problem with aspect ratio 1.0
@@ -41,7 +41,7 @@ dali:init 3
   # place the design with the specified density
 dali:place-design density  
   # place I/Os on metal1
-dali:place-io "met1"
+dali:place-io "m1"
   # export placement information to the layout db
 dali:export-phydb
   # end placer

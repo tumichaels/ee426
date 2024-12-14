@@ -1,3 +1,11 @@
 tutorial
 
 .actsim_history
+
+dali*.log
+
+dali_outwell.rect
+dali_outppnp.rect
+dali_out_router.cluster
+output_ppnp.rect
+output_wells.rect

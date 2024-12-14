@@ -1,10 +1,10 @@
 # Variables for inputs and outputs
-INPUTS := A
+INPUTS := in[0] in[1] in[2]
 OUTPUTS := out
-CELL_PROC := std::cells::INVX1
+CELL_PROC := cell::g0n1n2naa_012aax0
 
 NUM_TESTS := 1000
-MAG_FILES := mag/_0_0std_0_0cells_0_0INVX1.rect mag/welltap_svt.rect
+MAG_FILES := mag/_0_0cell_0_0g0n1n2naa_012aax0.rect mag/welltap_svt.rect
 
 # List of all pairs of inputs and outputs (for the default target)
 PAIRS := $(foreach input,$(INPUTS),$(foreach output,$(OUTPUTS),$(input)_$(output)))

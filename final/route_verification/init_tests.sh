@@ -16,7 +16,10 @@ for file in "$DIRECTORY"/*.rect; do
     echo "Base filename: $base_filename"
 
     home=$(pwd)
-
+    if [ -d "$base_filename" ]; then
+      echo "Directory $base_filename exists. Skipping..."
+      continue
+    fi
     mkdir -p $base_filename
     mkdir -p $base_filename/final_layouts
     mkdir -p $base_filename/final_rect
