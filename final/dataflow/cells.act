@@ -284,7 +284,7 @@ defproc rot(bd<N> L; bd<N> R){
 
 template <pint N,shift>
 defproc shift(bd<N> L; bd<N> R){
-    TIELOX1 zero;
+    TIELOX1 zero[N];
     L.r = R.r;
     L.a = R.a;
     //Right
@@ -293,7 +293,7 @@ defproc shift(bd<N> L; bd<N> R){
 
     //Left
     (i : N-shift : L.d[N-i-1] = R.d[N-i-1-shift];)
-    (i : shift : R.d[N-shift+i] = zero.Y;)
+    (i : shift : R.d[N-shift+i] = zero[i].Y;)
 }
 
 
@@ -326,12 +326,12 @@ defproc and(bd?<N> A,B; bd!<N> Z){
 
     N_AND<N> and(ABuf.Q, BBuf.Q, Z.d);
 }
-
 template <pint N>
 defproc xor(bd?<N> A,B; bd!<N> Z){
     bool ack;
     // Merging Processing
     /* Control
+        Waits for both L and C to request, and the
     */ 
     // Setup Merge control logic. We should get a request from data_celt, and our control latch should be saved and computed ab_r properly.
 
@@ -379,4 +379,20 @@ defproc inv(bd?<N> A; bd!<N> Z){
     N_LATCH<N> ABuf(p_data.r, A.d);
 
     N_INV<N> inv(ABuf.Q, Z.d);
+}
+
+template<pint N, num>
+defproc slack(bd?<N> L; bd!<N> R){
+  buffer<N> b[num];
+  (i : num-1 : b[i].R = b[i+1].L;)
+  b[0].L = L;
+  b[num-1].R = R;
+}
+
+template<pint N, num, init>
+defproc init_buf_slack(bd?<N> L; bd!<N> R){
+  init_buffer<N,init> b[num];
+  (i : num-1 : b[i].R = b[i+1].L;)
+  b[0].L = L;
+  b[num-1].R = R;
 }

@@ -1,23 +1,102 @@
-import "accum.act";
+import "expander.act";
+import "compressor.act";
 
 
-defproc chp_sources_sink(bd!<8> L; bd!<1> C; bd?<8> X){
-    int<8> i;
-    int<8> v;
-    chp{
+template<pint N>
+defproc chp_sink (bd?<N> X)
+{
+  int<N> v;
+  chp {
+    [~Reset];
+    *[ X?v; log ("Received value: ", v) ]
+  }
+}
+
+defproc controller_test(){
+    controller c;
+    chp_sink<1> l(c.w14_control);
+}
+
+defproc expand_sigma_test(){
+    df_source<32,0b00110101001101100011011100111000> source;
+    sigma0 s(source.R);
+    buffer<32> b(s.R);
+    
+    chp_sink<32> snk(b.R);
+}
+
+defproc word_test(){
+    df_source<32,0b00110001001100100011001100110100> w0;
+    df_source<32,0b00110101001101100011011100111000> w1;
+    df_source<32,0b00110100001100100011010000110001> w9;
+    df_source<32,0> w14;
+
+    generate_word new_word(w0.R,w1.R,w9.R,w14.R);
+    chp_sink<32> snk(new_word.R);
+}
+
+
+template <pint size; pint words[size]>
+defproc chp_source(bd!<32> X){
+    chp {
         [~Reset];
-        i := 0;
-        log ("Adding first 5 integers");
-        *[ i < 5 -> log("Sending: ", i); L!i, C!1 ; i := i + 1; X?v; log ("Received value: ", v)];
-        log ("Reseting accum");
-        L!3, C!0;
-        X?v; log ("Received value: ", v);
-        log ("Adding next 5 integers");
-        *[ i < 10 -> log("Sending: ", i); L!i, C!1 ; i := i + 1 ; X?v; log ("Received value: ", v)]
+        (; i : size : X!words[i])
     }
 }
 
-defproc test(){
-    chp_sources_sink s;
-    accum a(s.L,s.C,s.X);
+defproc expander_test(){
+    chp_source<16,{825373492,892745528,959524913,825307697,858862641,892417585,925972529,959525424,842084914,875705393,2147483648,0,0,0,0,320}> src;
+    chp_sink<32> snk;
+    expander e(src.X,snk.X);
+}
+//Expected Results
+// 825373492,892745528,959524913,825307697,858862641,892417585,925972529,959525424,842084914,875705393,2147483648,0,0,0,0,320,
+// 1617366825,3742777698,3361914523,1122511948,1696449449,1937003021,3166854460,1805833415,1614863588,1047970524,954128491,509069550,715857615,3660559951,3634868152,723514309,
+// 251626524,2696966547,3038021173,3538598452,323608889,1345530744,3946090639,1599801837,3933425298,1087947807,137959516,150087611,2473080018,2648223053,3365865169,830495239,
+// 3801524665,730758500,491769131,1600736614,13788344,3463279184,2930679928,1149357856,2713202269,999157538,2035340070,247445608,2039681629,4076381211,393155780,3756278319
+//Bytes Input: 1234567891011121314151617181912021224241
+
+
+
+defproc choose_test() {
+  df_source<32, 0b00000000000000001111111111111111> X;
+  df_source<32, 0b00000000000000000000000000000000> Y;
+  df_source<32, 0b11111111111111111111111111111111> Z;
+
+  choose ch(X.R, Y.R, Z.R);
+  chp_sink<32> snk(ch.R);
+  // expected:
+  // 0b11111111111111110000000000000000 = 4294901760
+}
+
+defproc maj_test() {
+  df_source<32, 0b00000000000000000000000000011101> X;
+  df_source<32, 0b00000000000000000000000000100111> Y;
+  df_source<32, 0b00000000000000000000000001001011> Z;
+
+  maj maj(X.R, Y.R, Z.R);
+  chp_sink<32> snk(maj.R);
+  // expected:
+  // 0b00000000000000000000000000000111 = 15
+}
+
+defproc compress_sigma_test() {
+  df_source<32, 64> source;
+
+  big_sigma1 bs(source.R);
+  buffer<32> b(bs.R);
+  chp_sink<32> snk(b.R);
+  // expected:
+  // 0b00000000000000000000000001000000
+}
+
+defproc k_source_test() 
+{
+  k_source ks();
+  buffer<32> b(ks.R);
+  chp_sink<32> snk(b.R);
+}
+
+defproc compressor_test(){
+
 }

@@ -48,13 +48,13 @@ defproc buf_test()
    buffer<8> b(src.X, snk.X);
 }
 
-template<pint N>
-defproc slack(bd?<8> L; bd!<8> R){
-  buffer<8> b[N];
-  (i : N-1 : b[i].R = b[i+1].L;)
-  b[0].L = L;
-  b[N-1].R = R;
-}
+// template<pint N>
+// defproc slack(bd?<8> L; bd!<8> R){
+//   buffer<8> b[N];
+//   (i : N-1 : b[i].R = b[i+1].L;)
+//   b[0].L = L;
+//   b[N-1].R = R;
+// }
 
 defproc multi_buf_test()
 {
