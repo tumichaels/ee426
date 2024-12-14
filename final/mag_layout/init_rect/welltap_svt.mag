@@ -1,0 +1,18 @@
+magic
+tech TSMC180
+timestamp 1734114597
+<< ppdiff >>
+rect 6 3 11 8
+<< nndiff >>
+rect 6 13 11 18
+<< m1 >>
+rect 6 17 9 20
+rect 6 3 10 7
+<< labels >>
+rlabel m1 7 18 7 18 3 Vdd
+port 2 e
+rlabel ppdiff 7 4 7 4 3 GND
+rlabel m1 7 5 7 5 3 GND
+port 1 e
+rlabel nndiff 7 14 7 14 3 Vdd
+<< end >>

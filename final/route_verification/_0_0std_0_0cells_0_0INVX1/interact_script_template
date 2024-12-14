@@ -1,19 +1,19 @@
-# conf:set_string "lefdef.rect_inpath" "mag"
-# conf:set_string "lefdef.rect_outdir" "final_rect"
+conf:set_string "lefdef.rect_inpath" "mag"
+conf:set_string "lefdef.rect_outdir" "final_rect"
 
 # set initial rect output directory
 conf:set_string "lefdef.rect_outinitdir" "init_rect"
 
 # -- Input files
-  # read in the lab4 act file
-act:read "expander.act"
-  # add the cells file to the design
-act:merge "cells.act"
+# read in the lab4 act file
+act:read "top.act"
+# add the cells file to the design
+act:merge "../cells.act"
 
   # expand the design, substituting all parameters
 act:expand
   # set the top-level process to the expanded accum
-act:top "expander"
+act:top {{TOP_PROC}}
 
 # -- Circuit generation
   # map all the production rules to the cells
@@ -27,7 +27,7 @@ ckt:map
 load-scm "phydb.scm"
 
   # set the layout density, and calculate the area multiplier
-define density 0.5    
+define density .5
 define area (* 1.05 (/ 1 density))
 
   # create the layout problem with aspect ratio 1.0
@@ -46,6 +46,29 @@ dali:place-io "m1"
 dali:export-phydb
   # end placer
 dali:close
+
+
+# initialize power detailed router
+pwroute:init 0
+# disable reinforcement 
+pwroute:set_reinforcement 0   
+# wire up power and ground
+pwroute:run                
+# save to db
+pwroute:export-phydb       
+# end power routing
+pwroute:close              
+
+# initialize global router
+sproute:init 0             
+# compute global routes
+sproute:run                
+# end global routing phase
+sproute:close              
+
+# save guide file summarizing global routes
+phydb:write-guide "output.guide"  
+
 
 # -- Write outputs
 phydb:write-def "output.def"

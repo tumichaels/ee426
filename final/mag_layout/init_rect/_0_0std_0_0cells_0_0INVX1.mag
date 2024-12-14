@@ -1,0 +1,96 @@
+magic
+tech TSMC180
+timestamp 1734113737
+<< ndiffusion >>
+rect 6 11 12 12
+rect 6 9 7 11
+rect 9 9 12 11
+rect 6 7 12 9
+rect 14 11 20 12
+rect 14 9 17 11
+rect 19 9 20 11
+rect 14 7 20 9
+<< ndcontact >>
+rect 7 9 9 11
+rect 17 9 19 11
+<< ntransistor >>
+rect 12 7 14 12
+<< pdiffusion >>
+rect 6 31 12 36
+rect 6 29 7 31
+rect 9 29 12 31
+rect 6 28 12 29
+rect 14 35 20 36
+rect 14 33 17 35
+rect 19 33 20 35
+rect 14 28 20 33
+<< pdcontact >>
+rect 7 29 9 31
+rect 17 33 19 35
+<< ptransistor >>
+rect 12 28 14 36
+<< polysilicon >>
+rect 6 41 10 42
+rect 6 39 7 41
+rect 9 40 10 41
+rect 9 39 14 40
+rect 6 38 14 39
+rect 12 36 14 38
+rect 12 12 14 28
+rect 12 4 14 7
+<< polycontact >>
+rect 7 39 9 41
+<< m1 >>
+rect 6 42 9 50
+rect 16 49 21 50
+rect 16 46 17 49
+rect 20 46 21 49
+rect 16 45 21 46
+rect 6 41 10 42
+rect 6 39 7 41
+rect 9 39 10 41
+rect 6 38 10 39
+rect 17 36 20 45
+rect 16 35 20 36
+rect 16 33 17 35
+rect 19 33 20 35
+rect 16 32 20 33
+rect 6 31 10 32
+rect 6 29 7 31
+rect 9 29 10 31
+rect 6 28 10 29
+rect 6 12 9 28
+rect 16 12 21 13
+rect 6 11 10 12
+rect 6 9 7 11
+rect 9 9 10 11
+rect 6 8 10 9
+rect 16 9 17 12
+rect 20 9 21 12
+rect 16 8 21 9
+<< m2c >>
+rect 17 46 20 49
+rect 17 11 20 12
+rect 17 9 19 11
+rect 19 9 20 11
+<< m2 >>
+rect 16 49 21 50
+rect 16 46 17 49
+rect 20 46 21 49
+rect 16 45 21 46
+rect 16 12 21 13
+rect 16 9 17 12
+rect 20 9 21 12
+rect 16 8 21 9
+<< labels >>
+rlabel polysilicon 13 13 13 13 3 A
+rlabel polysilicon 13 26 13 26 3 A
+rlabel m1 7 11 7 11 3 Y
+port 3 e
+rlabel m1 7 48 7 48 3 A
+port 4 e
+rlabel m1 19 9 19 9 3 GND
+port 1 e
+rlabel m2c 19 48 19 48 3 Vdd
+port 2 e
+<< end >>
