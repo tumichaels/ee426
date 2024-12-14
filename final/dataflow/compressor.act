@@ -1,2 +1,280 @@
 import "cells.act";
 import "channel.act";
+
+template<pint N, num>
+defproc slack(bd?<N> L; bd!<N> R){
+  buffer<N> b[num];
+  (i : num-1 : b[i].R = b[i+1].L;)
+  b[0].L = L;
+  b[num-1].R = R;
+}
+
+
+// array of MUX2X1, now that i think about it, could be done better
+defproc choose(bd?<32> X,Y,Z; bd!<32> R) 
+{
+  copy<32> x_copy(X);
+
+  // x & y
+  and<32> XY(x_copy.R1, Y);
+
+  // ~x & z
+  inv<32> x_not(x_copy.R2);
+  and<32> nXZ(x_not.Z, Z);
+
+  xor<32> xor(XY.Z, nXZ.Z, R);
+}
+
+// similar, array of maj?
+defproc maj(bd?<32> X,Y,Z; bd!<32> R) 
+{
+  copy<32> x_copy(X);
+  copy<32> y_copy(Y);
+  copy<32> z_copy(Z);
+
+  and<32> XY(x_copy.R1, y_copy.R1);
+  and<32> XZ(x_copy.R2, z_copy.R1);
+  and<32> YZ(y_copy.R2, z_copy.R2);
+
+  xor<32> xor1(XY.Z, XZ.Z);
+  xor<32> xor2(xor1.Z, YZ.Z, R);
+}
+
+defproc big_sigma0(bd?<32> L; bd!<32> R){
+  // will check with alex about copying
+  copy<32> in_copy(L);
+
+  rot<32,2>  rot1(in_copy.R1);
+  rot<32,13> rot2(in_copy.R1);
+  rot<32,22> rot3(in_copy.R2);
+
+  xor<32> xor1(rot1.R,rot2.R);
+  xor<32> xor2(rot3.R,xor1.Z,R);
+}
+
+defproc big_sigma1(bd?<32> L; bd!<32> R){
+  copy<32> in_copy(L);
+
+  rot<32,6>  rot1(in_copy.R1);
+  rot<32,11> rot2(in_copy.R1);
+  rot<32,25> rot3(in_copy.R2);
+
+  xor<32> xor1(rot1.R,rot2.R);
+  xor<32> xor2(rot3.R,xor1.Z,R);
+}
+
+defproc generate_alpha(bd?<32> A,B,C,prev; bd!<32> R)
+{
+  copy<32> A_copy;
+
+  big_sigma0 bs(A_copy.R1);
+  maj ma(A_copy.R2, B, C);
+
+  add<32> add1(prev, ma.R);
+  add<32> add2(add1.Z, bs.R, R);
+}
+
+defproc generate_epsilon(bd?<32> w,K,D,E,F,G,H; bd!<32> R)
+{
+  copy<32> E_copy;
+
+  big_sigma1 bs(E_copy.R1);
+  choose ch(E_copy.R2, F, G);
+
+  add<32> add1(D, bs.R);
+  add<32> add2(ch.R, K);
+  add<32> add3(H, w);
+
+  add<32> add4(add1.Z, add2.Z);
+
+  add<32> add5(add3.Z,add4.Z,R);
+}
+
+
+defproc k_source(bd?<32> L; bd!<32> R)
+{
+  init_buffer<32, 1116352408>   k_00;
+  init_buffer<32, 1899447441>   k_01;
+  init_buffer<32, 3049323471>   k_02;
+  init_buffer<32, 3921009573>   k_03;
+  init_buffer<32, 961987163>    k_04;
+  init_buffer<32, 1508970993>   k_05;
+  init_buffer<32, 2453635748>   k_06;
+  init_buffer<32, 2870763221>   k_07;
+  init_buffer<32, 3624381080>   k_08;
+  init_buffer<32, 310598401>    k_09;
+  init_buffer<32, 607225278>    k_10;
+  init_buffer<32, 1426881987>   k_11;
+  init_buffer<32, 1925078388>   k_12;
+  init_buffer<32, 2162078206>   k_13;
+  init_buffer<32, 2614888103>   k_14;
+  init_buffer<32, 3248222580>   k_15;
+  init_buffer<32, 3835390401>   k_16;
+  init_buffer<32, 4022224774>   k_17;
+  init_buffer<32, 264347078>    k_18;
+  init_buffer<32, 604807628>    k_19;
+  init_buffer<32, 770255983>    k_20;
+  init_buffer<32, 1249150122>   k_21;
+  init_buffer<32, 1555081692>   k_22;
+  init_buffer<32, 1996064986>   k_23;
+  init_buffer<32, 2554220882>   k_24;
+  init_buffer<32, 2821834349>   k_25;
+  init_buffer<32, 2952996808>   k_26;
+  init_buffer<32, 3210313671>   k_27;
+  init_buffer<32, 3336571891>   k_28;
+  init_buffer<32, 3584528711>   k_29;
+  init_buffer<32, 113926993>    k_30;
+  init_buffer<32, 338241895>    k_31;
+  init_buffer<32, 666307205>    k_32;
+  init_buffer<32, 773529912>    k_33;
+  init_buffer<32, 1294757372>   k_34;
+  init_buffer<32, 1396182291>   k_35;
+  init_buffer<32, 1695183700>   k_36;
+  init_buffer<32, 1986661051>   k_37;
+  init_buffer<32, 2177026350>   k_38;
+  init_buffer<32, 2456956037>   k_39;
+  init_buffer<32, 2730485921>   k_40;
+  init_buffer<32, 2820302411>   k_41;
+  init_buffer<32, 3259730800>   k_42;
+  init_buffer<32, 3345764771>   k_43;
+  init_buffer<32, 3516065817>   k_44;
+  init_buffer<32, 3600352804>   k_45;
+  init_buffer<32, 4094571909>   k_46;
+  init_buffer<32, 275423344>    k_47;
+  init_buffer<32, 430227734>    k_48;
+  init_buffer<32, 506948616>    k_49;
+  init_buffer<32, 659060556>    k_50;
+  init_buffer<32, 883997877>    k_51;
+  init_buffer<32, 958139571>    k_52;
+  init_buffer<32, 1322822218>   k_53;
+  init_buffer<32, 1537002063>   k_54;
+  init_buffer<32, 1747873779>   k_55;
+  init_buffer<32, 1955562222>   k_56;
+  init_buffer<32, 2024104815>   k_57;
+  init_buffer<32, 2227730452>   k_58;
+  init_buffer<32, 2361852424>   k_59;
+  init_buffer<32, 2428436474>   k_60;
+  init_buffer<32, 2756734187>   k_61;
+  init_buffer<32, 3204031479>   k_62;
+  init_buffer<32, 3329325298>   k_63;
+
+  k_62.L = k_63.R;
+  k_61.L = k_62.R;
+  k_60.L = k_61.R;
+  k_59.L = k_60.R;
+  k_58.L = k_59.R;
+  k_57.L = k_58.R;
+  k_56.L = k_57.R;
+  k_55.L = k_56.R;
+  k_54.L = k_55.R;
+  k_53.L = k_54.R;
+  k_52.L = k_53.R;
+  k_51.L = k_52.R;
+  k_50.L = k_51.R;
+  k_49.L = k_50.R;
+  k_48.L = k_49.R;
+  k_47.L = k_48.R;
+  k_46.L = k_47.R;
+  k_45.L = k_46.R;
+  k_44.L = k_45.R;
+  k_43.L = k_44.R;
+  k_42.L = k_43.R;
+  k_41.L = k_42.R;
+  k_40.L = k_41.R;
+  k_39.L = k_40.R;
+  k_38.L = k_39.R;
+  k_37.L = k_38.R;
+  k_36.L = k_37.R;
+  k_35.L = k_36.R;
+  k_34.L = k_35.R;
+  k_33.L = k_34.R;
+  k_32.L = k_33.R;
+  k_31.L = k_32.R;
+  k_30.L = k_31.R;
+  k_29.L = k_30.R;
+  k_28.L = k_29.R;
+  k_27.L = k_28.R;
+  k_26.L = k_27.R;
+  k_25.L = k_26.R;
+  k_24.L = k_25.R;
+  k_23.L = k_24.R;
+  k_22.L = k_23.R;
+  k_21.L = k_22.R;
+  k_20.L = k_21.R;
+  k_19.L = k_20.R;
+  k_18.L = k_19.R;
+  k_17.L = k_18.R;
+  k_16.L = k_17.R;
+  k_15.L = k_16.R;
+  k_14.L = k_15.R;
+  k_13.L = k_14.R;
+  k_12.L = k_13.R;
+  k_11.L = k_12.R;
+  k_10.L = k_11.R;
+  k_09.L = k_10.R;
+  k_08.L = k_09.R;
+  k_07.L = k_08.R;
+  k_06.L = k_07.R;
+  k_05.L = k_06.R;
+  k_04.L = k_05.R;
+  k_03.L = k_04.R;
+  k_02.L = k_03.R;
+  k_01.L = k_02.R;
+  k_00.L = k_01.R;
+
+  slack<32, 64> loop_slack;
+  copy<32> out(k_00.R, loop_slack.L, R);
+  k_63.L = loop_slack.R;
+}
+
+
+
+template<pint N>
+defproc chp_sink (bd?<N> X)
+{
+  int<N> v;
+  chp {
+    [~Reset];
+    *[ X?v; log ("Received value: ", v) ]
+  }
+}
+
+
+defproc choose_test() {
+  df_source<32, 0b00000000000000001111111111111111> X;
+  df_source<32, 0b00000000000000000000000000000000> Y;
+  df_source<32, 0b11111111111111111111111111111111> Z;
+
+  choose ch(X.R, Y.R, Z.R);
+  chp_sink<32> snk(ch.R);
+  // expected:
+  // 0b11111111111111110000000000000000 = 4294901760
+}
+
+defproc maj_test() {
+  df_source<32, 0b00000000000000000000000000011101> X;
+  df_source<32, 0b00000000000000000000000000100111> Y;
+  df_source<32, 0b00000000000000000000000001001011> Z;
+
+  maj maj(X.R, Y.R, Z.R);
+  chp_sink<32> snk(maj.R);
+  // expected:
+  // 0b00000000000000000000000000000111 = 15
+}
+
+defproc sigma_test() {
+  df_source<32, 64> source;
+
+  big_sigma1 bs(source.R);
+  buffer<32> b(bs.R);
+  chp_sink<32> snk(b.R);
+  // expected:
+  // 0b00000000000000000000000001000000
+}
+
+defproc k_source_test() 
+{
+  k_source ks();
+  buffer<32> b(ks.R);
+  chp_sink<32> snk(b.R);
+}

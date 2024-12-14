@@ -247,45 +247,6 @@ defproc add(bd?<N> A,B; bd!<N> Z){
     N_FAX<N> adder(ABuf.Q, BBuf.Q, Z.d);
 }
 
-
-template <pint N>
-defproc xor(bd?<N> A,B; bd!<N> Z){
-    bool ack;
-    
-    // Merging Processing
-    /* Control
-        Waits for both L and C to request, and the
-    */ 
-    // Setup Merge control logic. We should get a request from data_celt, and our control latch should be saved and computed ab_r properly.
-
-    ctree_init<3,false,false> celt;
-    celt.in[0] = A.r;
-    celt.in[1] = B.r;
-    INVX1 inv1(Z.a,celt.in[2]);
-
-    
-    celt.out = ack;
-    DELAY<50> d(ack,Z.r);
-
-    //ACK
-    ack = A.a;
-    ack = B.a;
-  
-    
-
-    // Data 
-    // - Stores Mux selector value for both data and control 
-    
-
-    PULSE_LATCH p_data(ack);
-    N_LATCH<N> ABuf(p_data.r, A.d);
-    N_LATCH<N> BBuf(p_data.r, B.d);
-
-    N_XOR<N> xor(ABuf.Q, BBuf.Q, Z.d);
-}
-    
-
-
 template <pint N, source_num>
 defproc df_source(bd<N> R){
     
@@ -298,7 +259,6 @@ defproc df_source(bd<N> R){
         ]
     )
 }
-
 
 template <pint N>
 defproc df_sink(bd<N> L){
@@ -334,4 +294,89 @@ defproc shift(bd<N> L; bd<N> R){
     //Left
     (i : N-shift : L.d[N-i-1] = R.d[N-i-1-shift];)
     (i : shift : R.d[N-shift+i] = zero.Y;)
+}
+
+
+// and, xor, inv
+
+template <pint N>
+defproc and(bd?<N> A,B; bd!<N> Z){
+    bool ack;
+    // Merging Processing
+    /* Control
+    */ 
+
+    ctree_init<3,false,false> celt;
+    celt.in[0] = A.r;
+    celt.in[1] = B.r;
+    INVX1 inv1(Z.a,celt.in[2]);
+    
+    celt.out = ack;
+    DELAY<50> d(ack,Z.r);
+
+    //ACK
+    ack = A.a;
+    ack = B.a;
+
+    // Data 
+    // - Stores Mux selector value for both data and control 
+    PULSE_LATCH p_data(ack);
+    N_LATCH<N> ABuf(p_data.r, A.d);
+    N_LATCH<N> BBuf(p_data.r, B.d);
+
+    N_AND<N> and(ABuf.Q, BBuf.Q, Z.d);
+}
+
+template <pint N>
+defproc xor(bd?<N> A,B; bd!<N> Z){
+    bool ack;
+    // Merging Processing
+    /* Control
+    */ 
+    // Setup Merge control logic. We should get a request from data_celt, and our control latch should be saved and computed ab_r properly.
+
+    ctree_init<3,false,false> celt;
+    celt.in[0] = A.r;
+    celt.in[1] = B.r;
+    INVX1 inv1(Z.a,celt.in[2]);
+    
+    celt.out = ack;
+    DELAY<50> d(ack,Z.r);
+
+    //ACK
+    ack = A.a;
+    ack = B.a;
+
+    // Data 
+    // - Stores Mux selector value for both data and control 
+    PULSE_LATCH p_data(ack);
+    N_LATCH<N> ABuf(p_data.r, A.d);
+    N_LATCH<N> BBuf(p_data.r, B.d);
+
+    N_XOR<N> xor(ABuf.Q, BBuf.Q, Z.d);
+}
+
+template <pint N>
+defproc inv(bd?<N> A; bd!<N> Z){
+    bool ack;
+    // Merging Processing
+    /* Control
+    */ 
+
+    ctree_init<2,false,false> celt;
+    celt.in[0] = A.r;
+    INVX1 inv1(Z.a,celt.in[1]);
+    
+    celt.out = ack;
+    DELAY<50> d(ack,Z.r);
+
+    //ACK
+    ack = A.a;
+
+    // Data 
+    // - Stores Mux selector value for both data and control 
+    PULSE_LATCH p_data(ack);
+    N_LATCH<N> ABuf(p_data.r, A.d);
+
+    N_INV<N> inv(ABuf.Q, Z.d);
 }
