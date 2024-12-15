@@ -1,6 +1,6 @@
 import "expander.act";
 import "compressor.act";
-
+import "sha256.act";
 
 template<pint N>
 defproc chp_sink (bd?<N> X)
@@ -112,5 +112,14 @@ defproc compressor_test(){
 
 
   compressor comp(exp.out,a.X,b.X,c.X,d.X,e.X,f.X,g.X,h.X);
+
+}
+
+defproc sha_256_test(){
+  chp_source<16,{825373492,892745528,959524913,825307697,858862641,892417585,925972529,959525424,842084914,875705393,2147483648,0,0,0,0,320}> src;
+
+  chp_sink<256> snk;
+
+  sha_256 sh(src.X,snk.X);
 
 }
