@@ -1,0 +1,3 @@
+import "expander.act";
+
+expander a;
