@@ -1,0 +1,12 @@
+File Structure:
+    - common.act - Any structures used by dataflow objects
+    - cells.act - Dataflow object and shifts and rotates used
+    - channel.act - Custom Channel protocol
+    - compressor.act - The main rotation function that calculates the hash by cycling 8 values.
+    - expander.act - Message preprocessing to generate more values than initial message
+    - sha256.act - Full component with final 256 bit output
+Misc scripts contains anything for preprocessing
+
+
+To verify sha-256 digital logic, run ./sha_256_tests.sh. All results by actsim are printed in decimal. Note - script may not work
+on some versions of actsim when tested on the HPC.

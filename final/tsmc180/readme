@@ -1,0 +1,4 @@
+TSMC 180 - No final layout
+
+These are the attempts of our TSMC180 layout, we had too many issues with routing and power not connecting even during basic
+route verification. Some mag files have been built out but not all. Segfaults were also common during interact_script.

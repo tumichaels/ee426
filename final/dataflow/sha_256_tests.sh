@@ -15,11 +15,13 @@ echo ""
 echo "~~~~~~~~~~~~~~~~~ Compressor Test (Message Processing) ~~~~~~~~~~~~~~~"
 echo "Input is expander test."
 
-actsim sha256_tests.act -Wall:off "compressor_test" < chptest.actscript | grep "value"
+actsim sha256_tests.act -Wall:off "compressor_test" < chptest.actscript | grep "Received value"
 
 
 echo ""
 echo "~~~~~~~~~~~~~~~~~ sha_256 Test (Message Processing) ~~~~~~~~~~~~~~~"
-echo "Input is expander test."
+echo "Full Test"
 
-actsim sha256_tests.act -Wall:off "sha_256_test" < chptest.actscript | grep "value"
+actsim sha256_tests.act -Wall:off "sha_256_test" < chptest.actscript | grep "Received value"
+
+echo "Final Hash: 129E021C838064BD0C41B15EA38F100F12B75D47A9EAD8F8C933D5682FB1B3FE"

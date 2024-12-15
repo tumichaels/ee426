@@ -1,0 +1,6 @@
+Skywater 130 Layout:
+
+The final layout is stored in mag_layout/final_layout. There are two seperate chips for the compressor and expander due to issues
+with interact script when there were too many token buffers (mainly seg faults during sp-route). The final layouts have been modified to reduce the amount of initial buffers.
+
+Routing verification contains
